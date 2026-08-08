@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  --bg-obsidian: #070913;
+  --bg-card: rgba(15, 20, 38, 0.75);
+  --neon-cyan: #00f0ff;
+  --neon-green: #00ff9d;
+  --neon-magenta: #ff007f;
+  --neon-gold: #ffb700;
+  --neon-purple: #a855f7;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-main);
+  font-family: 'Rajdhani', 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Cyber Grid Background Effect */
+.bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 20%, rgba(0, 240, 255, 0.15) 0%, rgba(255, 0, 127, 0.08) 45%, rgba(7, 9, 19, 0) 70%);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(13, 18, 36, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(18, 25, 50, 0.85);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Neon Text Glow Utilities */
+.glow-text-cyan {
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(0, 240, 255, 0.2);
+}
+
+.glow-text-magenta {
+  color: #ff007f;
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.7), 0 0 20px rgba(255, 0, 127, 0.4), 0 0 40px rgba(255, 0, 127, 0.2);
+}
+
+.glow-text-green {
+  color: #00ff9d;
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.7), 0 0 20px rgba(0, 255, 157, 0.4);
+}
+
+.glow-text-gold {
+  color: #ffb700;
+  text-shadow: 0 0 10px rgba(255, 183, 0, 0.7), 0 0 25px rgba(255, 183, 0, 0.4);
+}
+
+/* Neon Box Glow Borders */
+.box-glow-cyan {
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.15);
+}
+
+.box-glow-magenta {
+  border: 1px solid rgba(255, 0, 127, 0.5);
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.3), inset 0 0 15px rgba(255, 0, 127, 0.15);
+}
+
+.box-glow-green {
+  border: 1px solid rgba(0, 255, 157, 0.5);
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.3), inset 0 0 15px rgba(0, 255, 157, 0.15);
+}
+
+.box-glow-gold {
+  border: 1px solid rgba(255, 183, 0, 0.5);
+  box-shadow: 0 0 15px rgba(255, 183, 0, 0.3), inset 0 0 15px rgba(255, 183, 0, 0.15);
+}
+
+/* Keyframe Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 5s infinite ease-in-out;
+}
+
+/* Custom Cyber Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070913;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
+}
