@@ -22,9 +22,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "AetherMine | Server Minecraft RPG Việt Nam 1.19+ Hay Nhất (IP: mc.aethermines.com)",
+  title: "AetherMine | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: mc.aethermines.com)",
   description:
-    "Top 1 Server Minecraft RPG Việt Nam thế hệ mới (IP: mc.aethermines.com). Đào quặng Prison, chế đồ MMOItems Long Tộc, săn Boss Dungeon RPG, đại chiến Bang Hội KOTH & Chuyển Sinh thuộc tính nhập vai.",
+    "Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: mc.aethermines.com). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc & Bang Hội KOTH!",
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
@@ -91,10 +91,16 @@ export const metadata: Metadata = {
     siteName: "AetherMine Minecraft RPG Server",
     images: [
       {
-        url: "/logo.png",
-        width: 512,
-        height: 512,
-        alt: "AetherMine Server Logo",
+        url: "https://aethermines.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AetherMine Minecraft RPG Server Banner",
+      },
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AetherMine Minecraft RPG Server Banner",
       },
     ],
     locale: "vi_VN",
@@ -102,10 +108,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AetherMine - Server Minecraft RPG Việt Nam (IP: mc.aethermines.com)",
+    title: "AetherMine | Top 1 Server Minecraft RPG Việt Nam (IP: mc.aethermines.com)",
     description:
-      "Máy chủ Minecraft RPG thế hệ mới tại Việt Nam. Đào quặng, săn Boss Dungeon, chế đồ MMOItems & Chuyển sinh thuộc tính RPG!",
-    images: ["/logo.png"],
+      "Máy chủ Minecraft RPG thế hệ mới tại Việt Nam (IP: mc.aethermines.com). Đào quặng, săn Boss Dungeon, chế đồ MMOItems & Chuyển sinh!",
+    images: ["https://aethermines.com/og-image.png"],
   },
   robots: {
     index: true,

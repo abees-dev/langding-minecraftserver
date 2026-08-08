@@ -3,6 +3,7 @@ import React from 'react';
 export default function JsonLd() {
   const serverIp = 'mc.aethermines.com';
   const websiteUrl = 'https://aethermines.com';
+  const bannerUrl = 'https://aethermines.com/og-image.png';
 
   // VideoGame & GameServer Schema
   const videoGameSchema = {
@@ -11,6 +12,7 @@ export default function JsonLd() {
     'name': 'AetherMine Minecraft RPG Server',
     'alternateName': ['AetherMine', 'AetherMine RPG', 'Minecraft RPG Việt Nam', 'MC AetherMines RPG', 'Server Minecraft RPG'],
     'description': 'Máy chủ Minecraft RPG Việt Nam thế hệ mới (IP: mc.aethermines.com). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện giáp MMOItems Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP và Chuyển Sinh bứt phá sức mạnh thuộc tính nhập vai.',
+    'image': bannerUrl,
     'genre': ['Minecraft RPG', 'RPG', 'Prison RPG', 'Action RPG', 'Survival', 'Multiplayer'],
     'gamePlatform': 'PC Game',
     'operatingSystem': 'Windows, macOS, Linux',
