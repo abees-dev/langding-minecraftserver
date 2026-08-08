@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function JsonLd() {
   const serverIp = 'mc.aethermines.com';
-  const websiteUrl = 'https://mc.aethermines.com';
+  const websiteUrl = 'https://aethermines.com';
 
   // VideoGame & GameServer Schema
   const videoGameSchema = {

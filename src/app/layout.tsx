@@ -45,6 +45,7 @@ export const metadata: Metadata = {
     "minecraft prison rpg",
     
     // Brand & IP Keywords
+    "aethermines.com",
     "mc.aethermines.com",
     "aethermine",
     "aethermines",
@@ -72,21 +73,21 @@ export const metadata: Metadata = {
     "boss dungeon minecraft",
     "tro choi minecraft tieng viet",
   ],
-  authors: [{ name: "AetherMine Studio", url: "https://mc.aethermines.com" }],
+  authors: [{ name: "AetherMine Studio", url: "https://aethermines.com" }],
   creator: "AetherMine Studio",
   publisher: "AetherMine Studio",
-  metadataBase: new URL("https://mc.aethermines.com"),
+  metadataBase: new URL("https://aethermines.com"),
   alternates: {
-    canonical: "https://mc.aethermines.com",
+    canonical: "https://aethermines.com",
     languages: {
-      "vi-VN": "https://mc.aethermines.com",
+      "vi-VN": "https://aethermines.com",
     },
   },
   openGraph: {
     title: "AetherMine | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: mc.aethermines.com)",
     description:
       "Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: mc.aethermines.com). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc & Bang Hội KOTH!",
-    url: "https://mc.aethermines.com",
+    url: "https://aethermines.com",
     siteName: "AetherMine Minecraft RPG Server",
     images: [
       {
