@@ -10,7 +10,15 @@ export default function JsonLd() {
     '@context': 'https://schema.org',
     '@type': 'VideoGame',
     'name': 'AetherMine Minecraft RPG Server',
-    'alternateName': ['AetherMine', 'AetherMine RPG', 'Minecraft RPG Việt Nam', 'MC AetherMines RPG', 'Server Minecraft RPG'],
+    'alternateName': [
+      'AetherMine',
+      'AetherMine RPG',
+      'Minecraft RPG Việt Nam',
+      'MC AetherMines RPG',
+      'Server Minecraft RPG',
+      'Server Minecraft Việt Nam',
+      'IP mc.aethermines.com'
+    ],
     'description': 'Máy chủ Minecraft RPG Việt Nam thế hệ mới (IP: mc.aethermines.com). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện giáp MMOItems Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP và Chuyển Sinh bứt phá sức mạnh thuộc tính nhập vai.',
     'image': bannerUrl,
     'genre': ['Minecraft RPG', 'RPG', 'Prison RPG', 'Action RPG', 'Survival', 'Multiplayer'],
@@ -28,7 +36,7 @@ export default function JsonLd() {
     'aggregateRating': {
       '@type': 'AggregateRating',
       'ratingValue': '4.9',
-      'ratingCount': '350',
+      'ratingCount': '420',
       'bestRating': '5',
       'worstRating': '1',
     },
@@ -36,6 +44,10 @@ export default function JsonLd() {
       '@type': 'Organization',
       'name': 'AetherMine Studio',
       'url': websiteUrl,
+      'founder': {
+        '@type': 'Person',
+        'name': 'Abeess',
+      },
     },
     'offers': {
       '@type': 'Offer',
@@ -52,7 +64,7 @@ export default function JsonLd() {
     'mainEntity': [
       {
         '@type': 'Question',
-        'name': 'Máy chủ AetherMine Minecraft RPG có gì hấp dẫn?',
+        'name': 'Tìm server Minecraft RPG Việt Nam nào hay nhất hiện nay?',
         'acceptedAnswer': {
           '@type': 'Answer',
           'text': `AetherMine là server Minecraft RPG kết hợp Prison thế hệ mới tại Việt Nam. Người chơi được trải nghiệm chuỗi nhiệm vụ RPG, đào quặng, săn Boss Dungeon, chế đồ MMOItems Long Tộc và Chuyển Sinh mở cây thuộc tính RPG độc đáo. IP tham gia: ${serverIp}.`,
@@ -60,10 +72,10 @@ export default function JsonLd() {
       },
       {
         '@type': 'Question',
-        'name': 'Làm thế nào để tham gia máy chủ AetherMine Minecraft RPG?',
+        'name': 'Làm thế nào để kết nối vào máy chủ AetherMine Minecraft RPG?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': `Mở Minecraft Java Edition phiên bản 1.19.4 trở lên, chọn Chơi Mạng (Multiplayer) -> Thêm Máy Chủ (Add Server), nhập IP: ${serverIp} và kết nối ngay!`,
+          'text': `Mở Minecraft Java Edition phiên bản 1.19.4 trở lên, chọn Chơi Mạng (Multiplayer) -> Thêm Máy Chủ (Add Server), nhập địa chỉ IP chính thức: ${serverIp} và tham gia ngay!`,
         },
       },
       {
@@ -85,34 +97,38 @@ export default function JsonLd() {
     ],
   };
 
-  // BreadcrumbList Schema
-  const breadcrumbSchema = {
+  // SiteNavigationElement Schema for Sitelinks
+  const navigationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    '@type': 'ItemList',
     'itemListElement': [
       {
-        '@type': 'ListItem',
+        '@type': 'SiteNavigationElement',
         'position': 1,
-        'name': 'Trang Chủ Minecraft RPG',
-        'item': websiteUrl,
+        'name': 'Tính Năng Lối Chơi',
+        'description': 'Đào quặng Prison, chế đồ MMOItems & Boss Dungeon RPG',
+        'url': `${websiteUrl}/#features`,
       },
       {
-        '@type': 'ListItem',
+        '@type': 'SiteNavigationElement',
         'position': 2,
-        'name': 'Tính Năng Minecraft RPG',
-        'item': `${websiteUrl}/#features`,
+        'name': 'Hệ Thống Rank & VIP',
+        'description': '9 Cấp Rank Prison & Đặc quyền VIP Donors',
+        'url': `${websiteUrl}/#ranks`,
       },
       {
-        '@type': 'ListItem',
+        '@type': 'SiteNavigationElement',
         'position': 3,
-        'name': 'Hệ Thống Rank RPG',
-        'item': `${websiteUrl}/#ranks`,
+        'name': 'Bán Quặng Bang Hội',
+        'description': 'Multiplier bán quặng Bang Hội & KOTH Mỏ VIP',
+        'url': `${websiteUrl}/#economy`,
       },
       {
-        '@type': 'ListItem',
+        '@type': 'SiteNavigationElement',
         'position': 4,
-        'name': 'Bán Quặng Bang Hội',
-        'item': `${websiteUrl}/#economy`,
+        'name': 'Câu Hỏi Thường Gặp (FAQ)',
+        'description': 'Giải đáp thắc mắc người chơi mới',
+        'url': `${websiteUrl}/#faq`,
       },
     ],
   };
@@ -155,7 +171,7 @@ export default function JsonLd() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
       />
       <script
         type="application/ld+json"

@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "AetherMine | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: mc.aethermines.com)",
   description:
-    "Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: mc.aethermines.com). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc & Bang Hội KOTH!",
+    "Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: mc.aethermines.com). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP & Chuyển Sinh thuộc tính!",
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
@@ -34,17 +34,19 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   keywords: [
-    // Minecraft RPG Focus Keywords
+    // Minecraft RPG & Vietnam Queries
     "minecraft rpg",
     "server minecraft rpg",
     "minecraft rpg viet nam",
     "server minecraft rpg viet nam",
-    "game minecraft rpg",
     "top server minecraft rpg",
+    "game minecraft rpg online",
+    "server minecraft prison rpg",
     "minecraft rpg 1.19",
-    "minecraft prison rpg",
-    
-    // Brand & IP Keywords
+    "minecraft rpg 1.20",
+    "minecraft rpg 1.21",
+
+    // Brand & IP Direct Queries
     "aethermines.com",
     "mc.aethermines.com",
     "aethermine",
@@ -52,22 +54,22 @@ export const metadata: Metadata = {
     "aethermine minecraft",
     "ip server minecraft",
     "ip server minecraft viet nam",
-    
-    // Core Server Keywords
+    "tim ip server minecraft",
+
+    // General Minecraft Vietnam Queries
     "server minecraft viet nam",
     "top server minecraft viet nam",
-    "server minecraft hay nhat",
+    "server minecraft hay nhat viet nam",
     "server minecraft online viet nam",
-    "server minecraft 1.19",
-    "server minecraft 1.20",
-    "server minecraft 1.21",
+    "server minecraft choi pc",
+    "ip minecraft viet nam",
 
-    // Gameplay Keywords
+    // Specific Gameplay Queries
     "server minecraft dao quang",
     "dao quang minecraft",
-    "bang hoi minecraft",
+    "bang hoi minecraft viet nam",
     "koth minecraft viet nam",
-    "mmoitems minecraft",
+    "mmoitems minecraft viet nam",
     "chuyen sinh minecraft",
     "trang bi long toc minecraft",
     "boss dungeon minecraft",
