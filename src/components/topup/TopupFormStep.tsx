@@ -47,13 +47,18 @@ export default function TopupFormStep({
 
   return (
     <form onSubmit={onSubmit} className="space-y-7">
-      {/* Username Input */}
+      {/* Username Input với Autocomplete lịch sử nhập mặc định của Trình duyệt */}
       <div>
-        <label className="block text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider mb-2.5">
+        <label
+          htmlFor="as-username-input"
+          className="block text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider mb-2.5"
+        >
           1. Nhập Tên Nhân Vật Minecraft <span className="text-red-400">*</span>
         </label>
         <div className="relative">
           <input
+            id="as-username-input"
+            name="as_username"
             type="text"
             value={username}
             onChange={(e) => {
@@ -61,6 +66,8 @@ export default function TopupFormStep({
               if (userErrorMsg) setUserErrorMsg('');
             }}
             placeholder="Nhập chính xác tên nhân vật (Ví dụ: abeess...)"
+            autoComplete="on"
+
             className={`w-full px-5 py-4 rounded-2xl bg-slate-950 border text-slate-100 text-base font-semibold placeholder:text-slate-600 focus:outline-none transition-all ${
               userErrorMsg
                 ? 'border-red-500/80 focus:border-red-400 shadow-[0_0_20px_rgba(255,0,0,0.25)]'
