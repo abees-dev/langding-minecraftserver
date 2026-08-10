@@ -5,7 +5,7 @@ author: "Dev Team AetherMine"
 category: "Patch Notes"
 tags: ["Update", "Patch Notes", "Căn Bằng Combat", "Ngọc Khảm", "Kinh Tế Bang"]
 excerpt: "Chi tiết đại cập nhật v2.0: Tăng 5% chỉ số combat cơ bản, giới hạn Hút Máu 15%, cân bằng 100 viên ngọc khảm, tính năng phân rã trang sức /phanra và tối ưu kinh tế Bang Hội."
-coverImage: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop"
+coverImage: "/images/blogs/patch-notes.png"
 featured: false
 ---
 

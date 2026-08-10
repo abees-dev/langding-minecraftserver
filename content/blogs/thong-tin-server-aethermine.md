@@ -5,7 +5,7 @@ author: "AetherMine Admin"
 category: "Thông Tin Server"
 tags: ["Server Info", "Prison RPG", "IP Server", "9 Rank Prison", "Bang Hoi"]
 excerpt: "Thông tin chi tiết máy chủ AetherMine Prison RPG: Địa chỉ IP mc.aethermines.com, bảng 9 Cấp Rank Ngục Tù & Level MMOCore, hệ thống Bang Hội kinh tế và Mỏ VIP KOTH."
-coverImage: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1200&auto=format&fit=crop"
+coverImage: "/images/blogs/server-info.png"
 featured: false
 ---
 

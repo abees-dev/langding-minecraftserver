@@ -5,7 +5,7 @@ author: "AetherMine Guide Team"
 category: "Hướng Dẫn"
 tags: ["Tân Thủ", "Hướng Dẫn", "Nâng Cúp", "Dungeon", "Bang Hội"]
 excerpt: "Bí kíp phát triển trong 10 phút đầu, vòng lặp đào khoáng nâng cúp I-V, 3 hướng phát triển nhân vật, khảm ngọc cường hóa và mẹo nạp kho Bang Hội."
-coverImage: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop"
+coverImage: "/images/blogs/beginner-guide.png"
 featured: false
 ---
 

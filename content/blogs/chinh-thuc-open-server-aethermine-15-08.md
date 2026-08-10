@@ -5,7 +5,7 @@ author: "AetherMine Admin"
 category: "Sự Kiện"
 tags: ["Open Server", "Sự Kiện 15/08", "AetherMine", "Grand Open", "Khuyến Mãi Nạp"]
 excerpt: "Máy chủ AetherMine Prison RPG chính thức Khai Mở vào 19:00 ngày 15/08/2026. Chuỗi sự kiện Đua Top Bang Hội, Đua Top Đào Quặng, x2 EXP và Khuyến mãi +100% Nạp Point!"
-coverImage: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1200&auto=format&fit=crop"
+coverImage: "/images/blogs/open-server.png"
 featured: true
 ---
 

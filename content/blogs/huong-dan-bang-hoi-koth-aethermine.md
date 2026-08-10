@@ -5,7 +5,7 @@ author: "AetherMine Staff"
 category: "Hướng Dẫn"
 tags: ["Bang Hoi", "KOTH", "Mỏ VIP", "Gang Vault", "Bang Chien"]
 excerpt: "Chi tiết tính năng Bang Hội (/gang): Cách nạp kho quặng Vault, nhân tiền Sell All vào Bank, thứ tự nâng cấp Upgrade và luật tranh Mỏ VIP KOTH."
-coverImage: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop"
+coverImage: "/images/blogs/guild-koth.png"
 featured: false
 ---
 

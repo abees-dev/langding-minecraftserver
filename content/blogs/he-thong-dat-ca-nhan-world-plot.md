@@ -5,7 +5,7 @@ author: "AetherMine Staff"
 category: "Hướng Dẫn"
 tags: ["PlotSquared", "World Plot", "Xa Dung", "Fly Free"]
 excerpt: "Hướng dẫn claim đất cá nhân (/plot), xây dựng căn cứ 64x64 block và sử dụng lệnh bay /fly tự do tại world_plot trên máy chủ AetherMine."
-coverImage: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1200&auto=format&fit=crop"
+coverImage: "/images/blogs/world-plot.png"
 featured: false
 ---
 
