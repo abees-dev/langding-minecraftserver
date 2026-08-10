@@ -33,12 +33,14 @@ DROP TABLE IF EXISTS `pending_rewards`;
 CREATE TABLE `pending_rewards` (
   `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `username` VARCHAR(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `command` VARCHAR(512) NOT NULL,
+  `server_name` VARCHAR(100) NOT NULL COMMENT 'Tên Sub-Server nhận thưởng (VD: survival, skyblock, rpg)',
+  `command` VARCHAR(512) NOT NULL COMMENT 'Lệnh Console thực thi (VD: eco give %player% 10000)',
   `status` ENUM('PENDING', 'CLAIMED', 'CANCELLED') NOT NULL DEFAULT 'PENDING',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `claimed_at` DATETIME NULL,
-  INDEX `idx_user_status` (`username`, `status`),
+  INDEX `idx_server_user_status` (`server_name`, `username`, `status`),
   CONSTRAINT `fk_pending_rewards_username` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
