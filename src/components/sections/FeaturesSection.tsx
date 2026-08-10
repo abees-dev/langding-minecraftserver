@@ -1,53 +1,59 @@
 import React from 'react';
-import { Pickaxe, Shield, Gem, Zap, Crown, Skull } from 'lucide-react';
+import { Pickaxe, Shield, Gem, Zap, Gift, Skull, ArrowUpRight } from 'lucide-react';
 
 export default function FeaturesSection() {
   const features = [
     {
       icon: <Pickaxe className="w-8 h-8 text-cyan-400" />,
-      title: 'Hệ Thống Prison-RPG Hấp Dẫn',
+      title: 'Khai Thác X-Prison & AutoSell',
+      badge: 'PRISON CORE',
       description:
-        'Vòng lặp khai thác tài nguyên quặng phong phú (Stone, Coal, Iron, Gold, Diamond, Ancient Debris), kết hợp cuốc MMOItems riêng biệt.',
+        'Hệ thống mỏ quặng phong phú từ Tân Binh đến Vượt Ngục. Tích hợp tính năng Nâng Cấp Cuốc (/pickaxe), Cường Hóa Phép Custom và Tự Động Bán Quặng (/autosell) cực kỳ tiện lợi.',
       color: 'border-cyan-500/30 text-cyan-400 hover:border-cyan-400',
       glow: 'shadow-[0_0_20px_rgba(0,240,255,0.15)] hover:shadow-[0_0_30px_rgba(0,240,255,0.35)]',
     },
     {
       icon: <Gem className="w-8 h-8 text-pink-400" />,
-      title: 'Trang Bị MMO & Long Tộc',
+      title: 'Trang Bị Long Tộc Độc Quyền',
+      badge: 'CUSTOM ITEMS',
       description:
-        'Sở hữu các bộ giáp & vũ khí huyền thoại: Thanh Long, Hỏa Long, Thần Long. Nâng cấp tại NPC Lò Rèn với Đá Cường Hóa và Đá Đục Lỗ (Lỗ 1 - 7).',
+        'Sở hữu các bộ giáp & vũ khí rực rỡ (Thanh Long, Hỏa Long, Thần Long). Tính năng Lò Rèn Cường Hóa Đá Quý & Đục Lỗ Khảm Ngọc (Lỗ 1 - 7) nâng tầm chỉ số chiến đấu.',
       color: 'border-pink-500/30 text-pink-400 hover:border-pink-400',
       glow: 'shadow-[0_0_20px_rgba(255,0,127,0.15)] hover:shadow-[0_0_30px_rgba(255,0,127,0.35)]',
     },
     {
-      icon: <Shield className="w-8 h-8 text-emerald-400" />,
-      title: 'Bang Hội, Sell Multiplier & KOTH Mỏ VIP',
-      description:
-        'Tạo/Gia nhập Bang Hội để nạp kho quặng (/gang vault). Nhận Multiplier bán quặng (+10%/lv), KOTH Mỏ VIP chiếm giữ căn cứ và thu thuế.',
-      color: 'border-emerald-500/30 text-emerald-400 hover:border-emerald-400',
-      glow: 'shadow-[0_0_20px_rgba(0,255,157,0.15)] hover:shadow-[0_0_30px_rgba(0,255,157,0.35)]',
-    },
-    {
-      icon: <Skull className="w-8 h-8 text-rose-400" />,
-      title: 'Tự Triệu Hồi Ma Vương & Sự Kiện Nguyệt Huyết',
-      description:
-        'Săn Mảnh Huy Hiệu từ Dungeon để rèn Huy Hiệu Ma Vương tự triệu hồi Boss tại Bàn Thờ. Tham gia Đêm Nguyệt Huyết săn Bá Tước tối Thứ 7.',
-      color: 'border-rose-500/30 text-rose-400 hover:border-rose-400',
-      glow: 'shadow-[0_0_20px_rgba(244,63,94,0.15)] hover:shadow-[0_0_30px_rgba(244,63,94,0.35)]',
-    },
-    {
       icon: <Zap className="w-8 h-8 text-amber-400" />,
-      title: 'Chuyển Sinh & Prestige Song Song',
+      title: 'Hệ Thống Chuyển Sinh RPG',
+      badge: 'RPG PROGRESSION',
       description:
-        'Prestige reset rank để tiếp tục vòng cày quặng dài hạn. Chuyển Sinh yêu cầu Level 100 + $100M để nhận điểm thuộc tính RPG độc quyền.',
+        'Hệ thống Level nhân vật song song bảng điểm Thuộc Tính RPG. Đạt mốc Rank 9 Vượt Ngục & Level 100 để Chuyển Sinh (/rebirth) mở khóa cây kỹ năng độc quyền.',
       color: 'border-amber-500/30 text-amber-400 hover:border-amber-400',
       glow: 'shadow-[0_0_20px_rgba(255,183,0,0.15)] hover:shadow-[0_0_30px_rgba(255,183,0,0.35)]',
     },
     {
-      icon: <Crown className="w-8 h-8 text-purple-400" />,
-      title: '9 Cấp Rank Prison & Thăng Tiến',
+      icon: <Skull className="w-8 h-8 text-rose-400" />,
+      title: 'Boss MythicMobs & ModelEngine 3D',
+      badge: 'DUNGEON BOSS',
       description:
-        'Tiến trình 9 mốc Rank (Tân Binh ➔ Vượt Ngục) mở khóa thêm Kho Cá Nhân (/pv 1-5), /workbench, /feed, /fly và các đặc quyền.',
+        'Chinh phục Tháp Dungeon RPG nhiều tầng. Tích lũy Mảnh Huy Hiệu để rèn Huy Hiệu Ma Vương, tự triệu hồi Boss 3D hoành tráng tại Bàn Thờ Cooldown và săn Đêm Nguyệt Huyết.',
+      color: 'border-rose-500/30 text-rose-400 hover:border-rose-400',
+      glow: 'shadow-[0_0_20px_rgba(244,63,94,0.15)] hover:shadow-[0_0_30px_rgba(244,63,94,0.35)]',
+    },
+    {
+      icon: <Shield className="w-8 h-8 text-emerald-400" />,
+      title: 'Bang Hội & Mỏ VIP KOTH',
+      badge: 'GANG WARS',
+      description:
+        'Lập Bang Hội cùng đồng đội nạp kho quặng (/gang vault). Nâng cấp Sell Multiplier (+10%/cấp), đại chiến chiếm giữ KOTH Mỏ VIP thu thuế và kích hoạt Buff Shop 2X.',
+      color: 'border-emerald-500/30 text-emerald-400 hover:border-emerald-400',
+      glow: 'shadow-[0_0_20px_rgba(0,255,157,0.15)] hover:shadow-[0_0_30px_rgba(0,255,157,0.35)]',
+    },
+    {
+      icon: <Gift className="w-8 h-8 text-purple-400" />,
+      title: 'Rương Crate & BattlePass Hằng Ngày',
+      badge: 'DAILY REWARDS',
+      description:
+        'Thực hiện chuỗi Nhiệm Vụ Hằng Ngày, mở Rương Báu Crate cực phẩm và cày điểm BattlePass nhận hàng trăm phần quà hấp dẫn hoàn toàn miễn phí khi online.',
       color: 'border-purple-500/30 text-purple-400 hover:border-purple-400',
       glow: 'shadow-[0_0_20px_rgba(168,85,247,0.15)] hover:shadow-[0_0_30px_rgba(168,85,247,0.35)]',
     },
@@ -61,10 +67,10 @@ export default function FeaturesSection() {
           [ UNLIMITED GAMEPLAY FEATURES ]
         </span>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100 uppercase mt-2 tracking-tight">
-          LỐI CHƠI ĐỘC ĐÁO CHỈ CÓ TẠI <span className="glow-text-cyan">AETHERMINE</span>
+          TÍNH NĂNG CỐT LÕI TẠI <span className="glow-text-cyan">AETHERMINE RPG</span>
         </h2>
         <p className="text-slate-400 mt-4 text-sm sm:text-base">
-          Sự kết hợp hoàn hảo giữa đào quặng Prison, lớp nhân vật RPG, đại chiến Bang Hội KOTH và Boss Ma Vương tự triệu hồi.
+          Sự kết hợp đỉnh cao giữa cày quặng X-Prison, hệ thống nhập vai RPG, trang bị Long Tộc & đại chiến Bang Hội KOTH.
         </p>
       </div>
 
@@ -73,17 +79,30 @@ export default function FeaturesSection() {
         {features.map((item, idx) => (
           <div
             key={idx}
-            className={`glass-card p-8 rounded-2xl border transition-all duration-300 ${item.color} ${item.glow} group hover:-translate-y-2`}
+            className={`glass-card p-8 rounded-2xl border transition-all duration-300 ${item.color} ${item.glow} group hover:-translate-y-2 relative flex flex-col justify-between`}
           >
-            <div className="mb-6 inline-block p-4 rounded-xl bg-slate-900/90 border border-slate-800 group-hover:scale-110 transition-transform">
-              {item.icon}
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <span className="px-3 py-1 rounded-full bg-slate-950 border border-cyan-500/30 text-[10px] font-mono font-bold text-cyan-300 tracking-wider">
+                  {item.badge}
+                </span>
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-100 uppercase tracking-wide mb-3">
+                {item.title}
+              </h3>
+              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                {item.description}
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-slate-100 uppercase tracking-wide mb-3">
-              {item.title}
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              {item.description}
-            </p>
+
+            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-500 group-hover:text-cyan-400 transition-colors">
+              <span>Đã tích hợp trong Game</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </div>
           </div>
         ))}
       </div>

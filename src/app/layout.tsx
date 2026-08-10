@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: ${siteConfig.serverIp})`,
   description:
-    `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP & Chuyển Sinh thuộc tính!`,
+    `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện trang bị Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP & Chuyển Sinh thuộc tính!`,
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     "dao quang minecraft",
     "bang hoi minecraft viet nam",
     "koth minecraft viet nam",
-    "mmoitems minecraft viet nam",
+    "trang bi long toc minecraft",
     "chuyen sinh minecraft",
     "trang bi long toc minecraft",
     "boss dungeon minecraft",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: ${siteConfig.serverIp})`,
     description:
-      `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc & Bang Hội KOTH!`,
+      `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện trang bị Long Tộc & Bang Hội KOTH!`,
     url: siteConfig.websiteUrl,
     siteName: siteConfig.fullName,
     images: [
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam (IP: ${siteConfig.serverIp})`,
     description:
-      `Máy chủ Minecraft RPG thế hệ mới tại Việt Nam (IP: ${siteConfig.serverIp}). Đào quặng, săn Boss Dungeon, chế đồ MMOItems & Chuyển sinh!`,
+      `Máy chủ Minecraft RPG thế hệ mới tại Việt Nam (IP: ${siteConfig.serverIp}). Đào quặng, săn Boss Dungeon, chế đồ Long Tộc & Chuyển sinh!`,
     images: [siteConfig.bannerUrl],
   },
   robots: {

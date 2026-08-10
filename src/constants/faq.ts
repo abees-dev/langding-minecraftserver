@@ -5,23 +5,35 @@ export interface FaqItem {
 
 export const FAQ_LIST: FaqItem[] = [
   {
-    q: 'Làm thế nào để tham gia máy chủ Minecraft AetherMine?',
-    a: 'Bạn chỉ cần mở Minecraft Java Edition từ phiên bản 1.19.4 trở lên, chọn mục Chơi Mạng (Multiplayer) -> Thêm Máy Chủ (Add Server), nhập địa chỉ IP: mc.aethermines.com và kết nối ngay!',
+    q: 'Làm thế nào để đeo/gắn Trang Sức vào nhân vật?',
+    a: 'Bạn gõ lệnh /rpginv trong game để mở Giao Diện Túi Trang Sức Độc Quyền. Tại đây bạn kéo thả các món Trang Sức (Dây chuyền, Nhẫn, Vòng tay, Găng tay...) vào đúng ô trang bị để tăng chỉ số nhân vật.',
   },
   {
-    q: 'Hệ thống Bán Quặng (Base vs Multiplier Bang) hoạt động thế nào?',
-    a: 'Bán cá nhân /sellgui áp dụng bảng giá Base cập nhật chuẩn (Stone 10$-20$, Than 80$, Sắt 100$-200$, Vàng 200$-400$, Kim cương 1,000$, Emerald 1,500$, Ancient Debris 2,000$). Khi tham gia Bang Hội, gửi quặng vào /gang vault và Sell All để hưởng Multiplier (+10%/lv), Buff Shop 2X và Paragon Sell.',
+    q: 'Cách đục lỗ & khảm Ngọc vào trang bị như thế nào?',
+    a: 'Đầu tiên gõ lệnh /duclo để đục lỗ cho trang bị. Khi trang bị đã có lỗ khảm, bạn chỉ cần mở túi đồ kéo thả viên Ngọc trực tiếp vào trang bị đó để kích hoạt chỉ số cộng thêm.',
   },
   {
-    q: 'Điểm khác biệt giữa Prestige và Chuyển Sinh (/chuyensinh)?',
-    a: 'Prestige dành cho hệ đào quặng X-Prison: khi đạt rank 9 Vượt Ngục, bạn prestige để reset rank về Tân Binh tiếp tục grind. Chuyển Sinh dành cho hệ RPG: yêu cầu Rank 9 + Level 100 + $100M để mở cây kỹ năng thuộc tính độc quyền.',
+    q: 'Tại sao tôi chọn Đá Cường Hóa nhưng không nâng cấp được?',
+    a: 'Mỗi dòng Vũ khí, Áo giáp và Trang sức có loại Đá Cường Hóa riêng biệt và tỷ lệ thành công riêng. Bạn cần sử dụng đúng loại Đá Cường Hóa tương ứng với cấp bậc của trang bị đó thì mới tiến hành cường hóa được.',
   },
   {
-    q: 'Hệ thống KOTH Mỏ VIP & Tự Triệu Hồi Ma Vương là gì?',
-    a: 'KOTH Mỏ VIP cho phép Bang Hội chiếm giữ khu vực đào đặc biệt để nhận hệ số nhân đào & thu thuế. Boss Ma Vương cho phép người chơi tích lũy Mảnh Huy Hiệu từ Dungeon để tự kích hoạt Ma Vương tại Bàn Thờ Cooldown.',
+    q: 'Đá Cường Hóa Trang Sức có thể kiếm ở đâu?',
+    a: 'Bạn sử dụng lệnh /phanra để phân rã các món Trang Sức dư thừa hoặc không sử dụng. Sau khi phân rã sẽ nhận lại Đá Cường Hóa Trang Sức tương ứng.',
   },
   {
-    q: 'Điều kiện nâng Rank Prison bao gồm những gì?',
-    a: 'Để nâng từ Rank 1 Tân Binh đến Rank 9 Vượt Ngục, người chơi vừa cần tích lũy đủ tiền bán quặng vừa cần đạt mốc Level tương ứng (Tân Binh Lv1, Tù Nhân Lv10, Lao Công Lv20 ... Vượt Ngục Lv100).',
+    q: 'Kiếm Đá Cường Hóa Vũ Khí/Giáp & Đá Đục Lỗ ở đâu?',
+    a: 'Bạn tham gia đánh Quái & săn Boss tại các khu vực Dungeon RPG để nhặt nguyên liệu, sau đó di chuyển đến Khu Vực Trade (/trade) để đổi lấy Đá Cường Hóa Vũ Khí/Giáp và Đá Đục Lỗ với NPC.',
+  },
+  {
+    q: 'Làm thế nào để kết nối vào máy chủ Minecraft AetherMine?',
+    a: 'Mở Minecraft Java Edition phiên bản 1.19.4 trở lên, chọn Chơi Mạng (Multiplayer) -> Thêm Máy Chủ (Add Server), nhập địa chỉ IP chính thức: mc.aethermines.com và kết nối ngay!',
+  },
+  {
+    q: 'Hệ thống Bán Quặng (/sellgui & /gang vault) hoạt động ra sao?',
+    a: 'Bán cá nhân /sellgui áp dụng bảng giá Base chuẩn. Khi gia nhập Bang Hội, gửi quặng vào /gang vault và dùng Sell All để hưởng Multiplier Bang (+10%/lv), Buff Shop 2X và thưởng Paragon Sell.',
+  },
+  {
+    q: 'Làm thế nào để thăng cấp Rank Prison trong game?',
+    a: 'Mở Menu thăng hạng bằng lệnh /rank. Tích lũy đủ Level nhân vật & Tiền bán quặng (hoặc Point), sau đó Click Trái (mua bằng Money) hoặc Click Phải (mua bằng Point) để nâng từ Tân Binh lên Vượt Ngục.',
   },
 ];

@@ -39,7 +39,7 @@ export default function HeroSection() {
         {/* Subtitle with Keyword Density */}
         <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 mb-10 leading-relaxed font-normal">
           Tham gia thế giới <strong className="text-cyan-300 font-semibold">Minecraft RPG thế hệ mới</strong> (IP: <code className="text-cyan-300 font-mono">{serverIp}</code>). Đào quặng Prison, 
-          săn Boss Dungeon RPG, tinh luyện <strong className="text-pink-400 font-semibold">Bộ Trang Bị MMOItems Long Tộc</strong>, đại chiến <strong className="text-emerald-400 font-semibold">Bang Hội KOTH Mỏ VIP</strong> 
+          săn Boss Dungeon RPG, tinh luyện <strong className="text-pink-400 font-semibold">Bộ Trang Bị Long Tộc</strong>, đại chiến <strong className="text-emerald-400 font-semibold">Bang Hội KOTH Mỏ VIP</strong> 
           và mở khóa hệ thống <strong className="text-amber-400 font-semibold">Chuyển Sinh Thuộc Tính RPG</strong> không giới hạn!
         </p>
 

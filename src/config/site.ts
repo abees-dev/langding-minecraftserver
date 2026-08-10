@@ -13,7 +13,7 @@ export const siteConfig = {
   navLinks: [
     { name: 'Tính Năng', href: '#features' },
     { name: 'Hệ Thống Rank', href: '#ranks' },
-    { name: 'Trang Bị MMO', href: '#gears' },
+    { name: 'Trang Bị Long Tộc', href: '#gears' },
     { name: 'Bán Quặng Bang', href: '#economy' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Cộng Đồng', href: '#community' },

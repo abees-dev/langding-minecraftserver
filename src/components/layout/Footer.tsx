@@ -20,7 +20,7 @@ export default function Footer() {
     'Minecraft Prison RPG',
     'Server Minecraft Dao Quang',
     'Bang Hoi Minecraft',
-    'MMOItems Minecraft',
+    'Trang Bi Long Toc',
     'Chuyen Sinh Minecraft',
     'Server Minecraft 1.19+',
     'KOTH Minecraft Viet Nam',
@@ -48,7 +48,7 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-400 leading-relaxed max-w-md">
-              AetherMine RPG là máy chủ Minecraft Việt Nam thế hệ mới (IP: <code className="text-cyan-300 font-mono">{siteConfig.serverIp}</code>). Đem tới trải nghiệm đào quặng hấp dẫn, tinh luyện giáp MMOItems Long Tộc, đại chiến Bang Hội và Chuyển Sinh bứt phá sức mạnh.
+              AetherMine RPG là máy chủ Minecraft Việt Nam thế hệ mới (IP: <code className="text-cyan-300 font-mono">{siteConfig.serverIp}</code>). Đem tới trải nghiệm đào quặng hấp dẫn, tinh luyện giáp Long Tộc, đại chiến Bang Hội và Chuyển Sinh bứt phá sức mạnh.
             </p>
 
             <div className="flex items-center gap-3 pt-2">

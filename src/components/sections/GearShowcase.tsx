@@ -9,13 +9,13 @@ export default function GearShowcase() {
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-amber-400 text-xs font-mono tracking-[0.3em] uppercase font-bold">
-          [ MMOITEMS & REFINEMENT ]
+          [ EQUIPMENT & REFINEMENT ]
         </span>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100 uppercase mt-2 tracking-tight">
           HỆ THỐNG <span className="glow-text-gold">TRANG BỊ LONG TỘC</span>
         </h2>
         <p className="text-slate-400 mt-4 text-sm sm:text-base">
-          Chế tạo vũ khí, áo giáp MMOItems cực ngầu, đục lỗ ép đá ngọc để sẵn sàng cho các trận chiến PK & KOTH nảy lửa.
+          Chế tạo vũ khí, áo giáp cực ngầu, đục lỗ ép đá ngọc để sẵn sàng cho các trận chiến PK & KOTH nảy lửa.
         </p>
       </div>
 
