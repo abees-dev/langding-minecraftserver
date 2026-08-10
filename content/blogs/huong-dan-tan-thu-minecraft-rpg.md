@@ -1,49 +1,70 @@
 ---
-title: "Hướng Dẫn Tân Thủ: Bí Kíp Đào Quặng & Tiến Trình Nâng Rank Prison AetherMine"
+title: "Cẩm Nang Tân Thủ AetherMine: Khởi Đầu 10 Phút, Nâng Cúp & Phát Triển Bang Hội"
 date: "2026-08-09"
 author: "AetherMine Guide Team"
 category: "Hướng Dẫn"
-tags: ["Tân Thủ", "Hướng Dẫn", "Rank Prison", "Lệnh Minecraft", "Đào Quặng"]
-excerpt: "Bí kíp đào quặng hiệu quả, sử dụng lệnh bán quặng /sellgui, quản lý kho ảo /pv và lộ trình lên Cấp 100 Vượt Ngục trên máy chủ AetherMine."
+tags: ["Tân Thủ", "Hướng Dẫn", "Nâng Cúp", "Dungeon", "Bang Hội"]
+excerpt: "Bí kíp phát triển trong 10 phút đầu, vòng lặp đào khoáng nâng cúp I-V, 3 hướng phát triển nhân vật, khảm ngọc cường hóa và mẹo nạp kho Bang Hội."
 coverImage: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop"
 featured: false
 ---
 
-# 🛡️ Cẩm Nang Đào Quặng & Thăng Cấp Tân Thủ
+# 🛡️ Cẩm Nang Khởi Đầu & Phát Triển Tân Thủ AetherMine
 
-Chào mừng bạn đến với **AetherMine Prison RPG**. Đối với người chơi mới gia nhập, lộ trình phát triển chính là đào quặng, tích lũy Money & Point để nâng cấp từ Rank 1 (Tân Binh) lên Rank 9 (Vượt Ngục).
+Chào mừng bạn đến với **AetherMine Prison RPG**. Để làm chủ thế giới game nhanh chóng, hãy nắm vững vòng lặp cốt lõi:
 
----
-
-## 🎯 Bước 1: Khởi Đầu Tại Khu Mỏ Tân Binh
-
-Khi mới vào máy chủ:
-1. Gõ lệnh `/kit tanbinh` để nhận bộ cúp sắt và thức ăn ban đầu.
-2. Di chuyển đến **Khu Mỏ Tân Binh** để đào Đá (Stone) và Than (Coal).
-3. Sử dụng lệnh `/sellgui` để mở giao diện bán nhanh toàn bộ quặng khai thác được ra Money.
+```text
+Đào khoáng → Bán khoáng → Nâng cuốc → Tăng level MMOCore → Rankup
+                    └→ Dungeon → Trang bị → Ngọc/Cường hóa
+```
 
 ---
 
-## ⛏️ Bước 2: Quản Lý Rương Ảo `/pv` & Lệnh Tiện Ích
+## ⚡ 1. Bắt Đầu Trong 10 Phút Đầu Tiên
 
-Khi thăng cấp Rank Prison, bạn sẽ mở khóa thêm nhiều rương cá nhân ảo và các tiện ích đắc lực:
+1. Nhận và trang bị **Cúp Tân Binh I**.
+2. Mở `/warp`, chọn khu Prison và di chuyển vào **Mỏ Tân Binh**.
+3. Đào khoáng đúng cấp mỏ hiện tại.
+4. Gõ `/sellgui` để bán khoáng cá nhân nhận Money.
+5. Mở `/dailyquest` và `/checkin` nhận nhiệm vụ ngày & điểm danh mốc 3, 7, 14, 30 ngày.
+6. Mở `/rank` kiểm tra điều kiện thăng cấp (Money + Level MMOCore).
+7. Đến NPC **Tinh Luyện** và **Lò Rèn Cúp** tại Spawn để nâng cấp cuốc.
 
-| Rank | Lệnh Tiện Ích | Công Dụng |
+---
+
+## 🎯 2. Ba Hướng Phát Triển Nhân Vật
+
+| Hướng | Việc Bạn Cần Làm | Kết Quả Đạt Được |
 | :--- | :--- | :--- |
-| **Tân Binh** | `/pv 1` | Mở 1 kho cá nhân chứa đồ an toàn không lo mất khi chết |
-| **Tù Nhân** | `/workbench` | Mở bàn chế tạo đồ di động ngay tại mỏ đào |
-| **Lao Công** | `/feed` | Hồi đầy thanh độ no tức thì khi đào quặng quá lâu |
-| **Thợ Đào** | `/anvil` | Mở đe rèn sửa vũ khí & công cụ ngay lập tức |
-| **Đội Trưởng** | `/enderchest` | Mở rương Ender Chest lưu trữ tài nguyên quý giá |
-| **Phó Quản Ngục**| `/heal` | Hồi đầy thanh máu tức thời |
-| **Quản Ngục** | `/back` | Quay trở về vị trí vừa bị ngã gục |
+| **Sức Đào** | Đào khoáng, tinh luyện nén, nâng Cúp I→V và Rankup | Mở mỏ giàu khoáng hơn, thu nhập cao hơn |
+| **Sức Chiến** | Tăng Level MMOCore, cày Dungeon, nâng vũ khí giáp | Đánh quái Elite, khiêu chiến Boss và thắng Event |
+| **Bang Hội** | Nạp quặng vào kho `/gang`, làm quest bang, chiếm Mỏ VIP KOTH | Nhận tiền x1.5 từ Sell All, nhận Buff tốc độ đào & PvP |
 
 ---
 
-## 💎 Bước 3: Lộ Trình Vượt Ngục & Mua Rank VIP
+## ⛏️ 3. Quy Trình Nâng Cúp Khai Thác (I → V)
 
-* **Nâng Rank Prison:** Dùng lệnh nâng rank tại NPC hoặc bảng điều khiển khi đủ điều kiện Money & Point.
-* **Cấp 100 Vượt Ngục:** Đạt Rank 9 (Vượt Ngục) để nhận Bộ Kit Rank 9 khủng (Đá Cường Hóa Vượt Ngục, Đá Đục Lỗ).
-* **Rank VIP & Bay Khai Thác:** Sau khi Vượt Ngục, bạn có thể mua các Cấp VIP (VIP -> LEGEND). Hạng **LEGEND** mang lại quyền bay độc quyền `/fly` tại khu Mining!
+Mỗi Cấp Rank sở hữu bộ Cúp từ **Cúp I đến Cúp V**. Nâng cuốc giúp tăng tốc độ khai thác tối đa:
+
+1. Đào và giữ khoáng sản tương ứng với rank.
+2. Tìm đến NPC **Tinh Luyện** của đúng rank để đổi khoáng thành **Nguyên Liệu Nén**.
+3. Đổi nguyên liệu nén thành **Đá Nâng Cấp**.
+4. Đến NPC **Lò Rèn Cúp** để tiến hành rèn: **Cúp I → II → III → IV → V**.
+
+---
+
+## ⚔️ 4. Đục Lỗ, Khảm Ngọc, Cường Hóa & Phân Rã Trang Sức
+
+* **Đục Lỗ Khảm (`/duclo`):** Tạo ô khảm trên trang bị để gắn Ngọc tăng chỉ số.
+* **Cường Hóa (`/cuonghoa`):** Nâng cấp trang bị (+1 Sát thương cơ bản, +5 HP, +1.75 Defense mỗi cấp).
+* **Phân Rã Trang Sức (`/phanra` / `/disassemble`):** Đặt nhẫn, bùa, vòng tay, găng dư vào GUI để đổi lấy **Đá Cường Hóa Trang Sức** (từ Sơ Cấp đến Huyền Thoại).
+
+---
+
+## 🏰 5. Mẹo Nạp Kho & Kiếm Tiền Cùng Bang Hội (`/gang`)
+
+* **Nạp Kho Quặng (`/gang vault`):** Nạp khoáng vào kho chung thay vì bán lẻ `/sellgui`.
+* **Bán Tất Cả (Sell All):** Leader/Co bán quặng trong kho sẽ nhận hệ số nhân từ **Sell Upgrade**, **Buff Shop Sell x1.5** và **Paragon Sell**.
+* Tiền từ Bán Tất Cả chảy trực tiếp vào **Bank Bang** dùng để mở rộng kho, nâng cấp buff toàn bang!
 
 Chúc bạn có những giờ phút cày cuốc thăng hoa tại **AetherMine Prison RPG**!

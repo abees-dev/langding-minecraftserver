@@ -1,42 +1,51 @@
 ---
-title: "Nhật Ký Cập Nhật Patch Notes v2.0: Tối Ưu Mỏ Khai Thác & Rank LEGEND"
+title: "Nhật Ký Cập Nhật Patch Notes v2.0: Cân Bằng Combat, Ngọc Khảm & Kinh Tế Bang Hội"
 date: "2026-08-08"
 author: "Dev Team AetherMine"
 category: "Patch Notes"
-tags: ["Update", "Patch Notes", "Prison RPG", "VIP Legend"]
-excerpt: "Chi tiết bản cập nhật v2.0: Nâng cấp hệ thống Rank VIP LEGEND với quyền Fly tại khu Mining, tối ưu giao diện bán quặng /sellgui và hệ thống Nạp Point tự động."
+tags: ["Update", "Patch Notes", "Căn Bằng Combat", "Ngọc Khảm", "Kinh Tế Bang"]
+excerpt: "Chi tiết đại cập nhật v2.0: Tăng 5% chỉ số combat cơ bản, giới hạn Hút Máu 15%, cân bằng 100 viên ngọc khảm, tính năng phân rã trang sức /phanra và tối ưu kinh tế Bang Hội."
 coverImage: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop"
 featured: false
 ---
 
-# 🚀 Chi Tiết Bản Cập Nhật AetherMine v2.0
+# 🚀 Chi Tiết Đại Cập Nhật AetherMine v2.0
 
-Bản cập nhật v2.0 mang đến các điều chỉnh quan trọng cho hệ thống Cày cuốc Prison RPG, bổ sung đặc quyền cho Rank VIP và tối ưu hóa hệ thống nạp tự động qua QR Code PayOS.
+Bản cập nhật v2.0 mang đến các điều chỉnh lớn về Cân Bằng Combat, Trang bị, Hệ thống 100 Ngọc Khảm, Kinh tế Prison và các tính năng mới dành cho Bang Hội.
 
 ---
 
-## ⚡ 1. Nâng Cấp Đặc Quyền Rank VIP LEGEND
+## ⚔️ 1. Cân Bằng Combat, Trang Bị & Ngọc Khảm
 
-| Thay Đổi | Chi Tiết Cập Nhật |
+| Nội Dung | Chi Tiết Cập Nhật v2.0 |
 | :--- | :--- |
-| **Quyền Bay Mining** | Thành viên Rank **LEGEND** chính thức mở khóa lệnh `/fly` trực tiếp trong khu vực đào quặng. |
-| **Tính Năng KeepFly** | Tự động giữ trạng thái bay khi chuyển khu vực hoặc chuyển Server. |
-| **Sức Chứa Rương Ảo** | Mở rộng tối đa **20 Kho cá nhân ảo** (`/pv 1-20`). |
-| **Phần Thưởng Kit LEGEND** | Bổ sung 40 Đá Cường Hóa Thần Cấp, Đá Đục Lỗ Thiên Mệnh và 5,000,000 Money. |
+| **Chỉ Số Cơ Bản** | Tăng **5% chỉ số combat cơ bản** cho toàn bộ trang bị giúp vừa tầm với quái theo rank. |
+| **Cường Hóa Vũ Khí** | Mỗi cấp cộng `+1 Sát Thương Cơ Bản` và `+0.4 Sát Thương Vật Lý`. |
+| **Cường Hóa Giáp** | Mỗi cấp cộng `+5 Máu`, `+1.75 Phòng Thủ` và `+0.35 Kháng Xuyên Giáp`. |
+| **Giới Hạn Hút Máu** | Giới hạn trần **Hút Máu & Hút Máu Phép** ở mốc **15%** để chiến đấu PvP cân bằng hơn. |
+| **Trần Giảm Sát Thương** | Đặt trần Giảm Sát Thương (PvE & PvP) ở mốc **50%**; Tỷ lệ Chí Mạng & Sát thương Chí mạng ở **80%**. |
+| **Hệ Thống 100 Ngọc Khảm** | Cân bằng 10 loại ngọc x 10 cấp. Chỉ số roll random **±10%** cố định khi tạo viên ngọc. Hoàng Ngọc chuyển sang cộng **Phòng Thủ**. |
+| **Phân Rã Trang Sức (`/phanra`)** | Phân rã nhẫn, bùa, vòng tay, găng dư thành **Đá Cường Hóa Trang Sức** (Sơ Cấp -> Huyền Thoại). |
+| **Lệnh Xem Chỉ Số (`/stats`)** | Mở GUI xem tổng quan chỉ số combat, PvE, PvP và điểm Chuyển Sinh (`/stats` / `/chiso`). |
 
 ---
 
-## ⛏️ 2. Tối Ưu Hệ Thống Đào Quặng & Lệnh `/sellgui`
+## 💰 2. Đại Cập Nhật Kinh Tế & Bang Hội
 
-* **Cải thiện tốc độ `/sellgui`:** Bán toàn bộ quặng trong túi đồ tức thì không bị độ trễ.
-* **Cân bằng giá quặng:** Tăng 10% giá trị quặng Ngọc Lục Bảo (Emerald) và Ancient Debris tại các khu mỏ từ Rank 6 đến Rank 8.
-* **Khóa gian lận X-Ray:** Nâng cấp hệ thống Anti-Xray cho toàn bộ các Cấp Mỏ Ngục Tù.
+* **Đồng Bộ Giá Khoáng:** Đồng bộ giá bán giữa `/sellgui` và **Bán Tất Cả** trong Kho Bang (`/gang vault`).
+* **Thu Nhập Nền Đào Quặng:** Cân bằng mốc thu nhập đào quặng quanh **5.000.000 Money/phút** tại các mỏ rank cao.
+* **Cân Bằng Shop Bang (`/gang`):**
+  * **Buff Sell x1.5:** Chỉnh thành `x1.5 trong 30 phút` (giá 100M từ Bank Bang).
+  * **Buff Haste I:** `Haste I trong 30 phút` (giá 50M Bank Bang).
+  * **Buff EXP MMOCore:** `x1.15 trong 30 phút` (giá 75M Bank Bang).
+  * **Paragon Sell:** Mua thêm % Sell vĩnh viễn khi Bang Level đạt max 10 (tối đa 20 cấp, +1%/cấp).
 
 ---
 
-## 💳 3. Cập Nhật Cổng Nạp Point Tự Động (Web Topup)
+## 🛠️ 3. Sửa Lỗi & Tối Ưu Hệ Thống
 
-* Tích hợp QR Code động tự động điền nội dung chuyển khoản khi nạp Point qua PayOS.
-* Nhận Point trực tiếp vào tài khoản game sau 3 - 5 giây từ khi chuyển khoản thành công.
+* Sửa perk Chuyển Sinh **Bất Hoại**: Nay cộng đúng `+50 Máu Tối Đa` mỗi cấp (cấp 3 cộng `+150 HP`).
+* Sửa node **Sinh Lực Tối Đa** trong skill tree cộng đúng `+5 Máu Tối Đa`.
+* Điểm thuộc tính **Sức Mạnh** Chuyển Sinh cộng cố định `+2 HP` (1 tim) mỗi điểm.
 
-Cảm ơn cộng đồng gamer đã luôn đồng hành cùng **AetherMine Prison RPG**!
+Cảm ơn cộng đồng gamer đã đồng hành cùng **AetherMine Prison RPG**!
