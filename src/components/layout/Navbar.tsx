@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Copy, Check, Menu, X, QrCode } from 'lucide-react';
-import TopupModal from './TopupModal';
+import TopupModal from '../topup/TopupModal';
+import { siteConfig } from '@/config/site';
 
 export default function Navbar() {
   const [copied, setCopied] = useState(false);
@@ -10,7 +11,6 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [topupModalOpen, setTopupModalOpen] = useState(false);
   const [onlinePlayers, setOnlinePlayers] = useState<number | null>(null);
-  const serverIp = 'mc.aethermines.com';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +22,7 @@ export default function Navbar() {
 
   useEffect(() => {
     // Fetch live status from MCSrvStat API
-    fetch(`https://api.mcsrvstat.us/2/${serverIp}`)
+    fetch(`https://api.mcsrvstat.us/2/${siteConfig.serverIp}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.online && data.players) {
@@ -32,10 +32,10 @@ export default function Navbar() {
         }
       })
       .catch(() => setOnlinePlayers(128));
-  }, [serverIp]);
+  }, []);
 
   const handleCopyIp = () => {
-    navigator.clipboard.writeText(serverIp);
+    navigator.clipboard.writeText(siteConfig.serverIp);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -54,8 +54,8 @@ export default function Navbar() {
           <a href="#" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-500/50 p-[1px] bg-slate-900 shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] transition-all">
               <img
-                src="/logo.png"
-                alt="AetherMine Server Logo"
+                src={siteConfig.logoUrl}
+                alt={`${siteConfig.name} Server Logo`}
                 className="w-full h-full object-cover rounded-[10px] group-hover:scale-110 transition-transform duration-300"
               />
             </div>
@@ -71,24 +71,11 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
-            <a href="#features" className="hover:text-cyan-400 transition-colors">
-              Tính Năng
-            </a>
-            <a href="#ranks" className="hover:text-cyan-400 transition-colors">
-              Hệ Thống Rank
-            </a>
-            <a href="#gears" className="hover:text-cyan-400 transition-colors">
-              Trang Bị MMO
-            </a>
-            <a href="#economy" className="hover:text-cyan-400 transition-colors">
-              Bán Quặng Bang
-            </a>
-            <a href="#faq" className="hover:text-cyan-400 transition-colors">
-              FAQ
-            </a>
-            <a href="#community" className="hover:text-cyan-400 transition-colors">
-              Cộng Đồng
-            </a>
+            {siteConfig.navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="hover:text-cyan-400 transition-colors">
+                {link.name}
+              </a>
+            ))}
           </nav>
 
           {/* Live Status Pill & Actions */}
@@ -112,7 +99,7 @@ export default function Navbar() {
             {/* Copy IP Button */}
             <button
               onClick={handleCopyIp}
-              aria-label="Copy IP mc.aethermines.com"
+              aria-label={`Copy IP ${siteConfig.serverIp}`}
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_30px_rgba(0,240,255,0.8)] hover:scale-105 transition-all"
             >
               {copied ? (
@@ -153,24 +140,16 @@ export default function Navbar() {
               <span>NẠP XU TỰ ĐỘNG</span>
             </button>
 
-            <a href="#features" onClick={() => setMobileMenuOpen(false)} className="hover:text-cyan-400">
-              Tính Năng
-            </a>
-            <a href="#ranks" onClick={() => setMobileMenuOpen(false)} className="hover:text-cyan-400">
-              Hệ Thống Rank
-            </a>
-            <a href="#gears" onClick={() => setMobileMenuOpen(false)} className="hover:text-cyan-400">
-              Trang Bị MMO
-            </a>
-            <a href="#economy" onClick={() => setMobileMenuOpen(false)} className="hover:text-cyan-400">
-              Bán Quặng Bang
-            </a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="hover:text-cyan-400">
-              FAQ
-            </a>
-            <a href="#community" onClick={() => setMobileMenuOpen(false)} className="hover:text-cyan-400">
-              Cộng Đồng
-            </a>
+            {siteConfig.navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="hover:text-cyan-400"
+              >
+                {link.name}
+              </a>
+            ))}
 
             <div className="pt-4 border-t border-slate-800 flex flex-col gap-3">
               <div className="flex items-center justify-between text-xs font-mono bg-slate-900/80 px-4 py-2 rounded-lg border border-cyan-500/30">
@@ -186,7 +165,7 @@ export default function Navbar() {
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm uppercase shadow-[0_0_20px_rgba(0,240,255,0.5)]"
               >
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                <span>{copied ? 'ĐÃ COPY IP' : `COPY IP: ${serverIp}`}</span>
+                <span>{copied ? 'ĐÃ COPY IP' : `COPY IP: ${siteConfig.serverIp}`}</span>
               </button>
             </div>
           </div>
@@ -198,4 +177,3 @@ export default function Navbar() {
     </>
   );
 }
-

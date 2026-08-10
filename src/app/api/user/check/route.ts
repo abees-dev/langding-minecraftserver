@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import pool from '@/lib/db';
-import { RowDataPacket } from 'mysql2';
+import { findUserByUsername } from '@/services/userService';
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,22 +14,12 @@ export async function GET(request: NextRequest) {
     }
 
     try {
-      // Query database kiểm tra username
-      const [rows] = await pool.execute<RowDataPacket[]>(
-        'SELECT id, username, realname, point FROM users WHERE LOWER(username) = LOWER(?) LIMIT 1',
-        [username]
-      );
+      const user = await findUserByUsername(username);
 
-      if (rows.length > 0) {
-        const user = rows[0];
+      if (user) {
         return NextResponse.json({
           exists: true,
-          user: {
-            id: user.id,
-            username: user.username,
-            realname: user.realname,
-            point: user.point || 0,
-          },
+          user,
         });
       } else {
         return NextResponse.json({

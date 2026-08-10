@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import pool from '@/lib/db';
-import { RowDataPacket } from 'mysql2';
+import { getDepositByOrderCode } from '@/services/depositService';
 
 export async function GET(
   request: NextRequest,
@@ -15,13 +14,9 @@ export async function GET(
     }
 
     try {
-      const [rows] = await pool.execute<RowDataPacket[]>(
-        'SELECT order_code, username, amount, point_received, status, created_at FROM transactions WHERE order_code = ? LIMIT 1',
-        [orderCode]
-      );
+      const tx = await getDepositByOrderCode(orderCode);
 
-      if (rows.length > 0) {
-        const tx = rows[0];
+      if (tx) {
         return NextResponse.json({
           success: true,
           orderCode: tx.order_code,

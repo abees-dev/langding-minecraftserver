@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import pool from '@/lib/db';
-import { RowDataPacket, ResultSetHeader } from 'mysql2';
 import crypto from 'crypto';
 import { payos, isPayOSConfigured } from '@/lib/payos';
 import { calculatePointReceived, getMinDepositAmount } from '@/lib/point';
+import { findUserByUsername } from '@/services/userService';
+import { createDepositRecord } from '@/services/depositService';
 
 const BANK_CONFIG = {
   bankId: process.env.BANK_ID || 'MB',
@@ -69,20 +69,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 1. Kiểm tra username tồn tại trong DB bảng `users`
-    let userExists = false;
+    // 1. Kiểm tra username tồn tại trong DB
     let actualUsername = trimmedUsername;
-
     try {
-      const [rows] = await pool.execute<RowDataPacket[]>(
-        'SELECT id, username FROM users WHERE LOWER(username) = LOWER(?) LIMIT 1',
-        [trimmedUsername]
-      );
-
-      if (rows.length > 0) {
-        userExists = true;
-        actualUsername = rows[0].username;
+      const user = await findUserByUsername(trimmedUsername);
+      if (!user) {
+        return NextResponse.json(
+          {
+            success: false,
+            message: `Tài khoản "${trimmedUsername}" không tồn tại trong hệ thống! Không thể tạo mã QR. Vui lòng tham gia server game để khởi tạo nhân vật.`,
+          },
+          { status: 400 }
+        );
       }
+      actualUsername = user.username;
     } catch (dbErr: any) {
       console.error('[DB User Check Error]:', dbErr?.message);
       return NextResponse.json(
@@ -94,16 +94,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!userExists) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: `Tài khoản "${trimmedUsername}" không tồn tại trong hệ thống! Không thể tạo mã QR. Vui lòng tham gia server game để khởi tạo nhân vật.`,
-        },
-        { status: 400 }
-      );
-    }
-
     const pointReceived = calculatePointReceived(numAmount);
     let orderCodeStr = '';
     let numericOrderCode = 0;
@@ -112,7 +102,7 @@ export async function POST(request: NextRequest) {
 
     const usePayOS = isPayOSConfigured;
 
-    // 2. Thử sinh mã và Insert vào DB với vòng lặp Retry tự động nếu bị trùng (ER_DUP_ENTRY)
+    // 2. Thử sinh mã và Insert vào DB với vòng lặp Retry tự động nếu bị trùng
     while (!inserted && attempts < 5) {
       attempts++;
       if (usePayOS) {
@@ -123,19 +113,13 @@ export async function POST(request: NextRequest) {
       }
 
       try {
-        await pool.execute<ResultSetHeader>(
-          `INSERT INTO transactions (order_code, username, amount, point_received, status, payment_method, description) 
-           VALUES (?, ?, ?, ?, 'PENDING', ?, ?)`,
-          [
-            orderCodeStr,
-            actualUsername,
-            numAmount,
-            pointReceived,
-            usePayOS ? 'PAYOS' : 'VIETQR',
-            `Nap Point ${orderCodeStr} cho ${actualUsername}`,
-          ]
+        inserted = await createDepositRecord(
+          orderCodeStr,
+          actualUsername,
+          numAmount,
+          pointReceived,
+          usePayOS ? 'PAYOS' : 'VIETQR'
         );
-        inserted = true;
       } catch (insertErr: any) {
         if (insertErr?.code === 'ER_DUP_ENTRY' || insertErr?.errno === 1062) {
           console.warn(`[OrderCode Collision Warning]: Trùng mã ${orderCodeStr}, đang thử lại lần ${attempts + 1}...`);
@@ -177,12 +161,8 @@ export async function POST(request: NextRequest) {
           returnUrl: `${origin}/topup?status=success`,
         });
 
-        console.log("paymentLink: ", JSON.stringify(paymentLink))
-
         checkoutUrl = paymentLink.checkoutUrl;
 
-        // PayOS paymentLink.qrCode trả về chuỗi văn bản EMVCo VietQR (ví dụ: "000201010212385...")
-        // Cần tạo URL ảnh QR (api.qrserver.com hoặc img.vietqr.io) để thẻ <img> hiển thị đúng
         if (paymentLink.qrCode) {
           qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(paymentLink.qrCode)}`;
         } else {
@@ -199,13 +179,11 @@ export async function POST(request: NextRequest) {
         };
       } catch (payosErr: any) {
         console.error('[PayOS Create Payment Error]:', payosErr);
-        // Fallback VietQR nếu gọi API PayOS gặp lỗi
         const addInfo = encodeURIComponent(fullOrderCode);
         const accountName = encodeURIComponent(BANK_CONFIG.accountName);
         qrCodeUrl = `https://img.vietqr.io/image/${BANK_CONFIG.bankId}-${BANK_CONFIG.accountNo}-${BANK_CONFIG.template}.png?amount=${numAmount}&addInfo=${addInfo}&accountName=${accountName}`;
       }
     } else {
-      // Mặc định VietQR fallback khi chưa nhập chìa khóa PayOS trong .env
       const addInfo = encodeURIComponent(fullOrderCode);
       const accountName = encodeURIComponent(BANK_CONFIG.accountName);
       qrCodeUrl = `https://img.vietqr.io/image/${BANK_CONFIG.bankId}-${BANK_CONFIG.accountNo}-${BANK_CONFIG.template}.png?amount=${numAmount}&addInfo=${addInfo}&accountName=${accountName}`;

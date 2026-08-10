@@ -1,12 +1,13 @@
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import RankShowcase from "@/components/RankShowcase";
-import GearShowcase from "@/components/GearShowcase";
-import EconomySection from "@/components/EconomySection";
-import FaqSection from "@/components/FaqSection";
-import CommunitySection from "@/components/CommunitySection";
-import Footer from "@/components/Footer";
+import { Navbar, Footer } from '@/components/layout';
+import {
+  HeroSection,
+  FeaturesSection,
+  RankShowcase,
+  GearShowcase,
+  EconomySection,
+  FaqSection,
+  CommunitySection,
+} from '@/components/sections';
 
 export default function Home() {
   return (

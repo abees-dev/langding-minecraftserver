@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coins, ShieldAlert, ArrowRight, TrendingUp, Users, User, Flame } from 'lucide-react';
+import { Coins, ArrowRight, TrendingUp, Users, User, Flame } from 'lucide-react';
 
 export default function EconomySection() {
   const orePrices = [

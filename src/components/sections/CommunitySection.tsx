@@ -1,5 +1,6 @@
 import React from 'react';
-import { MessageSquare, Share2, Users, ArrowUpRight, Globe } from 'lucide-react';
+import { MessageSquare, Users, ArrowUpRight } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 
 export default function CommunitySection() {
   return (
@@ -26,7 +27,7 @@ export default function CommunitySection() {
           {/* Social Links */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://discord.gg/mvRcGjDHVm"
+              href={siteConfig.social.discord}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(79,70,229,0.5)] hover:shadow-[0_0_35px_rgba(79,70,229,0.8)] hover:scale-105 transition-all"
@@ -37,7 +38,7 @@ export default function CommunitySection() {
             </a>
 
             <a
-              href="https://facebook.com/aethermine"
+              href={siteConfig.social.facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(37,99,235,0.8)] hover:scale-105 transition-all"

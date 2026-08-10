@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pickaxe, Shield, Gem, Zap, Crown, Swords, Skull, Flame } from 'lucide-react';
+import { Pickaxe, Shield, Gem, Zap, Crown, Skull } from 'lucide-react';
 
 export default function FeaturesSection() {
   const features = [

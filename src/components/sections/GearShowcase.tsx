@@ -1,52 +1,9 @@
 import React from 'react';
-import { Flame, Shield, Zap, Sparkles, Gem, ArrowUpRight } from 'lucide-react';
+import { Sparkles, Gem, ArrowUpRight } from 'lucide-react';
+import { GEAR_SETS } from '@/constants/gear';
+import { siteConfig } from '@/config/site';
 
 export default function GearShowcase() {
-  const gearSets = [
-    {
-      name: 'BỘ BĂNG LONG',
-      type: 'Bộ Trang Bị Tinh Luyện',
-      badge: 'TRADE / CRAFT',
-      color: 'from-cyan-500 to-blue-600',
-      border: 'border-cyan-500/40',
-      glow: 'shadow-[0_0_20px_rgba(0,240,255,0.2)]',
-      items: ['Nón Băng Long', 'Giáp Ngực Băng Long', 'Quần Băng Long', 'Giày Băng Long', 'Kiếm Băng Long'],
-    },
-    {
-      name: 'BỘ HỎA LONG',
-      type: 'Bộ Trang Bị Hỏa Hệ',
-      badge: 'HIGH DPS',
-      color: 'from-pink-500 to-rose-600',
-      border: 'border-pink-500/40',
-      glow: 'shadow-[0_0_20px_rgba(255,0,127,0.2)]',
-      items: ['Nón Hỏa Long', 'Giáp Ngực Hỏa Long', 'Quần Hỏa Long', 'Giày Hỏa Long', 'Kiếm Hỏa Long'],
-    },
-    {
-      name: 'BỘ LONG CHIẾN',
-      type: 'Bộ Đồ Donate / Boss Drop',
-      badge: 'LEGENDARY',
-      color: 'from-amber-400 to-orange-600',
-      border: 'border-amber-500/40',
-      glow: 'shadow-[0_0_20px_rgba(255,183,0,0.2)]',
-      items: ['Nón Long Chiến', 'Giáp Ngực Long Chiến', 'Quần Long Chiến', 'Giày Long Chiến', 'Kiếm Long Chiến'],
-    },
-    {
-      name: 'PHỤ KIỆN LONG TỘC',
-      type: 'Trang Sức 5 Món',
-      badge: 'STATS BOOST',
-      color: 'from-purple-500 to-indigo-600',
-      border: 'border-purple-500/40',
-      glow: 'shadow-[0_0_20px_rgba(168,85,247,0.2)]',
-      items: ['Dây Chuyền Long Tộc (Amulet)', 'Nhẫn Long Tộc (Ring 1 & 2)', 'Vòng Tay (Bracelet)', 'Găng Tay (Gloves)'],
-    },
-  ];
-
-  const upgradeMaterials = [
-    'Đá Cường Hóa Vũ Khí / Giáp (Sơ - Trung - Cao - Siêu Cap - Huyền Thoại)',
-    'Đá Đục Lỗ Khảm Ngọc (Lỗ 1 đến Lỗ 7)',
-    'Đá Chuyển Sinh & Mảnh Huy Hiệu Triệu Hồi Boss',
-  ];
-
   return (
     <section id="gears" className="py-24 px-4 relative z-10 max-w-7xl mx-auto">
       {/* Section Header */}
@@ -64,7 +21,7 @@ export default function GearShowcase() {
 
       {/* Gear Sets Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {gearSets.map((set, idx) => (
+        {GEAR_SETS.map((set, idx) => (
           <div
             key={idx}
             className={`glass-card p-6 rounded-2xl border ${set.border} ${set.glow} flex flex-col justify-between hover:scale-105 transition-transform duration-300`}
@@ -120,7 +77,7 @@ export default function GearShowcase() {
         </div>
 
         <a
-          href="https://discord.gg/mvRcGjDHVm"
+          href={siteConfig.social.discord}
           target="_blank"
           rel="noopener noreferrer"
           className="px-6 py-3 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shrink-0 hover:bg-amber-400 shadow-[0_0_15px_rgba(255,183,0,0.5)] transition-all"

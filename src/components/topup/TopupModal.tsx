@@ -1,13 +1,12 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { StepType, QrData, TopupModalProps } from './topup/types';
-import TopupHeader from './topup/TopupHeader';
-import TopupFormStep from './topup/TopupFormStep';
-import TopupQrStep from './topup/TopupQrStep';
-import TopupSuccessStep from './topup/TopupSuccessStep';
-import TopupFailedStep from './topup/TopupFailedStep';
-
+import { StepType, QrData, TopupModalProps } from '@/types/topup';
+import TopupHeader from './TopupHeader';
+import TopupFormStep from './TopupFormStep';
+import TopupQrStep from './TopupQrStep';
+import TopupSuccessStep from './TopupSuccessStep';
+import TopupFailedStep from './TopupFailedStep';
 import { getMinDepositAmount } from '@/lib/point';
 
 const PRESET_AMOUNTS = [10000, 20000, 50000, 100000, 200000];

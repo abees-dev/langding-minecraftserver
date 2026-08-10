@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 
 export default function Footer() {
   const [copied, setCopied] = useState(false);
-  const serverIp = 'mc.aethermines.com';
 
   const handleCopyIp = () => {
-    navigator.clipboard.writeText(serverIp);
+    navigator.clipboard.writeText(siteConfig.serverIp);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -25,7 +25,7 @@ export default function Footer() {
     'Server Minecraft 1.19+',
     'KOTH Minecraft Viet Nam',
     'Top Server Minecraft',
-    'mc.aethermines.com',
+    siteConfig.serverIp,
   ];
 
   return (
@@ -37,8 +37,8 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl overflow-hidden border border-cyan-500/50 p-[1px] bg-slate-900 shadow-[0_0_15px_rgba(0,240,255,0.4)]">
                 <img
-                  src="/logo.png"
-                  alt="AetherMine Logo"
+                  src={siteConfig.logoUrl}
+                  alt={`${siteConfig.name} Logo`}
                   className="w-full h-full object-cover rounded-[10px]"
                 />
               </div>
@@ -48,18 +48,18 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-400 leading-relaxed max-w-md">
-              AetherMine RPG là máy chủ Minecraft Việt Nam thế hệ mới (IP: <code className="text-cyan-300 font-mono">mc.aethermines.com</code>). Đem tới trải nghiệm đào quặng hấp dẫn, tinh luyện giáp MMOItems Long Tộc, đại chiến Bang Hội và Chuyển Sinh bứt phá sức mạnh.
+              AetherMine RPG là máy chủ Minecraft Việt Nam thế hệ mới (IP: <code className="text-cyan-300 font-mono">{siteConfig.serverIp}</code>). Đem tới trải nghiệm đào quặng hấp dẫn, tinh luyện giáp MMOItems Long Tộc, đại chiến Bang Hội và Chuyển Sinh bứt phá sức mạnh.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
               <span className="text-slate-400 font-mono">IP SERVER MINECRAFT:</span>
               <button
                 onClick={handleCopyIp}
-                aria-label="Sao chép IP mc.aethermines.com"
+                aria-label={`Sao chép IP ${siteConfig.serverIp}`}
                 className="px-3 py-1.5 rounded-lg bg-slate-900 border border-cyan-500/40 text-cyan-300 font-mono font-bold flex items-center gap-2 hover:bg-cyan-950/60 transition-colors"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{serverIp}</span>
+                <span>{siteConfig.serverIp}</span>
               </button>
             </div>
           </div>
@@ -70,11 +70,13 @@ export default function Footer() {
               DANH MỤC TRANG
             </h4>
             <ul className="space-y-2.5 font-medium">
-              <li><a href="#features" className="hover:text-cyan-400 transition-colors">Tính Năng Cốt Lõi</a></li>
-              <li><a href="#ranks" className="hover:text-cyan-400 transition-colors">Hệ Thống Rank & VIP</a></li>
-              <li><a href="#gears" className="hover:text-cyan-400 transition-colors">Trang Bị Long Tộc</a></li>
-              <li><a href="#economy" className="hover:text-cyan-400 transition-colors">Bán Quặng Bang Hội</a></li>
-              <li><a href="#faq" className="hover:text-cyan-400 transition-colors">Câu Hỏi Thường Gặp</a></li>
+              {siteConfig.navLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="hover:text-cyan-400 transition-colors">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -95,7 +97,7 @@ export default function Footer() {
 
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-[11px]">
-          <p>© {new Date().getFullYear()} AetherMine Minecraft RPG Server (mc.aethermines.com). All rights reserved. Not affiliated with Mojang Studios.</p>
+          <p>© {new Date().getFullYear()} {siteConfig.fullName} ({siteConfig.serverIp}). All rights reserved. Not affiliated with Mojang Studios.</p>
           <p className="flex items-center gap-1">
             Optimized for Search Engines (SEO Top 1)
           </p>

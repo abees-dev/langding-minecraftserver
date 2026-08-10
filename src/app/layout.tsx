@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Rajdhani, Inter } from "next/font/google";
 import "./globals.css";
-import JsonLd from "@/components/JsonLd";
+import { JsonLd } from "@/components/layout";
+import { siteConfig } from "@/config/site";
 
 const rajdhani = Rajdhani({
   subsets: ["latin"],
@@ -22,9 +23,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "AetherMine | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: mc.aethermines.com)",
+  title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: ${siteConfig.serverIp})`,
   description:
-    "Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: mc.aethermines.com). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP & Chuyển Sinh thuộc tính!",
+    `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP & Chuyển Sinh thuộc tính!`,
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
 
     // Brand & IP Direct Queries
     "aethermines.com",
-    "mc.aethermines.com",
+    siteConfig.serverIp,
     "aethermine",
     "aethermines",
     "aethermine minecraft",
@@ -75,34 +76,34 @@ export const metadata: Metadata = {
     "boss dungeon minecraft",
     "tro choi minecraft tieng viet",
   ],
-  authors: [{ name: "AetherMine Studio", url: "https://aethermines.com" }],
-  creator: "AetherMine Studio",
-  publisher: "AetherMine Studio",
-  metadataBase: new URL("https://aethermines.com"),
+  authors: [{ name: siteConfig.author, url: siteConfig.websiteUrl }],
+  creator: siteConfig.author,
+  publisher: siteConfig.author,
+  metadataBase: new URL(siteConfig.websiteUrl),
   alternates: {
-    canonical: "https://aethermines.com",
+    canonical: siteConfig.websiteUrl,
     languages: {
-      "vi-VN": "https://aethermines.com",
+      "vi-VN": siteConfig.websiteUrl,
     },
   },
   openGraph: {
-    title: "AetherMine | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: mc.aethermines.com)",
+    title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: ${siteConfig.serverIp})`,
     description:
-      "Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: mc.aethermines.com). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc & Bang Hội KOTH!",
-    url: "https://aethermines.com",
-    siteName: "AetherMine Minecraft RPG Server",
+      `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện MMOItems Long Tộc & Bang Hội KOTH!`,
+    url: siteConfig.websiteUrl,
+    siteName: siteConfig.fullName,
     images: [
       {
-        url: "https://aethermines.com/og-image.png",
+        url: siteConfig.bannerUrl,
         width: 1200,
         height: 630,
-        alt: "AetherMine Minecraft RPG Server Banner",
+        alt: `${siteConfig.fullName} Banner`,
       },
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AetherMine Minecraft RPG Server Banner",
+        alt: `${siteConfig.fullName} Banner`,
       },
     ],
     locale: "vi_VN",
@@ -110,10 +111,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AetherMine | Top 1 Server Minecraft RPG Việt Nam (IP: mc.aethermines.com)",
+    title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam (IP: ${siteConfig.serverIp})`,
     description:
-      "Máy chủ Minecraft RPG thế hệ mới tại Việt Nam (IP: mc.aethermines.com). Đào quặng, săn Boss Dungeon, chế đồ MMOItems & Chuyển sinh!",
-    images: ["https://aethermines.com/og-image.png"],
+      `Máy chủ Minecraft RPG thế hệ mới tại Việt Nam (IP: ${siteConfig.serverIp}). Đào quặng, săn Boss Dungeon, chế đồ MMOItems & Chuyển sinh!`,
+    images: [siteConfig.bannerUrl],
   },
   robots: {
     index: true,
