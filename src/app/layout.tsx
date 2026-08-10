@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Be_Vietnam_Pro } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { JsonLd } from "@/components/layout";
 import { siteConfig } from "@/config/site";
@@ -133,6 +135,7 @@ export default function RootLayout({
       <body className="bg-[#070913] text-slate-100 min-h-screen antialiased bg-cyber-grid font-sans tracking-wide">
         <JsonLd />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
