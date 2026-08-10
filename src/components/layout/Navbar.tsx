@@ -29,10 +29,10 @@ export default function Navbar() {
         if (data.online && data.players) {
           setOnlinePlayers(data.players.online);
         } else {
-          setOnlinePlayers(128); // Fallback representative count if offline/mock
+          setOnlinePlayers(0); // Fallback representative count if offline/mock
         }
       })
-      .catch(() => setOnlinePlayers(128));
+      .catch(() => setOnlinePlayers(0));
   }, []);
 
   const handleCopyIp = () => {
@@ -44,11 +44,10 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
             ? 'bg-[#070913]/90 backdrop-blur-md border-b border-cyan-500/20 py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.8)]'
             : 'bg-transparent py-3 sm:py-4'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Brand Logo with Custom Logo Image */}
