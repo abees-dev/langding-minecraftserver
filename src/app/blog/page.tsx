@@ -85,13 +85,13 @@ export default function BlogListingPage() {
 
       <Navbar />
 
-      <main className="flex-1 pt-28 pb-20 relative">
+      <main className="flex-1 pt-20 sm:pt-24 pb-14 relative">
         {/* Ambient Glow background */}
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-cyan-500/10 via-purple-500/5 to-transparent blur-[140px] pointer-events-none" />
+        <div className="absolute top-16 left-1/2 -translate-x-1/2 w-full max-w-7xl h-72 bg-gradient-to-b from-cyan-500/10 via-purple-500/5 to-transparent blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Breadcrumb Navigation */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4 sm:mb-6">
             <Link href="/" className="hover:text-cyan-400 flex items-center gap-1">
               <Home className="w-3.5 h-3.5" />
               Trang Chủ
@@ -101,25 +101,25 @@ export default function BlogListingPage() {
           </nav>
 
           {/* Hero Header */}
-          <div className="mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-4">
+          <div className="mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3">
               <Newspaper className="w-3.5 h-3.5" />
               <span>AETHERMINE CHÍNH THỨC</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-wide uppercase">
               TIN TỨC & <span className="glow-text-cyan">BLOG AETHERMINE</span>
             </h1>
-            <p className="text-slate-300 text-base max-w-2xl mt-3 leading-relaxed">
+            <p className="text-slate-300 text-sm sm:text-base max-w-2xl mt-2 leading-relaxed">
               Khám phá các bài viết cập nhật tính năng mới, bài viết hướng dẫn bí kíp cày cuốc Minecraft RPG và toàn bộ thông tin máy chủ AetherMine.
             </p>
           </div>
 
           {/* Featured Post Card */}
           {featuredPost && (
-            <div className="mb-14">
-              <div className="flex items-center gap-2 mb-4 text-xs font-mono text-slate-400">
+            <div className="mb-8 sm:mb-10">
+              <div className="flex items-center gap-2 mb-3 text-xs font-mono text-slate-400">
                 <BookOpen className="w-4 h-4 text-cyan-400" />
-                <span>BÀI VIẾT TẬP TRUNG / NỔI BẬT</span>
+                <span>BÀI VIẾT NỔI BẬT</span>
               </div>
               <BlogCard post={featuredPost} featured={true} />
             </div>

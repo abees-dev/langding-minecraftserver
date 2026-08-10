@@ -1,18 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Rajdhani, Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 
-const rajdhani = Rajdhani({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-rajdhani",
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-jakarta",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-be-vietnam",
 });
 
 export const viewport: Viewport = {
@@ -35,7 +36,6 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   keywords: [
-    // Minecraft RPG & Vietnam Queries
     "minecraft rpg",
     "server minecraft rpg",
     "minecraft rpg viet nam",
@@ -46,8 +46,6 @@ export const metadata: Metadata = {
     "minecraft rpg 1.19",
     "minecraft rpg 1.20",
     "minecraft rpg 1.21",
-
-    // Brand & IP Direct Queries
     "aethermines.com",
     siteConfig.serverIp,
     "aethermine",
@@ -56,23 +54,18 @@ export const metadata: Metadata = {
     "ip server minecraft",
     "ip server minecraft viet nam",
     "tim ip server minecraft",
-
-    // General Minecraft Vietnam Queries
     "server minecraft viet nam",
     "top server minecraft viet nam",
     "server minecraft hay nhat viet nam",
     "server minecraft online viet nam",
     "server minecraft choi pc",
     "ip minecraft viet nam",
-
-    // Specific Gameplay Queries
     "server minecraft dao quang",
     "dao quang minecraft",
     "bang hoi minecraft viet nam",
     "koth minecraft viet nam",
     "trang bi long toc minecraft",
     "chuyen sinh minecraft",
-    "trang bi long toc minecraft",
     "boss dungeon minecraft",
     "tro choi minecraft tieng viet",
   ],
@@ -136,8 +129,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${rajdhani.variable} ${inter.variable} scroll-smooth`}>
-      <body className="bg-[#070913] text-slate-100 min-h-screen antialiased bg-cyber-grid">
+    <html lang="vi" className={`${jakarta.variable} ${beVietnamPro.variable} scroll-smooth`}>
+      <body className="bg-[#070913] text-slate-100 min-h-screen antialiased bg-cyber-grid font-sans tracking-wide">
         <JsonLd />
         {children}
       </body>

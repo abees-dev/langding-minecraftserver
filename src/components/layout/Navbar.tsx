@@ -46,14 +46,14 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#070913]/90 backdrop-blur-md border-b border-cyan-500/20 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)]'
-            : 'bg-transparent py-5'
+            ? 'bg-[#070913]/90 backdrop-blur-md border-b border-cyan-500/20 py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.8)]'
+            : 'bg-transparent py-3 sm:py-4'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Brand Logo with Custom Logo Image */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-500/50 p-[1px] bg-slate-900 shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] transition-all">
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-cyan-500/50 p-[1px] bg-slate-900 shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] transition-all">
               <img
                 src={siteConfig.logoUrl}
                 alt={`${siteConfig.name} Server Logo`}
@@ -61,39 +61,39 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-wider glow-text-cyan uppercase">
+              <span className="font-extrabold text-lg tracking-wider glow-text-cyan uppercase">
                 AETHER<span className="text-pink-500 glow-text-magenta">MINE</span>
               </span>
-              <span className="text-[10px] tracking-[0.2em] text-cyan-300 font-mono -mt-1 uppercase">
+              <span className="text-[9px] tracking-[0.2em] text-cyan-300 font-mono -mt-1 uppercase">
                 MINECRAFT RPG
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6 font-semibold text-xs lg:text-sm text-slate-300">
             {siteConfig.navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-cyan-400 transition-colors">
+              <Link key={link.href} href={link.href} className="hover:text-cyan-400 transition-colors whitespace-nowrap">
                 {link.name}
               </Link>
             ))}
           </nav>
 
           {/* Live Status Pill & Actions */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2.5 shrink-0">
             {/* Nạp Xu Button */}
             <button
               onClick={() => setTopupModalOpen(true)}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,157,0.4)] hover:shadow-[0_0_30px_rgba(0,255,157,0.8)] hover:scale-105 transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-400 text-slate-950 font-extrabold text-[11px] uppercase tracking-wider shadow-[0_0_15px_rgba(0,255,157,0.4)] hover:shadow-[0_0_25px_rgba(0,255,157,0.8)] hover:scale-105 transition-all"
             >
-              <QrCode className="w-4 h-4 text-slate-950" />
+              <QrCode className="w-3.5 h-3.5 text-slate-950" />
               <span>NẠP POINT</span>
             </button>
 
             {/* Online Counter Badge */}
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs font-mono">
+            <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] font-mono">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#00ff9d]" />
-              <span className="text-slate-300">ONLINE:</span>
+              <span className="text-slate-400">ONLINE:</span>
               <span className="text-emerald-400 font-bold">{onlinePlayers !== null ? onlinePlayers : '...'}</span>
             </div>
 
@@ -101,16 +101,16 @@ export default function Navbar() {
             <button
               onClick={handleCopyIp}
               aria-label={`Copy IP ${siteConfig.serverIp}`}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_30px_rgba(0,240,255,0.8)] hover:scale-105 transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-[11px] uppercase tracking-wider shadow-[0_0_15px_rgba(0,240,255,0.4)] hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] hover:scale-105 transition-all"
             >
               {copied ? (
                 <>
-                  <Check className="w-4 h-4 text-slate-950" />
-                  <span>ĐÃ COPY IP!</span>
+                  <Check className="w-3.5 h-3.5 text-slate-950" />
+                  <span>ĐÃ COPY!</span>
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4 text-slate-950" />
+                  <Copy className="w-3.5 h-3.5 text-slate-950" />
                   <span>COPY IP</span>
                 </>
               )}

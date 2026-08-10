@@ -163,13 +163,13 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
 
       <Navbar />
 
-      <main className="flex-1 pt-28 pb-20 relative">
+      <main className="flex-1 pt-20 sm:pt-24 pb-14 relative">
         {/* Ambient Gradients */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-72 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Navigation & Breadcrumbs */}
-          <div className="flex items-center justify-between gap-4 mb-6">
+          <div className="flex items-center justify-between gap-4 mb-5">
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-slate-400">
               <Link href="/" className="hover:text-cyan-400 flex items-center gap-1">
                 <Home className="w-3.5 h-3.5" />
@@ -195,8 +195,8 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
           </div>
 
           {/* Post Header */}
-          <header className="mb-8">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
+          <header className="mb-6">
+            <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 font-extrabold text-xs uppercase tracking-wider border border-cyan-500/40">
                 {post.category}
               </span>
@@ -207,11 +207,11 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
               )}
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-snug tracking-wide mb-3">
               {post.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono py-3 border-y border-slate-800/80">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-400 font-mono py-2.5 border-y border-slate-800/80">
               <span className="flex items-center gap-1.5 text-cyan-300 font-bold">
                 <User className="w-4 h-4 text-cyan-400" />
                 {post.author}
@@ -228,12 +228,12 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
           </header>
 
           {/* Cover Image Banner */}
-          <div className="relative rounded-3xl overflow-hidden mb-10 border border-cyan-500/30 shadow-[0_0_35px_rgba(0,240,255,0.15)]">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-8 border border-cyan-500/30 shadow-[0_0_25px_rgba(0,240,255,0.15)]">
             <img
               src={post.coverImage}
               alt={post.title}
               loading="eager"
-              className="w-full h-[320px] sm:h-[420px] object-cover"
+              className="w-full h-[220px] sm:h-[320px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#070913] via-transparent to-transparent opacity-60" />
           </div>

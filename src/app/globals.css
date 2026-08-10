@@ -15,9 +15,16 @@
 body {
   background-color: var(--bg-obsidian);
   color: var(--text-main);
-  font-family: 'Rajdhani', 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-jakarta), var(--font-be-vietnam), system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.02em;
+  word-spacing: 0.03em;
   overflow-x: hidden;
   position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-jakarta), var(--font-be-vietnam), system-ui, sans-serif;
+  letter-spacing: 0.03em;
 }
 
 /* Cyber Grid Background Effect */
