@@ -3,7 +3,7 @@ export const siteConfig = {
   fullName: 'AetherMine Minecraft RPG Server',
   serverIp: 'mc.aethermines.com',
   websiteUrl: 'https://aethermines.com',
-  bannerUrl: 'https://aethermines.com/og-image.png',
+  bannerUrl: '/banner.png',
   logoUrl: '/logo.png',
   author: 'AetherMine Studio',
   social: {
