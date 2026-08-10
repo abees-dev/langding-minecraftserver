@@ -11,11 +11,12 @@ export const siteConfig = {
     facebook: 'https://facebook.com/aethermine',
   },
   navLinks: [
-    { name: 'Tính Năng', href: '#features' },
-    { name: 'Hệ Thống Rank', href: '#ranks' },
-    { name: 'Trang Bị Long Tộc', href: '#gears' },
-    { name: 'Bán Quặng Bang', href: '#economy' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Cộng Đồng', href: '#community' },
+    { name: 'Tính Năng', href: '/#features' },
+    { name: 'Hệ Thống Rank', href: '/#ranks' },
+    { name: 'Trang Bị Long Tộc', href: '/#gears' },
+    { name: 'Bán Quặng Bang', href: '/#economy' },
+    { name: 'Blog & Tin Tức', href: '/blog' },
+    { name: 'FAQ', href: '/#faq' },
+    { name: 'Cộng Đồng', href: '/#community' },
   ],
 };

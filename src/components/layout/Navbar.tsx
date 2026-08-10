@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Copy, Check, Menu, X, QrCode } from 'lucide-react';
 import TopupModal from '../topup/TopupModal';
 import { siteConfig } from '@/config/site';
@@ -51,7 +52,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo with Custom Logo Image */}
-          <a href="#" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-500/50 p-[1px] bg-slate-900 shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] transition-all">
               <img
                 src={siteConfig.logoUrl}
@@ -67,14 +68,14 @@ export default function Navbar() {
                 MINECRAFT RPG
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
             {siteConfig.navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="hover:text-cyan-400 transition-colors">
+              <Link key={link.href} href={link.href} className="hover:text-cyan-400 transition-colors">
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -141,14 +142,14 @@ export default function Navbar() {
             </button>
 
             {siteConfig.navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="hover:text-cyan-400"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
 
             <div className="pt-4 border-t border-slate-800 flex flex-col gap-3">

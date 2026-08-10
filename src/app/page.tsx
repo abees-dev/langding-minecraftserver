@@ -5,6 +5,7 @@ import {
   RankShowcase,
   GearShowcase,
   EconomySection,
+  BlogSection,
   FaqSection,
   CommunitySection,
 } from '@/components/sections';
@@ -19,6 +20,7 @@ export default function Home() {
         <RankShowcase />
         <GearShowcase />
         <EconomySection />
+        <BlogSection />
         <FaqSection />
         <CommunitySection />
       </main>
