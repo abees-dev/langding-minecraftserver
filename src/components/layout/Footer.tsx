@@ -98,9 +98,6 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-[11px]">
           <p>© {new Date().getFullYear()} {siteConfig.fullName} ({siteConfig.serverIp}). All rights reserved. Not affiliated with Mojang Studios.</p>
-          <p className="flex items-center gap-1">
-            Optimized for Search Engines (SEO Top 1)
-          </p>
         </div>
       </div>
     </footer>
