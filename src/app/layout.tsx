@@ -131,11 +131,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${jakarta.variable} ${beVietnamPro.variable} scroll-smooth`}>
-      <body className="bg-[#070913] text-slate-100 min-h-screen antialiased bg-cyber-grid font-sans tracking-wide">
+    <html lang="vi" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body
+        className={`${jakarta.variable} ${beVietnamPro.variable} bg-[#070913] text-slate-100 min-h-screen antialiased bg-cyber-grid font-sans tracking-wide scroll-smooth`}
+      >
         <JsonLd />
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
