@@ -1,4 +1,4 @@
-import { Navbar, Footer } from '@/components/layout';
+import { Navbar, Footer, JsonLd } from '@/components/layout';
 import {
   HeroSection,
   FeaturesSection,
@@ -13,6 +13,7 @@ import {
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden selection:bg-cyan-500 selection:text-slate-950">
+      <JsonLd />
       <Navbar />
       <main>
         <HeroSection />

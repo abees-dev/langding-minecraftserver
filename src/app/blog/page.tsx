@@ -10,16 +10,16 @@ import Footer from '@/components/layout/Footer';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Blog & Tin Tức Server AetherMine | Hướng Dẫn Minecraft Prison RPG',
+  title: 'Blog & Tin Tức Server Minecraft Prison RPG',
   description:
-    'Tổng hợp bài viết thông tin máy chủ AetherMine, cẩm nang hướng dẫn tân thủ đào quặng, leo Rank Prison, nhật ký cập nhật Patch Notes v2.0 và sự kiện mới nhất.',
+    'Tổng hợp bài viết thông tin máy chủ AetherMine, cẩm nang hướng dẫn tân thủ đào quặng, leo Rank Prison, nhật ký cập nhật Patch Notes và sự kiện mới nhất.',
   keywords: [
     'Minecraft Blog',
     'AetherMine News',
     'Hướng dẫn Minecraft RPG',
     'Prison RPG Vietnam',
     'Rank Prison Minecraft',
-    'Server IP mc.aethermines.com',
+    `Server IP ${siteConfig.serverIp}`,
   ],
   alternates: {
     canonical: `${siteConfig.websiteUrl}/blog`,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog & Tin Tức Server AetherMine | Hướng Dẫn Minecraft Prison RPG',
     description:
-      'Tổng hợp bài viết thông tin máy chủ AetherMine, cẩm nang hướng dẫn tân thủ đào quặng, leo Rank Prison, nhật ký cập nhật Patch Notes v2.0.',
+      'Tổng hợp bài viết thông tin máy chủ AetherMine, cẩm nang hướng dẫn tân thủ đào quặng, leo Rank Prison, nhật ký cập nhật Patch Notes.',
     url: `${siteConfig.websiteUrl}/blog`,
     siteName: siteConfig.fullName,
     type: 'website',

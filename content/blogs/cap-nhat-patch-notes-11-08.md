@@ -1,10 +1,19 @@
 ---
-title: 'Nhật Ký Cập Nhật 11/08: Danh Hiệu /danhhieu, Vote Hàng Ngày & Online Time'
+title: 'Patch Notes AetherMine 11/08: Danh Hiệu /danhhieu, Vote & Online Time'
 date: '2026-08-11'
 author: 'Dev Team AetherMine'
 category: 'Patch Notes'
-tags: ['Update', 'Patch Notes', 'Danh Hiệu', 'Vote', 'Online Time', 'Chat']
-excerpt: 'Commit 11/08: kho danh hiệu /danhhieu, rank VIP một thang hiển thị, /vote streak, /onlinetime, chat LPC gradient và tinh chỉnh NPC sảnh.'
+tags:
+  [
+    'AetherMine',
+    'Patch Notes',
+    'Minecraft RPG',
+    'Danh Hiệu',
+    'Vote',
+    'Online Time',
+    'mc.aethermines.com',
+  ]
+excerpt: 'Nhật ký cập nhật AetherMine 11/08: kho danh hiệu /danhhieu, rank VIP một thang, /vote streak, /onlinetime, chat LPC gradient — sẵn sàng Open 15/08 tại mc.aethermines.com.'
 coverImage: '/images/blogs/patch-notes.png'
 featured: false
 ---

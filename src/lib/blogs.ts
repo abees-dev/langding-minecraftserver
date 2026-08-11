@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import html from 'remark-html';
+import { siteConfig } from '@/config/site';
 
 export interface BlogPost {
   slug: string;
@@ -20,6 +21,36 @@ export interface BlogPost {
 }
 
 const blogsDirectory = path.join(process.cwd(), 'content/blogs');
+
+/**
+ * Absolute URL for OG/JSON-LD (keeps external https URLs as-is).
+ */
+export function absoluteAssetUrl(pathOrUrl: string): string {
+  if (/^https?:\/\//i.test(pathOrUrl)) {
+    return pathOrUrl;
+  }
+  return new URL(pathOrUrl, siteConfig.websiteUrl).toString();
+}
+
+/**
+ * Demote every markdown heading by +1 so the page H1 (post title) stays unique.
+ * Caps at depth 6.
+ */
+function demoteHeadings() {
+  return (tree: { type?: string; depth?: number; children?: unknown[] }) => {
+    const visit = (node: { type?: string; depth?: number; children?: unknown[] }) => {
+      if (node.type === 'heading' && typeof node.depth === 'number') {
+        node.depth = Math.min(node.depth + 1, 6);
+      }
+      if (Array.isArray(node.children)) {
+        for (const child of node.children) {
+          visit(child as { type?: string; depth?: number; children?: unknown[] });
+        }
+      }
+    };
+    visit(tree);
+  };
+}
 
 /**
  * Tính thời gian đọc ước tính dựa trên số từ
@@ -75,6 +106,30 @@ export function getAllPosts(): BlogPost[] {
 }
 
 /**
+ * Bài liên quan: ưu tiên cùng category / tags, fallback bài mới nhất.
+ */
+export function getRelatedPosts(
+  post: BlogPost,
+  allPosts: BlogPost[] = getAllPosts(),
+  limit = 3,
+): BlogPost[] {
+  return allPosts
+    .filter((p) => p.slug !== post.slug)
+    .map((candidate) => {
+      let score = 0;
+      if (candidate.category === post.category) score += 3;
+      score += candidate.tags.filter((tag) => post.tags.includes(tag)).length;
+      return { candidate, score };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.candidate.date < b.candidate.date ? 1 : -1;
+    })
+    .slice(0, limit)
+    .map(({ candidate }) => candidate);
+}
+
+/**
  * Lấy nội dung bài viết theo Slug và chuyển Markdown sang HTML
  */
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
@@ -89,6 +144,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 
     // Chuyển đổi Markdown thành HTML string (kèm plugin remarkGfm để hỗ trợ Table/GFM)
     const processedContent = await remark()
+      .use(demoteHeadings)
       .use(remarkGfm)
       .use(html, { sanitize: false })
       .process(matterResult.content);

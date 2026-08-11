@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Be_Vietnam_Pro } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import { JsonLd } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -26,7 +25,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: ${siteConfig.serverIp})`,
+  title: {
+    default: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: ${siteConfig.serverIp})`,
+    template: `%s | ${siteConfig.name}`,
+  },
   description:
     `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện trang bị Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP & Chuyển Sinh thuộc tính!`,
   icons: {
@@ -138,7 +140,6 @@ export default function RootLayout({
       <body
         className={`${jakarta.variable} ${beVietnamPro.variable} bg-[#070913] text-slate-100 min-h-screen antialiased bg-cyber-grid font-sans tracking-wide scroll-smooth`}
       >
-        <JsonLd />
         {children}
         <SpeedInsights />
         <Analytics />

@@ -13,7 +13,7 @@ import {
   Sparkles,
   Gamepad2,
 } from 'lucide-react';
-import { getPostBySlug, getAllPosts } from '@/lib/blogs';
+import { getPostBySlug, getAllPosts, getRelatedPosts, absoluteAssetUrl } from '@/lib/blogs';
 import BlogCard from '@/components/blog/BlogCard';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -25,6 +25,10 @@ interface BlogPostPageProps {
   }>;
 }
 
+export async function generateStaticParams() {
+  return getAllPosts().map((post) => ({ slug: post.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
@@ -33,14 +37,15 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: 'Bài viết không tồn tại | AetherMine',
+      title: 'Bài viết không tồn tại',
     };
   }
 
   const postUrl = `${siteConfig.websiteUrl}/blog/${post.slug}`;
+  const coverImage = absoluteAssetUrl(post.coverImage);
 
   return {
-    title: `${post.title} | Blog AetherMine RPG`,
+    title: post.title,
     description: post.excerpt,
     keywords: [
       post.title,
@@ -48,7 +53,7 @@ export async function generateMetadata({
       ...post.tags,
       'AetherMine',
       'Minecraft RPG',
-      'Server IP mc.aethermines.com',
+      siteConfig.serverIp,
     ],
     authors: [{ name: post.author }],
     alternates: {
@@ -65,7 +70,7 @@ export async function generateMetadata({
       tags: post.tags,
       images: [
         {
-          url: post.coverImage,
+          url: coverImage,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -76,7 +81,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      images: [post.coverImage],
+      images: [coverImage],
     },
   };
 }
@@ -89,12 +94,9 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
     notFound();
   }
 
-  const allPosts = getAllPosts();
-  const relatedPosts = allPosts
-    .filter((p) => p.slug !== post.slug)
-    .slice(0, 3);
-
+  const relatedPosts = getRelatedPosts(post);
   const postUrl = `${siteConfig.websiteUrl}/blog/${post.slug}`;
+  const coverImage = absoluteAssetUrl(post.coverImage);
 
   // JSON-LD Structured Data for BlogPosting
   const blogPostingJsonLd = {
@@ -102,7 +104,7 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
-    image: [post.coverImage],
+    image: [coverImage],
     datePublished: post.date,
     author: {
       '@type': 'Person',
@@ -113,7 +115,7 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
       name: siteConfig.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.websiteUrl}${siteConfig.logoUrl}`,
+        url: absoluteAssetUrl(siteConfig.logoUrl),
       },
     },
     mainEntityOfPage: {
