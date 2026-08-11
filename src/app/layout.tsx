@@ -31,11 +31,14 @@ export const metadata: Metadata = {
     `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện trang bị Long Tộc, đại chiến Bang Hội KOTH Mỏ VIP & Chuyển Sinh thuộc tính!`,
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
-      { url: "/logo.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   keywords: [
     "minecraft rpg",

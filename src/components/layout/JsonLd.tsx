@@ -94,7 +94,7 @@ export default function JsonLd() {
     '@type': 'Organization',
     'name': siteConfig.fullName,
     'url': websiteUrl,
-    'logo': `${websiteUrl}/logo.png`,
+    'logo': `${websiteUrl}/icon-512.png`,
     'sameAs': [
       siteConfig.social.facebook,
       siteConfig.social.discord,
