@@ -10,7 +10,11 @@ interface TopupQrStepProps {
   onReset: () => void;
 }
 
-export default function TopupQrStep({ qrData, checkStatus, onReset }: TopupQrStepProps) {
+export default function TopupQrStep({
+  qrData,
+  checkStatus,
+  onReset,
+}: TopupQrStepProps) {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const copyToClipboard = (text: string, field: string) => {
@@ -26,7 +30,10 @@ export default function TopupQrStep({ qrData, checkStatus, onReset }: TopupQrSte
         <div className="flex items-center gap-3 text-cyan-300 text-sm">
           <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_12px_#00ff9d]" />
           <span>
-            Trạng thái: <strong className="text-emerald-400">Đang chờ chuyển khoản...</strong>
+            Trạng thái:{' '}
+            <strong className="text-emerald-400">
+              Đang chờ chuyển khoản...
+            </strong>
           </span>
         </div>
         <button
@@ -49,7 +56,7 @@ export default function TopupQrStep({ qrData, checkStatus, onReset }: TopupQrSte
           <span className="mt-3 text-xs text-slate-800 font-mono font-extrabold uppercase tracking-wider text-center">
             Quét bằng App Ngân Hàng / MoMo
           </span>
-          {qrData.checkoutUrl && (
+          {/* {qrData.checkoutUrl && (
             <a
               href={qrData.checkoutUrl}
               target="_blank"
@@ -58,35 +65,50 @@ export default function TopupQrStep({ qrData, checkStatus, onReset }: TopupQrSte
             >
               Mở cổng PayOS ↗
             </a>
-          )}
+          )} */}
         </div>
 
         {/* Transfer Details (Spans 7 cols) */}
         <div className="md:col-span-7 space-y-3.5 text-xs font-mono">
           <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
-            <span className="text-slate-500 text-[11px] uppercase block">Ngân hàng</span>
+            <span className="text-slate-500 text-[11px] uppercase block">
+              Ngân hàng
+            </span>
             <strong className="text-slate-100 font-bold text-base flex items-center gap-2 mt-0.5">
-              <Building2 className="w-5 h-5 text-cyan-400" /> {qrData.bankInfo.bankId}
+              <Building2 className="w-5 h-5 text-cyan-400" />{' '}
+              {qrData.bankInfo.bankId}
             </strong>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between">
             <div>
-              <span className="text-slate-500 text-[11px] uppercase block">Số tài khoản</span>
-              <strong className="text-cyan-400 font-extrabold text-lg">{qrData.bankInfo.accountNo}</strong>
+              <span className="text-slate-500 text-[11px] uppercase block">
+                Số tài khoản
+              </span>
+              <strong className="text-cyan-400 font-extrabold text-lg">
+                {qrData.bankInfo.accountNo}
+              </strong>
             </div>
             <button
               onClick={() => copyToClipboard(qrData.bankInfo.accountNo, 'acc')}
               className="px-3.5 py-2 rounded-xl bg-slate-900 text-slate-300 hover:text-cyan-400 border border-slate-700 flex items-center gap-1.5 text-xs font-bold transition-all"
             >
-              {copiedField === 'acc' ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              {copiedField === 'acc' ? (
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              ) : (
+                <Copy className="w-4 h-4" />
+              )}
               <span>{copiedField === 'acc' ? 'Đã Copy' : 'Copy STK'}</span>
             </button>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
-            <span className="text-slate-500 text-[11px] uppercase block">Chủ tài khoản</span>
-            <strong className="text-slate-100 uppercase font-semibold text-sm">{qrData.bankInfo.accountName}</strong>
+            <span className="text-slate-500 text-[11px] uppercase block">
+              Chủ tài khoản
+            </span>
+            <strong className="text-slate-100 uppercase font-semibold text-sm">
+              {qrData.bankInfo.accountName}
+            </strong>
           </div>
 
           <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-950/50 via-slate-950 to-slate-950 border border-amber-500/50 flex items-center justify-between shadow-[0_0_20px_rgba(245,158,11,0.15)]">
@@ -99,10 +121,19 @@ export default function TopupQrStep({ qrData, checkStatus, onReset }: TopupQrSte
               </strong>
             </div>
             <button
-              onClick={() => copyToClipboard(qrData.bankInfo.transferContent || qrData.orderCode, 'code')}
+              onClick={() =>
+                copyToClipboard(
+                  qrData.bankInfo.transferContent || qrData.orderCode,
+                  'code',
+                )
+              }
               className="px-4 py-2.5 rounded-xl bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 border border-amber-500/60 flex items-center gap-2 font-bold text-xs shadow-md transition-all scale-105"
             >
-              {copiedField === 'code' ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              {copiedField === 'code' ? (
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              ) : (
+                <Copy className="w-4 h-4" />
+              )}
               <span>{copiedField === 'code' ? 'ĐÃ COPY' : 'COPY MÃ'}</span>
             </button>
           </div>

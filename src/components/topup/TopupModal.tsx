@@ -62,6 +62,94 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
     }
   }, []);
 
+  const handleReset = useCallback(() => {
+    setStep('FORM');
+    setQrData(null);
+    setPaymentStatus('PENDING');
+    setUserErrorMsg('');
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {
+      console.warn(e);
+    }
+  }, []);
+
+  const handleCancelQr = useCallback(async () => {
+    if (qrData?.orderCode) {
+      const codeToCancel = qrData.orderCode;
+      fetch('/api/deposit/cancel', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderCode: codeToCancel }),
+      }).catch((e) => console.warn('Cancel deposit error:', e));
+    }
+    handleReset();
+  }, [qrData?.orderCode, handleReset]);
+
+  const handleCloseModal = useCallback(() => {
+    if (step === 'QR' && qrData?.orderCode) {
+      handleCancelQr();
+    } else if (step === 'SUCCESS' || step === 'FAILED') {
+      handleReset();
+    }
+    onClose();
+  }, [step, qrData?.orderCode, handleCancelQr, handleReset, onClose]);
+
+  // Prevent page reload & cancel QR when page is closed/unloaded while payment is open
+  useEffect(() => {
+    if (step !== 'QR' || !qrData?.orderCode) return;
+
+    const orderCode = qrData.orderCode;
+
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = '';
+      return '';
+    };
+
+    const handleUnloadOrPageHide = () => {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        const payload = JSON.stringify({ orderCode });
+        if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+          const blob = new Blob([payload], { type: 'application/json' });
+          navigator.sendBeacon('/api/deposit/cancel', blob);
+        } else {
+          fetch('/api/deposit/cancel', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: payload,
+            keepalive: true,
+          }).catch(() => {});
+        }
+      } catch (err) {
+        console.warn('Failed to cancel deposit on unload:', err);
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('pagehide', handleUnloadOrPageHide);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('pagehide', handleUnloadOrPageHide);
+    };
+  }, [step, qrData?.orderCode]);
+
+  // Handle ESC key to close modal safely
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleCloseModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, handleCloseModal]);
+
   // Submit Form -> Kiểm tra DB user & Tạo QR khi bấm nút
   const handleCreateQr = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,7 +162,9 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
 
     const minDepositAmount = getMinDepositAmount();
     if (amount < minDepositAmount) {
-      alert(`Số tiền nạp tối thiểu là ${minDepositAmount.toLocaleString('vi-VN')} VNĐ`);
+      alert(
+        `Số tiền nạp tối thiểu là ${minDepositAmount.toLocaleString('vi-VN')} VNĐ`,
+      );
       return;
     }
 
@@ -117,13 +207,26 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
     try {
       const res = await fetch(`/api/deposit/status/${qrData.orderCode}`);
       const data = await res.json();
-      if (data.success && data.status === 'COMPLETED') {
-        setPaymentStatus('COMPLETED');
-        setStep('SUCCESS');
-        try {
-          localStorage.removeItem(STORAGE_KEY);
-        } catch (e) {
-          console.warn(e);
+      if (data.success) {
+        if (data.status === 'COMPLETED') {
+          setPaymentStatus('COMPLETED');
+          setStep('SUCCESS');
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+          } catch (e) {
+            console.warn(e);
+          }
+        } else if (
+          data.status === 'EXPIRED' ||
+          data.status === 'CANCELLED' ||
+          data.status === 'FAILED'
+        ) {
+          setStep('FAILED');
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+          } catch (e) {
+            console.warn(e);
+          }
         }
       }
     } catch (e) {
@@ -139,39 +242,19 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
     return () => clearInterval(interval);
   }, [step, qrData?.orderCode, checkStatus]);
 
-  const handleCancelQr = async () => {
-    if (qrData?.orderCode) {
-      fetch('/api/deposit/cancel', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orderCode: qrData.orderCode }),
-      }).catch((e) => console.warn('Cancel deposit error:', e));
-    }
-    handleReset();
-  };
-
-  const handleReset = () => {
-    setStep('FORM');
-    setQrData(null);
-    setPaymentStatus('PENDING');
-    setUserErrorMsg('');
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch (e) {
-      console.warn(e);
-    }
-  };
-
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-lg animate-in fade-in duration-200">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-lg animate-in fade-in duration-200"
+      onClick={handleCloseModal}
+    >
       <div
         className="relative w-full max-w-3xl bg-slate-900/95 border border-cyan-500/40 rounded-3xl shadow-[0_0_60px_rgba(0,240,255,0.25)] overflow-hidden flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <TopupHeader onClose={onClose} />
+        <TopupHeader onClose={handleCloseModal} />
 
         {/* Modal Content Body */}
         <div className="p-8 overflow-y-auto space-y-7">
@@ -200,17 +283,14 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
           )}
 
           {step === 'SUCCESS' && (
-            <TopupSuccessStep
-              qrData={qrData}
-              onReset={handleReset}
-            />
+            <TopupSuccessStep qrData={qrData} onReset={handleReset} />
           )}
 
           {step === 'FAILED' && (
             <TopupFailedStep
               qrData={qrData}
               onReset={handleReset}
-              onClose={onClose}
+              onClose={handleCloseModal}
             />
           )}
         </div>
