@@ -1,3 +1,96 @@
+import { siteConfig } from '@/config/site';
+
+/**
+ * Cấu hình Sự kiện Khuyến Mãi Nạp Point
+ * Time Zone: Việt Nam Asia/Ho_Chi_Minh (UTC+7)
+ */
+export const PROMO_CONFIG = {
+  eventName:
+    process.env.PROMO_EVENT_NAME ||
+    process.env.NEXT_PUBLIC_PROMO_EVENT_NAME ||
+    'SỰ KIỆN KHUYẾN MÃI +100% POINT MỪNG OPEN SERVER',
+
+  // Phần trăm khuyến mãi TRONG SỰ KIỆN (Mặc định 100%)
+  promoBonusPercent: Number(
+    process.env.PROMO_POINT_BONUS_PERCENT ||
+    process.env.NEXT_PUBLIC_PROMO_POINT_BONUS_PERCENT ||
+    '100'
+  ),
+
+  // Thời gian bắt đầu: 08:00 ngày 15/08/2026 GMT+7
+  startDateIso:
+    process.env.PROMO_START_DATE ||
+    process.env.NEXT_PUBLIC_PROMO_START_DATE ||
+    '2026-08-15T08:00:00+07:00',
+
+  // Thời gian kết thúc: 23:59:59 ngày 25/08/2026 GMT+7
+  endDateIso:
+    process.env.PROMO_END_DATE ||
+    process.env.NEXT_PUBLIC_PROMO_END_DATE ||
+    '2026-08-25T23:59:59+07:00',
+
+  formattedStartDate:
+    process.env.PROMO_START_DATE_FORMATTED ||
+    process.env.NEXT_PUBLIC_PROMO_START_DATE_FORMATTED ||
+    '08:00 - 15/08/2026',
+
+  formattedEndDate:
+    process.env.PROMO_END_DATE_FORMATTED ||
+    process.env.NEXT_PUBLIC_PROMO_END_DATE_FORMATTED ||
+    '23:59:59 - 25/08/2026 (Giờ Việt Nam)',
+
+  timeZone:
+    process.env.PROMO_TIMEZONE ||
+    process.env.NEXT_PUBLIC_PROMO_TIMEZONE ||
+    'Asia/Ho_Chi_Minh',
+};
+
+/**
+ * Trạng thái sự kiện theo thời gian thực (Giờ Việt Nam GMT+7):
+ * - 'ACTIVE': Đang diễn ra sự kiện (Trong mốc đến 25/08/2026 23:59:59 GMT+7)
+ * - 'ENDED': Đã kết thúc sự kiện
+ */
+export const getPromoStatus = (): 'ACTIVE' | 'ENDED' => {
+  const now = Date.now();
+  const endTimestamp = Date.parse(PROMO_CONFIG.endDateIso);
+
+  if (!isNaN(endTimestamp) && now > endTimestamp) {
+    return 'ENDED';
+  }
+  return 'ACTIVE';
+};
+
+/**
+ * Kiểm tra xem sự kiện khuyến mãi nạp có đang diễn ra hay không (Chuẩn GMT+7)
+ */
+export const isPromoActive = (): boolean => {
+  return getPromoStatus() === 'ACTIVE';
+};
+
+/**
+ * Lấy phần trăm thưởng mặc định khi KHÔNG có sự kiện (từ env POINT_BONUS_PERCENT, mặc định 20%)
+ */
+export const getDefaultBonusPercent = (): number => {
+  const envStr =
+    process.env.POINT_BONUS_PERCENT ||
+    process.env.NEXT_PUBLIC_POINT_BONUS_PERCENT ||
+    '20';
+  const percent = Number(envStr);
+  return isNaN(percent) || percent < 0 ? 20 : percent;
+};
+
+/**
+ * Lấy phần trăm khuyến mãi / thưởng thêm nạp tiền hiện tại:
+ * - Trong thời gian sự kiện (đến 25/08/2026): Tự động trả về % Thưởng Sự Kiện (100%)
+ * - Sau khi HẾT sự kiện: Tự động lùi về % Thưởng Mặc Định (20%) mà không cần sửa env hay khởi động lại!
+ */
+export const getPointBonusPercent = (): number => {
+  if (isPromoActive()) {
+    return PROMO_CONFIG.promoBonusPercent;
+  }
+  return getDefaultBonusPercent();
+};
+
 /**
  * Lấy tỷ lệ quy đổi gốc từ VNĐ sang Point từ biến môi trường (Mặc định 0.001: 10,000 VNĐ = 10 Point)
  */
@@ -8,18 +101,6 @@ export const getPointConversionRate = (): number => {
     '0.001';
   const rate = Number(rateStr);
   return isNaN(rate) || rate <= 0 ? 0.001 : rate;
-};
-
-/**
- * Lấy phần trăm khuyến mãi / thưởng thêm nạp tiền (Mặc định 20%)
- */
-export const getPointBonusPercent = (): number => {
-  const percentStr =
-    process.env.POINT_BONUS_PERCENT ||
-    process.env.NEXT_PUBLIC_POINT_BONUS_PERCENT ||
-    '20';
-  const percent = Number(percentStr);
-  return isNaN(percent) || percent < 0 ? 0 : percent;
 };
 
 /**
@@ -68,5 +149,24 @@ export function calculatePointBreakdown(amountVnd: number) {
     bonusPoint,
     totalPoint,
     bonusPercent,
+  };
+}
+
+/**
+ * Trả về thông tin chi tiết sự kiện khuyến mãi cho UI hiển thị
+ */
+export function getPromoEventDetails() {
+  const active = isPromoActive();
+  const bonusPercent = getPointBonusPercent();
+  const status = getPromoStatus();
+
+  return {
+    active,
+    status,
+    bonusPercent,
+    title: PROMO_CONFIG.eventName,
+    startDateFormatted: PROMO_CONFIG.formattedStartDate,
+    endDateFormatted: PROMO_CONFIG.formattedEndDate,
+    timeZone: PROMO_CONFIG.timeZone,
   };
 }

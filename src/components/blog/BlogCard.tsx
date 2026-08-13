@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Calendar, Clock, User, ArrowRight, Tag } from 'lucide-react';
 import { BlogPost } from '@/lib/blogs';
 
@@ -13,11 +14,13 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
     return (
       <div className="group relative rounded-3xl overflow-hidden bg-slate-900/80 border border-cyan-500/30 hover:border-cyan-400/60 shadow-[0_0_30px_rgba(0,240,255,0.15)] hover:shadow-[0_0_45px_rgba(0,240,255,0.3)] transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 gap-0">
         {/* Cover Image */}
-        <div className="lg:col-span-7 relative h-64 lg:h-auto overflow-hidden">
-          <img
+        <div className="lg:col-span-7 relative h-64 lg:h-auto min-h-[260px] overflow-hidden">
+          <Image
             src={post.coverImage}
             alt={post.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100"
+            fill
+            sizes="(max-width: 1024px) 100vw, 58vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#070913] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#070913]" />
 
@@ -46,7 +49,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
             </div>
 
             <h2 className="text-xl lg:text-2xl font-black text-white group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug mb-3">
-              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              <Link href={`/blog/${post.slug}`} prefetch={true}>{post.title}</Link>
             </h2>
 
             <p className="text-slate-300 text-sm line-clamp-3 leading-relaxed mb-6 font-normal">
@@ -70,6 +73,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
 
             <Link
               href={`/blog/${post.slug}`}
+              prefetch={true}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_30px_rgba(0,240,255,0.8)] hover:scale-105 transition-all"
             >
               <span>ĐỌC BÀI VIẾT</span>
@@ -85,10 +89,12 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
     <div className="group relative flex flex-col rounded-2xl overflow-hidden bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.2)] transition-all duration-300">
       {/* Cover Image */}
       <div className="relative h-48 overflow-hidden">
-        <img
+        <Image
           src={post.coverImage}
           alt={post.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 brightness-90 group-hover:brightness-100"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover group-hover:scale-110 transition-transform duration-500 brightness-90 group-hover:brightness-100"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#070913] via-transparent to-transparent opacity-80" />
 
@@ -114,7 +120,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
           </div>
 
           <h3 className="text-base font-extrabold text-white group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug mb-2">
-            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+            <Link href={`/blog/${post.slug}`} prefetch={true}>{post.title}</Link>
           </h3>
 
           <p className="text-slate-400 text-xs line-clamp-2 leading-relaxed mb-4">
@@ -131,6 +137,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
 
             <Link
               href={`/blog/${post.slug}`}
+              prefetch={true}
               className="flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-cyan-300 group-hover:translate-x-1 transition-transform"
             >
               <span>Xem chi tiết</span>

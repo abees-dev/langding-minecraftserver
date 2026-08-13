@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { cache } from 'react';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
@@ -63,9 +64,9 @@ function calculateReadTime(text: string): string {
 }
 
 /**
- * Lấy danh sách tất cả các bài viết Markdown
+ * Lấy danh sách tất cả các bài viết Markdown (đã memoize với React cache)
  */
-export function getAllPosts(): BlogPost[] {
+export const getAllPosts = cache((): BlogPost[] => {
   // Tạo thư mục nếu chưa tồn tại
   if (!fs.existsSync(blogsDirectory)) {
     fs.mkdirSync(blogsDirectory, { recursive: true });
@@ -103,7 +104,7 @@ export function getAllPosts(): BlogPost[] {
 
   // Sắp xếp bài viết mới nhất lên đầu
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
-}
+});
 
 /**
  * Bài liên quan: ưu tiên cùng category / tags, fallback bài mới nhất.
@@ -130,9 +131,9 @@ export function getRelatedPosts(
 }
 
 /**
- * Lấy nội dung bài viết theo Slug và chuyển Markdown sang HTML
+ * Lấy nội dung bài viết theo Slug và chuyển Markdown sang HTML (đã memoize với React cache)
  */
-export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+export const getPostBySlug = cache(async (slug: string): Promise<BlogPost | null> => {
   try {
     const fullPath = path.join(blogsDirectory, `${slug}.md`);
     if (!fs.existsSync(fullPath)) {
@@ -171,7 +172,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     console.error(`Lỗi đọc bài viết [${slug}]:`, error);
     return null;
   }
-}
+});
 
 /**
  * Lấy tất cả các danh mục độc nhất

@@ -2,9 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { Copy, Check, Menu, X, QrCode } from 'lucide-react';
-import TopupModal from '../topup/TopupModal';
 import { siteConfig } from '@/config/site';
+
+const TopupModal = dynamic(() => import('../topup/TopupModal'), {
+  ssr: false,
+});
 
 export default function Navbar() {
   const [copied, setCopied] = useState(false);
@@ -53,9 +58,11 @@ export default function Navbar() {
           {/* Brand Logo with Custom Logo Image */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
             <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-cyan-500/50 p-[1px] bg-slate-900 shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] transition-all">
-              <img
+              <Image
                 src={siteConfig.logoUrl}
                 alt={`${siteConfig.name} Server Logo`}
+                width={36}
+                height={36}
                 className="w-full h-full object-cover rounded-[10px] group-hover:scale-110 transition-transform duration-300"
               />
             </div>

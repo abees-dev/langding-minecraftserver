@@ -43,10 +43,10 @@ Chào mừng các tù nhân đến với mùa khai mở Prison 2026! Hàng loạ
 
 ---
 
-### 🔥 SỰ KIỆN 1: KHUYẾN MÃI +100% GIÁ TRỊ NẠP POINT
+### 🔥 SỰ KIỆN 1: KHUYẾN MÃI +100% GIÁ TRỊ NẠP POINT (X2 POINT)
 
-- ⏰ **Thời gian:** Từ **15/08/2026** đến hết ngày **20/08/2026**.
-- 💎 **Nội dung:** Nhận ngay **x2 giá trị Point** khi thực hiện nạp qua cổng Web Topup tự động PayOS.
+- ⏰ **Thời gian áp dụng:** Từ **08:00 ngày 15/08/2026** đến **23:59:59 ngày 25/08/2026** (Theo Giờ Việt Nam — Asia/Ho_Chi_Minh GMT+7).
+- 💎 **Nội dung:** Nhận ngay **x2 giá trị Point (+100% Khuyến Mãi)** khi thực hiện nạp tiền qua cổng Web Topup tự động (VietQR PayOS 3s). Hệ thống tự động tính thưởng và cộng Point vào tài khoản nhân vật game.
 
 ---
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   Calendar,
@@ -230,12 +231,14 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
           </header>
 
           {/* Cover Image Banner */}
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-8 border border-cyan-500/30 shadow-[0_0_25px_rgba(0,240,255,0.15)]">
-            <img
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-8 border border-cyan-500/30 shadow-[0_0_25px_rgba(0,240,255,0.15)] h-[220px] sm:h-[320px]">
+            <Image
               src={post.coverImage}
               alt={post.title}
-              loading="eager"
-              className="w-full h-[220px] sm:h-[320px] object-cover"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 800px"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#070913] via-transparent to-transparent opacity-60" />
           </div>

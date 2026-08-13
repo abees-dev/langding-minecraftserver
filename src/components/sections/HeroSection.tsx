@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Copy, Check, Sparkles, Flame, Swords, ArrowRight, Calendar, Gamepad2 } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
@@ -16,13 +17,18 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 px-4 overflow-hidden" aria-label="AetherMine Minecraft RPG Server Hero Banner">
-      {/* Background Banner Image with Dark Gradient Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 transition-transform duration-1000"
-        style={{
-          backgroundImage: `url('/banner.png')`,
-        }}
-      />
+      {/* Background Banner Image with Priority Preload */}
+      <div className="absolute inset-0 scale-105 transition-transform duration-1000 overflow-hidden">
+        <Image
+          src="/banner.png"
+          alt="AetherMine Server Banner"
+          fill
+          priority
+          sizes="100vw"
+          quality={80}
+          className="object-cover object-center"
+        />
+      </div>
       
       {/* Dark Vignette Overlay for Contrast & Readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#070913]/90 via-[#070913]/85 to-[#070913]" />

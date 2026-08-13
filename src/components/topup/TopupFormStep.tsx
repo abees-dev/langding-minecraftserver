@@ -1,8 +1,6 @@
-'use client';
-
 import React from 'react';
-import { AlertCircle, QrCode, Loader2, Sparkles } from 'lucide-react';
-import { calculatePointReceived, calculatePointBreakdown } from '@/lib/point';
+import { AlertCircle, QrCode, Loader2, Sparkles, Flame } from 'lucide-react';
+import { calculatePointReceived, calculatePointBreakdown, getPromoEventDetails } from '@/lib/point';
 
 interface TopupFormStepProps {
   username: string;
@@ -31,6 +29,7 @@ export default function TopupFormStep({
   onSubmit,
   presetAmounts,
 }: TopupFormStepProps) {
+  const promo = getPromoEventDetails();
   const handleSelectAmount = (val: number) => {
     setAmount(val);
     setCustomAmountStr(val.toLocaleString('vi-VN'));
@@ -122,19 +121,38 @@ export default function TopupFormStep({
         </div>
       </div>
 
-      {/* Rate Preview */}
-      <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-950 border border-emerald-500/40 flex items-center justify-between text-xs font-mono shadow-md">
-        <span className="text-slate-300 font-medium flex items-center gap-2.5 text-sm">
-          <Sparkles className="w-5 h-5 text-amber-400" />
-          Quy đổi Point thực nhận:
-          {breakdown.bonusPercent > 0 && (
-            <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs border border-amber-500/40">
-              +{breakdown.bonusPercent}% KM
-            </span>
-          )}
-        </span>
-        <span className="text-emerald-400 font-extrabold text-xl glow-text-green tracking-wide">
-          +{calculatePointReceived(amount).toLocaleString('vi-VN')} POINT
+      {/* Promo Event Banner Box */}
+      {promo.active && (
+        <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-950/60 via-slate-900 to-amber-950/40 border border-amber-500/50 shadow-[0_0_20px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/40 shrink-0">
+              <Flame className="w-5 h-5 animate-pulse" />
+            </div>
+            <div>
+              <span className="font-extrabold text-amber-300 block uppercase tracking-wider">
+                🔥 {promo.title}
+              </span>
+              <span className="text-slate-400 font-mono text-[11px]">
+                Nhận x2 Point (Thưởng +100%) áp dụng đến <strong className="text-amber-400">{promo.endDateFormatted}</strong>
+              </span>
+            </div>
+          </div>
+          <span className="px-3 py-1 rounded-full bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shrink-0 shadow-md">
+            +100% POINT
+          </span>
+        </div>
+      )}
+
+      {/* Simple Clean Rate Preview */}
+      <div className="p-4.5 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-950 border border-emerald-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono shadow-md">
+        <div className="flex items-center gap-2.5">
+          <Sparkles className="w-5 h-5 text-amber-400 shrink-0" />
+          <span className="text-slate-200 font-bold text-sm">
+            Thực nhận ({breakdown.basePoint.toLocaleString('vi-VN')} Gốc + {breakdown.bonusPoint.toLocaleString('vi-VN')} KM +{breakdown.bonusPercent}%):
+          </span>
+        </div>
+        <span className="text-emerald-400 font-black text-xl glow-text-green tracking-wide self-end sm:self-auto">
+          +{breakdown.totalPoint.toLocaleString('vi-VN')} POINT
         </span>
       </div>
 

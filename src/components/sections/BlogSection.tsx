@@ -34,6 +34,7 @@ export default function BlogSection() {
 
           <Link
             href="/blog"
+            prefetch={true}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 font-bold text-xs uppercase tracking-wider hover:bg-cyan-500 hover:text-slate-950 hover:shadow-[0_0_25px_rgba(0,240,255,0.6)] transition-all self-start md:self-auto"
           >
             <span>XEM TẤT CẢ BÀI VIẾT</span>

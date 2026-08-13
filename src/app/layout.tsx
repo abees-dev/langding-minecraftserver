@@ -9,12 +9,14 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-jakarta",
+  display: "swap",
 });
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-be-vietnam",
+  display: "swap",
 });
 
 export const viewport: Viewport = {
