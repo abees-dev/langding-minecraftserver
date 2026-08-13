@@ -247,4 +247,4 @@ Mỗi Chuyển Sinh: **3 điểm perk**, **2 điểm thuộc tính**, +5% EXP. �
 
 ---
 
-Chúc bạn leo rank suôn sẻ tại **AetherMine** — Open **19:00 ngày 15/08**, IP `mc.aethermines.com`.
+Chúc bạn leo rank suôn sẻ tại **AetherMine** — Open **08:00 ngày 15/08**, IP `mc.aethermines.com`.

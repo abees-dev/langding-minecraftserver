@@ -36,7 +36,7 @@ export default function HeroSection() {
         {/* Open Date Countdown / Announcement Banner Badge */}
         <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/90 border border-cyan-500/50 text-cyan-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 shadow-[0_0_20px_rgba(0,240,255,0.3)] backdrop-blur-md">
           <Calendar className="w-4 h-4 text-emerald-400 animate-pulse" />
-          <span>KHAI MỞ CHÍNH THỨC: <strong className="text-white font-extrabold">19:00 - 15/08/2026</strong></span>
+          <span>KHAI MỞ CHÍNH THỨC: <strong className="text-white font-extrabold">08:00 - 15/08/2026</strong></span>
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
         </div>
 

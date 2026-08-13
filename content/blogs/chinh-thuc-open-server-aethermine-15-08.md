@@ -1,5 +1,5 @@
 ---
-title: 'Thông Báo Chính Thức: Khai Mở Server AetherMine Prison RPG Vào 19:00 Ngày 15/08'
+title: 'Thông Báo Chính Thức: Khai Mở Server AetherMine Prison RPG Vào 08:00 Ngày 15/08'
 date: '2026-08-10'
 author: 'AetherMine Admin'
 category: 'Sự Kiện'
@@ -12,14 +12,14 @@ tags:
     'Khuyến Mãi Nạp',
     'Đua Top',
   ]
-excerpt: 'Máy chủ AetherMine Prison RPG chính thức Khai Mở vào 19:00 ngày 15/08/2026. Chuỗi sự kiện Đua Top Bang Hội Mỏ VIP KOTH, Đua Top Đào Quặng & Level, Giftcode Khai Mở và Khuyến mãi +100% Nạp Point!'
+excerpt: 'Máy chủ AetherMine Prison RPG chính thức Khai Mở vào 08:00 ngày 15/08/2026. Chuỗi sự kiện Đua Top Bang Hội Mỏ VIP KOTH, Đua Top Đào Quặng & Level, Giftcode Khai Mở và Khuyến mãi +100% Nạp Point!'
 coverImage: '/images/blogs/open-server.png'
 featured: true
 ---
 
 # 🚀 Thông Báo Chính Thức: Khai Mở AetherMine Prison RPG (15/08)
 
-Đội ngũ Ban Quản Trị **AetherMine Studio** xin trân trọng thông báo: Máy chủ **AetherMine Prison RPG** sẽ chính thức **OPEN BETA & GRAND LAUNCH** vào đúng **19:00 - Thứ Bảy, ngày 15/08/2026**!
+Đội ngũ Ban Quản Trị **AetherMine Studio** xin trân trọng thông báo: Máy chủ **AetherMine Prison RPG** sẽ chính thức **OPEN BETA & GRAND LAUNCH** vào đúng **08:00 - Thứ Bảy, ngày 15/08/2026**!
 
 Sau thời gian dài chuẩn bị, tối ưu hóa hạ tầng anti-DDOS và hoàn thiện hệ thống 9 Cấp Rank Ngục Tù, AetherMine đã sẵn sàng chào đón hàng ngàn Chiến Binh gia nhập.
 
@@ -29,7 +29,7 @@ Sau thời gian dài chuẩn bị, tối ưu hóa hạ tầng anti-DDOS và hoà
 
 | Thông Tin             | Chi Tiết                                                 |
 | :-------------------- | :------------------------------------------------------- |
-| **Thời Gian Open**    | **19:00 - Thứ Bảy, Ngày 15/08/2026**                     |
+| **Thời Gian Open**    | **08:00 - Thứ Bảy, Ngày 15/08/2026**                     |
 | **Địa Chỉ IP**        | `mc.aethermines.com`                                     |
 | **Phiên Bản Hỗ Trợ**  | `1.20.x` đến `1.21.x` (Hỗ trợ cả Java & Bedrock Edition) |
 | **Cộng Đồng Discord** | [discord.gg/mvRcGjDHVm](https://discord.gg/mvRcGjDHVm)   |
@@ -52,7 +52,7 @@ Chào mừng các tù nhân đến với mùa khai mở Prison 2026! Hàng loạ
 
 ### 🏆 SỰ KIỆN 2: ĐUA TOP ĐÀO QUẶNG & TOP LEVEL
 
-⏰ **Thời gian:** Từ **19:00 ngày 15/08/2026** đến **23:59 ngày 25/08/2026**.
+⏰ **Thời gian:** Từ **08:00 ngày 15/08/2026** đến **23:59 ngày 25/08/2026**.
 
 Sự kiện gồm hai bảng xếp hạng riêng biệt:
 
@@ -184,4 +184,4 @@ _Hãy chuẩn bị cây cúp tốt nhất, tập hợp đồng đội và sẵn 
 4. **Trang Bị, Ngọc Khảm & Phân Rã (`/phanra`):** Khảm 100 loại ngọc (roll ±10%), đục ô khảm (`/duclo`), cường hóa (`/cuonghoa`) và phân rã trang sức dư lấy Đá Cường Hóa Trang Sức.
 5. **Khu Đất Cá Nhân (`world_plot`):** Claim plot 64x64 free tại `/plot` với quyền bay `/fly` tự do.
 
-Hãy hẹn giờ 19:00 ngày 15/08, rủ rê đồng đội và copy IP `mc.aethermines.com` sẵn sàng bùng nổ cùng **AetherMine Prison RPG**!
+Hãy hẹn giờ 08:00 ngày 15/08, rủ rê đồng đội và copy IP `mc.aethermines.com` sẵn sàng bùng nổ cùng **AetherMine Prison RPG**!
