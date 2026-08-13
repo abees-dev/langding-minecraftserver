@@ -71,19 +71,39 @@ export const PROMO_CONFIG = {
     'Asia/Ho_Chi_Minh',
 };
 
+export type PromoStatus = 'UPCOMING' | 'ACTIVE' | 'ENDED';
+
 /**
  * Trạng thái sự kiện theo thời gian thực (Giờ Việt Nam GMT+7):
- * - 'ACTIVE': Đang diễn ra sự kiện (Trong mốc đến 25/08/2026 23:59:59 GMT+7)
+ * - 'UPCOMING': Chưa tới thời gian bắt đầu
+ * - 'ACTIVE': Đang diễn ra sự kiện
  * - 'ENDED': Đã kết thúc sự kiện
  */
-export const getPromoStatus = (): 'ACTIVE' | 'ENDED' => {
+export const getPromoStatus = (): PromoStatus => {
   const now = Date.now();
+  const startTimestamp = Date.parse(PROMO_CONFIG.startDateIso);
   const endTimestamp = Date.parse(PROMO_CONFIG.endDateIso);
 
-  if (!isNaN(endTimestamp) && now > endTimestamp) {
-    return 'ENDED';
+  let status: PromoStatus = 'ACTIVE';
+
+  if (!isNaN(startTimestamp) && now < startTimestamp) {
+    status = 'UPCOMING';
+  } else if (!isNaN(endTimestamp) && now > endTimestamp) {
+    status = 'ENDED';
   }
-  return 'ACTIVE';
+
+  // Debug log để kiểm tra trên môi trường Vercel / Dev Server
+  if (
+    process.env.NODE_ENV !== 'production' ||
+    process.env.PROMO_DEBUG === 'true' ||
+    process.env.NEXT_PUBLIC_PROMO_DEBUG === 'true'
+  ) {
+    console.log(
+      `[PROMO DEBUG] now: ${new Date(now).toISOString()} (${now}) | start: ${PROMO_CONFIG.startDateIso} (${startTimestamp}) | end: ${PROMO_CONFIG.endDateIso} (${endTimestamp}) | status: ${status}`
+    );
+  }
+
+  return status;
 };
 
 /**
@@ -107,8 +127,8 @@ export const getDefaultBonusPercent = (): number => {
 
 /**
  * Lấy phần trăm khuyến mãi / thưởng thêm nạp tiền hiện tại:
- * - Trong thời gian sự kiện (đến 25/08/2026): Tự động trả về % Thưởng Sự Kiện (100%)
- * - Sau khi HẾT sự kiện: Tự động lùi về % Thưởng Mặc Định (20%) mà không cần sửa env hay khởi động lại!
+ * - Trong thời gian sự kiện (từ startDateIso đến endDateIso): Tự động trả về % Thưởng Sự Kiện (100%)
+ * - Trước ngày hoặc sau khi HẾT sự kiện: Tự động lùi về % Thưởng Mặc Định (20%)!
  */
 export const getPointBonusPercent = (): number => {
   if (isPromoActive()) {
