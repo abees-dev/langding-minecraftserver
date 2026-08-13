@@ -1,6 +1,42 @@
 import { siteConfig } from '@/config/site';
 
 /**
+ * Hàm tự động format ngày từ ISO String (vd: 2026-08-25T23:59:59+07:00)
+ * sang chuỗi hiển thị theo Múi giờ Việt Nam (Asia/Ho_Chi_Minh - GMT+7).
+ */
+export function formatPromoDate(isoString: string): string {
+  try {
+    const d = new Date(isoString);
+    if (isNaN(d.getTime())) return isoString;
+
+    const formatter = new Intl.DateTimeFormat('vi-VN', {
+      timeZone: 'Asia/Ho_Chi_Minh',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour12: false,
+    });
+
+    const parts = formatter.formatToParts(d);
+    const getPart = (type: string) => parts.find((p) => p.type === type)?.value || '';
+
+    const hh = getPart('hour');
+    const mm = getPart('minute');
+    const ss = getPart('second');
+    const dd = getPart('day');
+    const MM = getPart('month');
+    const yyyy = getPart('year');
+
+    return `${hh}:${mm}:${ss} - ${dd}/${MM}/${yyyy} (Giờ Việt Nam)`;
+  } catch {
+    return isoString;
+  }
+}
+
+/**
  * Cấu hình Sự kiện Khuyến Mãi Nạp Point
  * Time Zone: Việt Nam Asia/Ho_Chi_Minh (UTC+7)
  */
@@ -28,16 +64,6 @@ export const PROMO_CONFIG = {
     process.env.PROMO_END_DATE ||
     process.env.NEXT_PUBLIC_PROMO_END_DATE ||
     '2026-08-25T23:59:59+07:00',
-
-  formattedStartDate:
-    process.env.PROMO_START_DATE_FORMATTED ||
-    process.env.NEXT_PUBLIC_PROMO_START_DATE_FORMATTED ||
-    '08:00 - 15/08/2026',
-
-  formattedEndDate:
-    process.env.PROMO_END_DATE_FORMATTED ||
-    process.env.NEXT_PUBLIC_PROMO_END_DATE_FORMATTED ||
-    '23:59:59 - 25/08/2026 (Giờ Việt Nam)',
 
   timeZone:
     process.env.PROMO_TIMEZONE ||
@@ -153,7 +179,7 @@ export function calculatePointBreakdown(amountVnd: number) {
 }
 
 /**
- * Trả về thông tin chi tiết sự kiện khuyến mãi cho UI hiển thị
+ * Trả về thông tin chi tiết sự kiện khuyến mãi cho UI hiển thị (Tự động format ngày từ ISO String)
  */
 export function getPromoEventDetails() {
   const active = isPromoActive();
@@ -165,8 +191,8 @@ export function getPromoEventDetails() {
     status,
     bonusPercent,
     title: PROMO_CONFIG.eventName,
-    startDateFormatted: PROMO_CONFIG.formattedStartDate,
-    endDateFormatted: PROMO_CONFIG.formattedEndDate,
+    startDateFormatted: formatPromoDate(PROMO_CONFIG.startDateIso),
+    endDateFormatted: formatPromoDate(PROMO_CONFIG.endDateIso),
     timeZone: PROMO_CONFIG.timeZone,
   };
 }
