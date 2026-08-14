@@ -131,13 +131,17 @@ Các Bang Hội sẽ cạnh tranh thứ hạng thông qua hai hoạt động ch�
 - Quest Bang Hội và nhiệm vụ tuần không cộng điểm mùa.
 - Quà riêng của quest và nhiệm vụ tuần vẫn được giữ nguyên.
 
-#### 🥇 PHẦN THƯỞNG TOP 1 BANG HỘI
+#### 🏆 PHẦN THƯỞNG TOP BANG HỘI CUỐI MÙA (TOP 1 – TOP 3)
 
-Bang Hội đứng đầu Mùa 1 sẽ nhận:
+Khác với trước đây chỉ thưởng Top 1, mùa khai mở 2026 mở rộng phần thưởng lớn cho **cả 3 Bang Hội xuất sắc nhất**:
 
-- **100.000.000 Money** vào quỹ Bang
-- **500 Point** cho Bang
-- **Huy Hiệu Bang Chủ Kim Cương**
+| Hạng | Bank Bang | Danh Vọng Bang | Phần Thưởng & Cosmetic |
+| :--- | :--- | :--- | :--- |
+| 🥇 **Top 1** | **50.000.000 Money** | **500 Danh Vọng** | **Huy Hiệu Bang Chủ Kim Cương** (Cosmetic độc quyền Mùa 1) |
+| 🥈 **Top 2** | **25.000.000 Money** | **250 Danh Vọng** | **Huy Chương Mùa Bang Top 2** |
+| 🥉 **Top 3** | **10.000.000 Money** | **100 Danh Vọng** | **Huy Chương Mùa Bang Top 3** |
+
+*(Huy Chương Mùa Bang cosmetic Top 1–3 vẫn được trao cho Bang Chủ & thành viên xuất sắc).*
 
 #### 💎 Huy Hiệu Bang Chủ Kim Cương
 
@@ -150,25 +154,29 @@ Kỷ vật giới hạn dành cho Bang Chủ của Bang Hội vô địch Mùa 1
 
 ---
 
-### 🎁 SỰ KIỆN 4: GIFTCODE ĐỘC QUYỀN NGÀY OPEN
+### 🎁 SỰ KIỆN 4: GIFTCODE ĐỘC QUYỀN NGÀY OPEN (15/08/2026)
 
-Giftcode đặc biệt sẽ được công bố trong ngày khai mở server.
+Giftcode đặc biệt sẽ được công bố chính thức trong ngày khai mở server **15/08/2026**.
 
-Mỗi tài khoản chỉ được sử dụng mã một lần và nhận quà bằng lệnh:
+- **Lệnh nhập:** `/code <mã>` (mã công bố chính thức vào ngày Open)
+- **Giới hạn:** Mỗi tài khoản sử dụng **01 lần**
 
-`/code <mã>`
+#### 🎁 Phần Quà Khởi Đầu Bao Gồm:
 
-Trong phần quà có **Huy Hiệu Khai Mở 2026** — kỷ vật dành riêng cho những tù nhân tham gia ngày Open **15/08/2026**.
+- 👑 **Danh hiệu độc quyền [Tù Nhân Sáng Lập]** (trang bị tại `/danhhieu`)
+- 💰 **500.000 Money**
+- ✦ **1 Điểm Class**
+- 🔑 **2 Chìa Trang Sức Free**
+- ⚔️ **3 Đá Cường Hóa Vũ Khí Sơ Cấp**
+- 🛡️ **3 Đá Cường Hóa Giáp Sơ Cấp**
+- 💎 **3 Đá Cường Hóa Trang Sức Sơ Cấp**
+- 🔨 **1 Đá Đục Lỗ Lv1**
 
-#### ✦ Huy Hiệu Khai Mở 2026
+#### ✦ Danh Hiệu [Tù Nhân Sáng Lập]
 
-- Kỷ vật độc quyền ngày Open.
-- Không cộng chỉ số chiến đấu.
-- Không dùng để chế tạo.
-- Không thể xếp chồng.
-- Chỉ nhận được từ Giftcode khai mở.
-
-> 📌 _Tên Giftcode, giới hạn lượt nhập, thời hạn sử dụng và các phần thưởng kinh tế đi kèm sẽ được công bố vào ngày Open._
+- Danh hiệu độc quyền duy nhất trao cho các Tù Nhân tham gia ngày Open **15/08/2026**.
+- Quản lý và chọn đeo name tag trước tên bằng lệnh `/danhhieu`.
+- Khóa vĩnh viễn theo tài khoản nhân vật.
 
 ---
 
