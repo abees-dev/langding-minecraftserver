@@ -4,7 +4,7 @@ date: "2026-08-10"
 author: "AetherMine Admin"
 category: "Thông Tin Server"
 tags: ["Server Info", "Prison RPG", "IP Server", "9 Rank Prison", "Bang Hoi"]
-excerpt: "Thông tin chi tiết máy chủ AetherMine Prison RPG: Địa chỉ IP mc.aethermines.com, bảng 9 Cấp Rank Ngục Tù & Level MMOCore, hệ thống Bang Hội kinh tế và Mỏ VIP KOTH."
+excerpt: "Thông tin chi tiết máy chủ AetherMine Prison RPG: IP Java mc.aethermines.com, IP PE mc.aethermines.com:25118, bảng 9 Cấp Rank Ngục Tù & Level MMOCore, hệ thống Bang Hội kinh tế và Mỏ VIP KOTH."
 coverImage: "/images/blogs/server-info.png"
 featured: false
 ---
@@ -19,7 +19,8 @@ Chào mừng bạn đến với **AetherMine** – Máy chủ Minecraft Prison R
 
 | Thông Tin | Chi Tiết |
 | :--- | :--- |
-| **IP Máy Chủ** | `mc.aethermines.com` |
+| **IP Java** | `mc.aethermines.com` |
+| **IP PE** | `mc.aethermines.com:25118` |
 | **Phiên Bản** | `1.20.4+` (Native `1.20.4`) — Java & Bedrock Edition |
 | **Thể Loại** | Prison RPG / Đào Quặng / Dungeon MMOCore / Bang Hội KOTH |
 | **Hệ Thống Nạp** | Web Topup Tự Động (QR Code PayOS) |
@@ -65,4 +66,4 @@ Bang Hội là hệ thống nhóm cốt lõi giúp các Chiến Binh hỗ trợ 
 * Tối đa 1 plot free (kích thước 64x64 block).
 * Cho phép bật quyền bay (`/fly`) tự do trong khu vực plot cá nhân.
 
-Hãy kết nối IP `mc.aethermines.com` ngay để bắt đầu hành trình Vượt Ngục nào!
+Hãy kết nối IP Java `mc.aethermines.com` hoặc IP PE `mc.aethermines.com:25118` ngay để bắt đầu hành trình Vượt Ngục nào!

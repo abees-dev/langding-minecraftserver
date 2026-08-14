@@ -30,7 +30,8 @@ Sau thời gian dài chuẩn bị, tối ưu hóa hạ tầng anti-DDOS và hoà
 | Thông Tin             | Chi Tiết                                                 |
 | :-------------------- | :------------------------------------------------------- |
 | **Thời Gian Open**    | **08:00 - Thứ Bảy, Ngày 15/08/2026**                     |
-| **Địa Chỉ IP**        | `mc.aethermines.com`                                     |
+| **IP Java**           | `mc.aethermines.com`                                     |
+| **IP PE**             | `mc.aethermines.com:25118`                               |
 | **Phiên Bản Hỗ Trợ**  | `1.20.4+` (Native `1.20.4`) — Java & Bedrock Edition |
 | **Cộng Đồng Discord** | [discord.gg/mvRcGjDHVm](https://discord.gg/mvRcGjDHVm)   |
 | **Cổng Nạp Point**    | Web Topup Tự Động (QR Code PayOS 3 giây)                 |
@@ -192,4 +193,4 @@ _Hãy chuẩn bị cây cúp tốt nhất, tập hợp đồng đội và sẵn 
 4. **Trang Bị, Ngọc Khảm & Phân Rã (`/phanra`):** Khảm 100 loại ngọc (roll ±10%), đục ô khảm (`/duclo`), cường hóa (`/cuonghoa`) và phân rã trang sức dư lấy Đá Cường Hóa Trang Sức.
 5. **Khu Đất Cá Nhân (`world_plot`):** Claim plot 64x64 free tại `/plot` với quyền bay `/fly` tự do.
 
-Hãy hẹn giờ 08:00 ngày 15/08, rủ rê đồng đội và copy IP `mc.aethermines.com` sẵn sàng bùng nổ cùng **AetherMine Prison RPG**!
+Hãy hẹn giờ 08:00 ngày 15/08, rủ rê đồng đội và copy IP Java `mc.aethermines.com` hoặc IP PE `mc.aethermines.com:25118` sẵn sàng bùng nổ cùng **AetherMine Prison RPG**!

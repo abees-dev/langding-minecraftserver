@@ -2,6 +2,7 @@ export const siteConfig = {
   name: 'AetherMine',
   fullName: 'AetherMine Minecraft RPG Server',
   serverIp: 'mc.aethermines.com',
+  serverIpPe: 'mc.aethermines.com:25118',
   websiteUrl: 'https://aethermines.com',
   bannerUrl: '/banner.png',
   logoUrl: '/logo.png',
