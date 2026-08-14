@@ -12,7 +12,7 @@ tags:
     'Khuyến Mãi Nạp',
     'Đua Top',
   ]
-excerpt: 'Máy chủ AetherMine Prison RPG chính thức Khai Mở vào 08:00 ngày 15/08/2026. Chuỗi sự kiện Đua Top Bang Hội Mỏ VIP KOTH, Đua Top Đào Quặng & Level, Giftcode Khai Mở và Khuyến mãi +100% Nạp Point!'
+excerpt: 'Máy chủ AetherMine Prison RPG chính thức Khai Mở vào 08:00 ngày 15/08/2026. Dual Top Đào Quặng & Level, Đua Top Bang Hội Mùa 1 (War + Quest), Giftcode Khai Mở và Khuyến mãi +100% Nạp Point!'
 coverImage: '/images/blogs/open-server.png'
 featured: true
 ---
@@ -40,7 +40,7 @@ Sau thời gian dài chuẩn bị, tối ưu hóa hạ tầng anti-DDOS và hoà
 
 ## 🏆 2. Chuỗi Sự Kiện Khai Mở Prison 2026
 
-Chào mừng các tù nhân đến với mùa khai mở Prison 2026! Hàng loạt cuộc đua cá nhân, tranh tài Bang Hội và quà tặng giới hạn đang chờ đón những người chơi xuất sắc nhất.
+Chào mừng các tù nhân đến với mùa khai mở Prison 2026! Dual Top cá nhân, Đua Top Bang Hội (War + Quest), giftcode ngày Open và khuyến mãi nạp đang chờ đón những người chơi xuất sắc nhất.
 
 ---
 
@@ -51,7 +51,7 @@ Chào mừng các tù nhân đến với mùa khai mở Prison 2026! Hàng loạ
 
 ---
 
-### 🏆 SỰ KIỆN 2: ĐUA TOP ĐÀO QUẶNG & TOP LEVEL
+### 🏆 SỰ KIỆN 2: DUAL TOP (`/dualtop`) — ĐÀO QUẶNG & TOP LEVEL
 
 ⏰ **Thời gian:** Từ **08:00 ngày 15/08/2026** đến **23:59 ngày 25/08/2026**.
 
@@ -119,22 +119,18 @@ Hai bảng xếp hạng sẽ được hiển thị riêng:
 
 ---
 
-### 🏰 SỰ KIỆN 3: ĐUA TOP BANG HỘI MỎ VIP KOTH — MÙA 1
+### 🏰 SỰ KIỆN 3: ĐUA TOP BANG HỘI — MÙA 1
 
-Các Bang Hội sẽ cạnh tranh thứ hạng thông qua hai hoạt động chính:
+Các Bang Hội cạnh tranh thứ hạng Mùa 1 qua hai hoạt động:
 
-- Chiếm giữ **Mỏ VIP KOTH** bằng `/gang koth`
-- Tham gia **Bang Chiến lúc 20:00 giờ Việt Nam**
+- **Bang Chiến** lúc **20:00 giờ Việt Nam** (`/gang war join` / `/bangchien`)
+- **Quest Bang Hội** (`/gang quest`)
 
-**Trong Mùa 1:**
+Xem hạng: `/gang season`.
 
-- KOTH và Bang Chiến được tính vào điểm mùa.
-- Quest Bang Hội và nhiệm vụ tuần không cộng điểm mùa.
-- Quà riêng của quest và nhiệm vụ tuần vẫn được giữ nguyên.
+**Mỏ VIP KOTH không tính vào điểm đua top mùa này.**
 
 #### 🏆 PHẦN THƯỞNG TOP BANG HỘI CUỐI MÙA (TOP 1 – TOP 3)
-
-Khác với trước đây chỉ thưởng Top 1, mùa khai mở 2026 mở rộng phần thưởng lớn cho **cả 3 Bang Hội xuất sắc nhất**:
 
 | Hạng | Bank Bang | Danh Vọng Bang | Phần Thưởng & Cosmetic |
 | :--- | :--- | :--- | :--- |
@@ -157,9 +153,9 @@ Kỷ vật giới hạn dành cho Bang Chủ của Bang Hội vô địch Mùa 1
 
 ### 🎁 SỰ KIỆN 4: GIFTCODE ĐỘC QUYỀN NGÀY OPEN (15/08/2026)
 
-Giftcode đặc biệt sẽ được công bố chính thức trong ngày khai mở server **15/08/2026**.
+Giftcode ngày Open: `/code AETHEROPEN2026`
 
-- **Lệnh nhập:** `/code <mã>` (mã công bố chính thức vào ngày Open)
+- **Lệnh nhập:** `/code AETHEROPEN2026`
 - **Giới hạn:** Mỗi tài khoản sử dụng **01 lần**
 
 #### 🎁 Phần Quà Khởi Đầu Bao Gồm:
