@@ -26,7 +26,7 @@ export const FAQ_LIST: FaqItem[] = [
   },
   {
     q: 'Làm thế nào để kết nối vào máy chủ Minecraft AetherMine?',
-    a: 'Mở Minecraft Java Edition phiên bản 1.19.4 trở lên, chọn Chơi Mạng (Multiplayer) -> Thêm Máy Chủ (Add Server), nhập địa chỉ IP chính thức: mc.aethermines.com và kết nối ngay!',
+    a: 'Mở Minecraft Java Edition phiên bản 1.20.4 trở lên (khuyến nghị native 1.20.4), chọn Chơi Mạng (Multiplayer) -> Thêm Máy Chủ (Add Server), nhập địa chỉ IP chính thức: mc.aethermines.com và kết nối ngay!',
   },
   {
     q: 'Hệ thống Bán Quặng (/sellgui & /gang vault) hoạt động ra sao?',

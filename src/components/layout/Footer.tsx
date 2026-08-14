@@ -23,7 +23,7 @@ export default function Footer() {
     'Bang Hoi Minecraft',
     'Trang Bi Long Toc',
     'Chuyen Sinh Minecraft',
-    'Server Minecraft 1.19+',
+    'Server Minecraft 1.20.4+',
     'KOTH Minecraft Viet Nam',
     'Top Server Minecraft',
     siteConfig.serverIp,

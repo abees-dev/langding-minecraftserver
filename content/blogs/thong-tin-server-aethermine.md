@@ -20,7 +20,7 @@ Chào mừng bạn đến với **AetherMine** – Máy chủ Minecraft Prison R
 | Thông Tin | Chi Tiết |
 | :--- | :--- |
 | **IP Máy Chủ** | `mc.aethermines.com` |
-| **Phiên Bản** | `1.20.x` đến `1.21.x` (Hỗ trợ Java & Bedrock Edition) |
+| **Phiên Bản** | `1.20.4+` (Native `1.20.4`) — Java & Bedrock Edition |
 | **Thể Loại** | Prison RPG / Đào Quặng / Dungeon MMOCore / Bang Hội KOTH |
 | **Hệ Thống Nạp** | Web Topup Tự Động (QR Code PayOS) |
 | **Cộng Đồng Discord** | [discord.gg/mvRcGjDHVm](https://discord.gg/mvRcGjDHVm) |

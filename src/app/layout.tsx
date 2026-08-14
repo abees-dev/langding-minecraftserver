@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: ${siteConfig.serverIp})`,
+    default: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.20.4+ (IP: ${siteConfig.serverIp})`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     "top server minecraft rpg",
     "game minecraft rpg online",
     "server minecraft prison rpg",
-    "minecraft rpg 1.19",
-    "minecraft rpg 1.20",
+    "minecraft rpg 1.20.4",
+    "minecraft rpg 1.20.4+",
     "minecraft rpg 1.21",
     "aethermines.com",
     siteConfig.serverIp,
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.19+ (IP: ${siteConfig.serverIp})`,
+    title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.20.4+ (IP: ${siteConfig.serverIp})`,
     description:
       `Trải nghiệm máy chủ Minecraft RPG Việt Nam đỉnh cao (IP: ${siteConfig.serverIp}). Đào quặng Prison, săn Boss Dungeon RPG, tinh luyện trang bị Long Tộc & Bang Hội KOTH!`,
     url: siteConfig.websiteUrl,

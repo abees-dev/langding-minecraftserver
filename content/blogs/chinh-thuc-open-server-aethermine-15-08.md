@@ -31,7 +31,7 @@ Sau thời gian dài chuẩn bị, tối ưu hóa hạ tầng anti-DDOS và hoà
 | :-------------------- | :------------------------------------------------------- |
 | **Thời Gian Open**    | **08:00 - Thứ Bảy, Ngày 15/08/2026**                     |
 | **Địa Chỉ IP**        | `mc.aethermines.com`                                     |
-| **Phiên Bản Hỗ Trợ**  | `1.20.x` đến `1.21.x` (Hỗ trợ cả Java & Bedrock Edition) |
+| **Phiên Bản Hỗ Trợ**  | `1.20.4+` (Native `1.20.4`) — Java & Bedrock Edition |
 | **Cộng Đồng Discord** | [discord.gg/mvRcGjDHVm](https://discord.gg/mvRcGjDHVm)   |
 | **Cổng Nạp Point**    | Web Topup Tự Động (QR Code PayOS 3 giây)                 |
 
