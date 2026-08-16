@@ -22,7 +22,8 @@ const ALLOWED_TELCOS: TelcoType[] = [
   'GATE',
 ];
 const ALLOWED_AMOUNTS = [
-  5000, 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000, 2000000, 5000000,
+  5000, 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000,
+  2000000, 5000000,
 ];
 
 export async function POST(request: NextRequest) {
@@ -31,7 +32,9 @@ export async function POST(request: NextRequest) {
     const { username, telco, amount, code, serial } = body;
 
     const trimmedUsername = username?.trim();
-    const uppercaseTelco = String(telco || '').trim().toUpperCase() as TelcoType;
+    const uppercaseTelco = String(telco || '')
+      .trim()
+      .toUpperCase() as TelcoType;
     const numAmount = Number(amount);
     const trimmedCode = String(code || '').trim();
     const trimmedSerial = String(serial || '').trim();
@@ -40,35 +43,38 @@ export async function POST(request: NextRequest) {
     if (!trimmedUsername) {
       return NextResponse.json(
         { success: false, message: 'Vui lòng nhập tên nhân vật Minecraft!' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!ALLOWED_TELCOS.includes(uppercaseTelco)) {
       return NextResponse.json(
-        { success: false, message: 'Nhà mạng không hợp lệ. Vui lòng chọn nhà mạng được hỗ trợ!' },
-        { status: 400 }
+        {
+          success: false,
+          message: 'Nhà mạng không hợp lệ. Vui lòng chọn nhà mạng được hỗ trợ!',
+        },
+        { status: 400 },
       );
     }
 
     if (!numAmount || !ALLOWED_AMOUNTS.includes(numAmount)) {
       return NextResponse.json(
         { success: false, message: 'Mệnh giá thẻ không hợp lệ!' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!trimmedCode) {
       return NextResponse.json(
         { success: false, message: 'Vui lòng nhập Mã thẻ cào!' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!trimmedSerial) {
       return NextResponse.json(
         { success: false, message: 'Vui lòng nhập số Seri thẻ!' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -82,7 +88,7 @@ export async function POST(request: NextRequest) {
             success: false,
             message: `Tài khoản "${trimmedUsername}" không tồn tại trong hệ thống! Vui lòng tham gia server game để khởi tạo nhân vật trước khi nạp thẻ.`,
           },
-          { status: 400 }
+          { status: 400 },
         );
       }
       actualUsername = user.username;
@@ -91,9 +97,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message: 'Không thể kết nối cơ sở dữ liệu để xác minh nhân vật. Vui lòng thử lại sau!',
+          message:
+            'Không thể kết nối cơ sở dữ liệu để xác minh nhân vật. Vui lòng thử lại sau!',
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -113,19 +120,22 @@ export async function POST(request: NextRequest) {
       numAmount,
       pointReceived,
       'CARD',
-      description
+      description,
     );
 
     // 6. Config for Nappay.vn Charging v2 API
     const partnerId = process.env.CARD_PARTNER_ID || '';
     const partnerKey = process.env.CARD_PARTNER_KEY || '';
-    const partnerUrl = process.env.CARD_PARTNER_URL || 'https://nappay.vn/chargingws/v2';
+    const partnerUrl =
+      process.env.CARD_PARTNER_URL || 'https://nappay.vn/chargingws/v2';
 
     // Nappay Charging v2 Signature algorithm:
     // md5(partner_key . code . command . partner_id . request_id . serial . telco)
     const sign = crypto
       .createHash('md5')
-      .update(`${partnerKey}${trimmedCode}charging${partnerId}${requestId}${trimmedSerial}${uppercaseTelco}`)
+      .update(
+        `${partnerKey}${trimmedCode}charging${partnerId}${requestId}${trimmedSerial}${uppercaseTelco}`,
+      )
       .digest('hex');
 
     const formData = new URLSearchParams();
@@ -138,7 +148,9 @@ export async function POST(request: NextRequest) {
     formData.append('code', trimmedCode);
     formData.append('sign', sign);
 
-    console.log(`[Nappay Charging Request]: ID=${requestId}, Telco=${uppercaseTelco}, Amount=${numAmount}, URL=${partnerUrl}`);
+    console.log(
+      `[Nappay Charging Request]: ID=${requestId}, Telco=${uppercaseTelco}, Amount=${numAmount}, URL=${partnerUrl}`,
+    );
 
     // Call Partner API
     let partnerResData: any = null;
@@ -160,12 +172,17 @@ export async function POST(request: NextRequest) {
         console.error('[Nappay Raw Response Non-JSON]:', rawText);
       }
     } catch (apiErr: any) {
-      console.error('[Nappay Charging API Request Exception]:', apiErr?.message);
+      console.error(
+        '[Nappay Charging API Request Exception]:',
+        apiErr?.message,
+      );
     }
 
     // If API failed or response missing (e.g. pending callback)
     if (!partnerResData) {
-      console.warn('[Nappay API Warning]: Response missing or raw format, keeping transaction PENDING for webhook.');
+      console.warn(
+        '[Nappay API Warning]: Response missing or raw format, keeping transaction PENDING for webhook.',
+      );
       return NextResponse.json({
         success: true,
         status: 'PENDING',
@@ -192,15 +209,25 @@ export async function POST(request: NextRequest) {
         amount: numAmount,
         pointReceived,
         telco: uppercaseTelco,
-        message: 'Nạp thẻ thành công! Point đã được cộng vào tài khoản của bạn.',
+        message:
+          'Nạp thẻ thành công! Point đã được cộng vào tài khoản của bạn.',
       });
     }
 
     // Status 2: CARD_WRONG_VALUE (Thẻ đúng nhưng sai mệnh giá khai báo)
     if (partnerStatus === 2) {
-      const actualCardValue = Number(partnerResData.value || partnerResData.card_value || partnerResData.declared_value || numAmount);
+      const actualCardValue = Number(
+        partnerResData.value ||
+          partnerResData.card_value ||
+          partnerResData.declared_value ||
+          numAmount,
+      );
       const actualPoint = calculatePointReceived(actualCardValue, 'CARD');
-      await updateDepositTransactionAmountAndPoint(requestId, actualCardValue, actualPoint);
+      await updateDepositTransactionAmountAndPoint(
+        requestId,
+        actualCardValue,
+        actualPoint,
+      );
       await completeDepositTransaction(requestId);
       return NextResponse.json({
         success: true,
@@ -210,7 +237,7 @@ export async function POST(request: NextRequest) {
         amount: actualCardValue,
         pointReceived: actualPoint,
         telco: uppercaseTelco,
-        message: `Nạp thẻ thành công! Mệnh giá thực của thẻ là ${actualCardValue.toLocaleString('vi-VN')} VNĐ. Đã cộng +${actualPoint} Point.`,
+        message: `Nạp thẻ thành công! Mệnh giá thực của thẻ là ${actualCardValue.toLocaleString('vi-VN')} VNĐ. Đã cộng +${actualPoint} Point`,
       });
     }
 
@@ -224,7 +251,8 @@ export async function POST(request: NextRequest) {
         amount: numAmount,
         pointReceived,
         telco: uppercaseTelco,
-        message: 'Thẻ đang chờ hệ thống gạch thẻ xử lý (thường mất từ 30s đến 3 phút).',
+        message:
+          'Thẻ đang chờ hệ thống gạch thẻ xử lý (thường mất từ 30s đến 3 phút).',
       });
     }
 
@@ -237,13 +265,16 @@ export async function POST(request: NextRequest) {
         orderCode: requestId,
         message: `Gửi thẻ thất bại (${partnerStatus}): ${partnerMsg}`,
       },
-      { status: 400 }
+      { status: 400 },
     );
   } catch (error: any) {
     console.error('[Card Deposit API Error]:', error);
     return NextResponse.json(
-      { success: false, message: error?.message || 'Có lỗi xảy ra khi nạp thẻ.' },
-      { status: 500 }
+      {
+        success: false,
+        message: error?.message || 'Có lỗi xảy ra khi nạp thẻ.',
+      },
+      { status: 500 },
     );
   }
 }
