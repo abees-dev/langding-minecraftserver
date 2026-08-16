@@ -121,39 +121,79 @@ export async function GET() {
             const feeData = JSON.parse(rawText);
             console.log('[Card Types Debug] Parsed JSON Response:', JSON.stringify(feeData, null, 2));
 
-            if (feeData && typeof feeData === 'object') {
+            if (feeData) {
               const fetchedTelcos: TelcoInfo[] = [];
 
-              for (const key of Object.keys(feeData)) {
-                const uppercaseKey = key.toUpperCase() as TelcoType;
-                const items = feeData[key];
+              // Handle Array Response (Nappay format: [{ telco: "VIETTEL", value: 10000, fees: 30 }, ...])
+              if (Array.isArray(feeData)) {
+                const grouped: Record<string, { availableAmounts: number[]; fees?: number }> = {};
 
-                if (Array.isArray(items) && items.length > 0) {
-                  const availableAmounts = items
-                    .map((item: any) => Number(item.value || item.card_value))
-                    .filter((val: number) => !isNaN(val) && val > 0)
-                    .sort((a: number, b: number) => a - b);
+                for (const item of feeData) {
+                  if (!item || typeof item !== 'object') continue;
+                  const telcoName = String(item.telco || item.service_code || item.name || '').trim().toUpperCase();
+                  if (!telcoName) continue;
 
-                  const fees = items[0]?.fees ? Number(items[0].fees) : undefined;
-                  const name = TELCO_NAME_MAP[uppercaseKey] || uppercaseKey;
+                  const val = Number(item.value ?? item.card_value ?? item.amount ?? 0);
+                  const fee = item.fees !== undefined ? Number(item.fees) : undefined;
+
+                  if (!grouped[telcoName]) {
+                    grouped[telcoName] = { availableAmounts: [], fees: fee };
+                  }
+
+                  if (val > 0 && !grouped[telcoName].availableAmounts.includes(val)) {
+                    grouped[telcoName].availableAmounts.push(val);
+                  }
+                }
+
+                for (const key of Object.keys(grouped)) {
+                  const uppercaseKey = key as TelcoType;
+                  const info = grouped[key];
+                  info.availableAmounts.sort((a, b) => a - b);
 
                   fetchedTelcos.push({
                     id: uppercaseKey,
-                    name,
-                    fees,
+                    name: TELCO_NAME_MAP[uppercaseKey] || uppercaseKey,
+                    fees: info.fees,
                     availableAmounts:
-                      availableAmounts.length > 0
-                        ? availableAmounts
+                      info.availableAmounts.length > 0
+                        ? info.availableAmounts
                         : [10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000],
                   });
+                }
+              }
+              // Handle Object Response ({ "VIETTEL": [ { value: 10000 }, ... ] })
+              else if (typeof feeData === 'object') {
+                for (const key of Object.keys(feeData)) {
+                  const uppercaseKey = key.toUpperCase() as TelcoType;
+                  const items = feeData[key];
+
+                  if (Array.isArray(items) && items.length > 0) {
+                    const availableAmounts = items
+                      .map((item: any) => Number(item.value || item.card_value))
+                      .filter((val: number) => !isNaN(val) && val > 0)
+                      .sort((a: number, b: number) => a - b);
+
+                    const fees = items[0]?.fees ? Number(items[0].fees) : undefined;
+                    const name = TELCO_NAME_MAP[uppercaseKey] || uppercaseKey;
+
+                    fetchedTelcos.push({
+                      id: uppercaseKey,
+                      name,
+                      fees,
+                      availableAmounts:
+                        availableAmounts.length > 0
+                          ? availableAmounts
+                          : [10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000],
+                    });
+                  }
                 }
               }
 
               if (fetchedTelcos.length > 0) {
                 telcoList = fetchedTelcos;
-                console.log('[Card Types Debug] Successfully parsed telcos:', fetchedTelcos);
+                console.log('[Card Types Debug] Successfully parsed telcos count:', fetchedTelcos.length, fetchedTelcos);
               } else {
-                console.warn('[Card Types Debug] Nappay API returned empty array. Using fallback defaults.');
+                console.warn('[Card Types Debug] Nappay API returned response but could not parse telcos. Using fallback defaults.');
                 debugInfo.isFallback = true;
               }
             }
