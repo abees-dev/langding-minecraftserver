@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { StepType, QrData, TopupModalProps } from '@/types/topup';
+import { StepType, QrData, TopupModalProps, PaymentMethodType } from '@/types/topup';
+import { TelcoType } from '@/types/deposit';
 import TopupHeader from './TopupHeader';
 import TopupFormStep from './TopupFormStep';
 import TopupQrStep from './TopupQrStep';
@@ -14,12 +15,18 @@ const STORAGE_KEY = 'aethermine_pending_deposit';
 
 export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
   const [step, setStep] = useState<StepType>('FORM');
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethodType>('BANK');
   const [username, setUsername] = useState('');
   const [amount, setAmount] = useState<number>(50000);
   const [customAmountStr, setCustomAmountStr] = useState<string>('50,000');
 
+  // Phone card state
+  const [telco, setTelco] = useState<TelcoType>('VIETTEL');
+  const [cardCode, setCardCode] = useState('');
+  const [cardSerial, setCardSerial] = useState('');
+
   const [userErrorMsg, setUserErrorMsg] = useState('');
-  const [creatingQr, setCreatingQr] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [qrData, setQrData] = useState<QrData | null>(null);
 
   const [, setPaymentStatus] = useState<'PENDING' | 'COMPLETED'>('PENDING');
@@ -67,6 +74,8 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
     setQrData(null);
     setPaymentStatus('PENDING');
     setUserErrorMsg('');
+    setCardCode('');
+    setCardSerial('');
     try {
       localStorage.removeItem(STORAGE_KEY);
     } catch (e) {
@@ -150,8 +159,8 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, handleCloseModal]);
 
-  // Submit Form -> Kiểm tra DB user & Tạo QR khi bấm nút
-  const handleCreateQr = async (e: React.FormEvent) => {
+  // Submit Bank Deposit Form -> Tạo QR PayOS / VietQR
+  const handleCreateBankDeposit = async (e: React.FormEvent) => {
     e.preventDefault();
     const trimmedUser = username.trim();
 
@@ -162,13 +171,11 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
 
     const minDepositAmount = getMinDepositAmount();
     if (amount < minDepositAmount) {
-      alert(
-        `Số tiền nạp tối thiểu là ${minDepositAmount.toLocaleString('vi-VN')} VNĐ`,
-      );
+      alert(`Số tiền nạp tối thiểu là ${minDepositAmount.toLocaleString('vi-VN')} VNĐ`);
       return;
     }
 
-    setCreatingQr(true);
+    setSubmitting(true);
     setUserErrorMsg('');
 
     try {
@@ -184,7 +191,7 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
       const data = await res.json();
 
       if (data.success) {
-        setQrData(data);
+        setQrData({ ...data, paymentMethod: 'BANK' });
         setStep('QR');
         setPaymentStatus('PENDING');
         try {
@@ -198,7 +205,69 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
     } catch {
       setUserErrorMsg('Không thể kết nối máy chủ để kiểm tra tài khoản.');
     } finally {
-      setCreatingQr(false);
+      setSubmitting(false);
+    }
+  };
+
+  // Submit Phone Card Deposit Form -> Gửi thẻ cào đối tác
+  const handleCreateCardDeposit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmedUser = username.trim();
+
+    if (!trimmedUser) {
+      setUserErrorMsg('Vui lòng nhập tên nhân vật Minecraft!');
+      return;
+    }
+    if (!cardSerial) {
+      setUserErrorMsg('Vui lòng nhập số Seri thẻ!');
+      return;
+    }
+    if (!cardCode) {
+      setUserErrorMsg('Vui lòng nhập Mã thẻ cào!');
+      return;
+    }
+
+    setSubmitting(true);
+    setUserErrorMsg('');
+
+    try {
+      const res = await fetch('/api/deposit/card', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: trimmedUser,
+          telco,
+          amount,
+          code: cardCode,
+          serial: cardSerial,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        if (data.status === 'COMPLETED') {
+          setQrData({ ...data, paymentMethod: 'CARD' });
+          setStep('SUCCESS');
+          setPaymentStatus('COMPLETED');
+        } else {
+          // Status PENDING
+          setQrData({ ...data, paymentMethod: 'CARD' });
+          setStep('QR');
+          setPaymentStatus('PENDING');
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          } catch (e) {
+            console.warn('localStorage save failed:', e);
+          }
+        }
+      } else {
+        setUserErrorMsg(data.message || 'Không thể nạp thẻ cào.');
+      }
+    } catch {
+      setUserErrorMsg('Không thể kết nối máy chủ để xử lý nạp thẻ.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -260,16 +329,25 @@ export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
         <div className="p-8 overflow-y-auto space-y-7">
           {step === 'FORM' && (
             <TopupFormStep
+              paymentMethod={paymentMethod}
+              setPaymentMethod={setPaymentMethod}
               username={username}
               setUsername={setUsername}
               amount={amount}
               setAmount={setAmount}
               customAmountStr={customAmountStr}
               setCustomAmountStr={setCustomAmountStr}
+              telco={telco}
+              setTelco={setTelco}
+              cardCode={cardCode}
+              setCardCode={setCardCode}
+              cardSerial={cardSerial}
+              setCardSerial={setCardSerial}
               userErrorMsg={userErrorMsg}
               setUserErrorMsg={setUserErrorMsg}
-              creatingQr={creatingQr}
-              onSubmit={handleCreateQr}
+              submitting={submitting}
+              onSubmitBank={handleCreateBankDeposit}
+              onSubmitCard={handleCreateCardDeposit}
               presetAmounts={PRESET_AMOUNTS}
             />
           )}

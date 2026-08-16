@@ -98,3 +98,26 @@ export async function completeDepositTransaction(targetOrderCode: string, orderP
     throw error;
   }
 }
+
+export async function updateDepositTransactionAmountAndPoint(
+  orderCode: string,
+  actualAmount: number,
+  actualPointReceived: number
+): Promise<boolean> {
+  const [result] = await pool.execute<ResultSetHeader>(
+    'UPDATE transactions SET amount = ?, point_received = ?, updated_at = NOW() WHERE order_code = ?',
+    [actualAmount, actualPointReceived, orderCode]
+  );
+  return result.affectedRows > 0;
+}
+
+export async function updateDepositTransactionStatus(
+  orderCode: string,
+  status: 'PENDING' | 'COMPLETED' | 'EXPIRED' | 'FAILED'
+): Promise<boolean> {
+  const [result] = await pool.execute<ResultSetHeader>(
+    'UPDATE transactions SET status = ?, updated_at = NOW() WHERE order_code = ?',
+    [status, orderCode]
+  );
+  return result.affectedRows > 0;
+}

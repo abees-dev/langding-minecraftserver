@@ -162,39 +162,70 @@ export const getMinDepositAmount = (): number => {
 };
 
 /**
- * Hàm chung tính toán tổng số Point thực nhận từ số tiền VNĐ nạp vào (đã tính % Khuyến mãi)
+ * Tỷ lệ quy đổi điểm cho nạp thẻ cào (thấp hơn 20% so với nạp Bank)
+ */
+export const CARD_CONVERSION_FACTOR = 0.8;
+
+/**
+ * Hàm chung tính toán tổng số Point thực nhận từ số tiền VNĐ nạp vào (đã tính % Khuyến mãi và phương thức nạp)
  * @param amountVnd Số tiền VNĐ người dùng nạp
+ * @param paymentMethod Phương thức nạp ('BANK' | 'CARD')
  * @returns Số Point thực nhận (làm tròn số nguyên)
  */
-export function calculatePointReceived(amountVnd: number): number {
+export function calculatePointReceived(
+  amountVnd: number,
+  paymentMethod: 'BANK' | 'CARD' = 'BANK'
+): number {
   const validAmount = Number(amountVnd) || 0;
   if (validAmount <= 0) return 0;
   const rate = getPointConversionRate();
   const basePoint = validAmount * rate;
   const bonusPercent = getPointBonusPercent();
-  const totalPoint = basePoint * (1 + bonusPercent / 100);
-  return Math.floor(totalPoint);
+  const totalBankPoint = basePoint * (1 + bonusPercent / 100);
+
+  if (paymentMethod === 'CARD') {
+    return Math.floor(totalBankPoint * CARD_CONVERSION_FACTOR);
+  }
+
+  return Math.floor(totalBankPoint);
 }
 
 /**
- * Hàm chi tiết trả về Point gốc, Point thưởng khuyến mãi và Tổng Point
+ * Hàm chi tiết trả về Point gốc, Point thưởng khuyến mãi và Tổng Point theo phương thức nạp
  */
-export function calculatePointBreakdown(amountVnd: number) {
+export function calculatePointBreakdown(
+  amountVnd: number,
+  paymentMethod: 'BANK' | 'CARD' = 'BANK'
+) {
   const validAmount = Number(amountVnd) || 0;
   if (validAmount <= 0) {
-    return { basePoint: 0, bonusPoint: 0, totalPoint: 0, bonusPercent: 0 };
+    return {
+      basePoint: 0,
+      bonusPoint: 0,
+      totalPoint: 0,
+      bonusPercent: 0,
+      cardDiscountPercent: paymentMethod === 'CARD' ? 20 : 0,
+      bankPoint: 0,
+    };
   }
   const rate = getPointConversionRate();
   const basePoint = Math.floor(validAmount * rate);
   const bonusPercent = getPointBonusPercent();
   const bonusPoint = Math.floor(basePoint * (bonusPercent / 100));
-  const totalPoint = basePoint + bonusPoint;
+  const bankPoint = basePoint + bonusPoint;
+
+  const totalPoint =
+    paymentMethod === 'CARD'
+      ? Math.floor(bankPoint * CARD_CONVERSION_FACTOR)
+      : bankPoint;
 
   return {
     basePoint,
     bonusPoint,
+    bankPoint,
     totalPoint,
     bonusPercent,
+    cardDiscountPercent: paymentMethod === 'CARD' ? 20 : 0,
   };
 }
 
