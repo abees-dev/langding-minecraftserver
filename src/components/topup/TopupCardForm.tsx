@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Loader2, Send, AlertTriangle, ChevronDown } from 'lucide-react';
+import { Loader2, Send, AlertTriangle, ChevronDown, MessageSquare } from 'lucide-react';
 import { TelcoType } from '@/types/deposit';
 import { TelcoInfo } from '@/app/api/deposit/card-types/route';
+import { siteConfig } from '@/config/site';
 
 interface TopupCardFormProps {
   telco: TelcoType;
@@ -59,16 +60,34 @@ export default function TopupCardForm({
 
   return (
     <div className="space-y-6">
-      {/* Soft Warning Alert Box */}
-      <div className="p-3.5 rounded-2xl bg-red-950/40 border border-red-500/35 flex items-start gap-3 text-xs text-red-200/90 leading-relaxed shadow-sm">
-        <AlertTriangle className="w-4 h-4 shrink-0 text-red-400/90 mt-0.5" />
-        <div>
-          <span className="font-bold text-red-400/90 block uppercase tracking-wider mb-0.5">
-            ⚠️ Lưu ý quan trọng về mệnh giá thẻ:
-          </span>
-          <span>
-            Chọn <strong className="text-amber-300/90 underline font-semibold">chính xác</strong> mệnh giá thẻ. Nhập <strong className="text-red-300 font-bold uppercase underline">sai mệnh giá sẽ bị mất thẻ</strong> (nhà mạng thu hồi) và Admin <strong className="text-red-300 font-bold uppercase">không chịu trách nhiệm</strong> xử lý đền bù!
-          </span>
+      {/* Maintenance Closed Alert Box */}
+      <div className="p-5 rounded-2xl bg-red-950/80 border border-red-500/50 flex flex-col gap-3 text-xs text-red-100 leading-relaxed shadow-lg">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="w-6 h-6 shrink-0 text-red-400 mt-0.5" />
+          <div className="space-y-1.5">
+            <span className="font-extrabold text-red-400 block uppercase tracking-wider text-sm">
+              🚫 Cổng nạp thẻ cào tự động đang tạm đóng!
+            </span>
+            <p className="text-slate-200">
+              • <strong className="text-amber-300 font-bold">Nạp thẻ Viettel:</strong> Vui lòng liên hệ trực tiếp <strong className="text-indigo-300 font-bold">Discord Admin</strong> để được hỗ trợ nạp thẻ thủ công.
+            </p>
+            <p className="text-red-300/90 font-medium">
+              • <strong className="text-red-400 font-bold uppercase underline">KHÔNG nhận nạp thẻ khác:</strong> Hệ thống hiện không hỗ trợ bất kỳ loại thẻ nào khác (Mobifone, Vinaphone, Zing, Garena, Vcoin...).
+            </p>
+          </div>
+        </div>
+
+        <div className="pt-2 border-t border-red-500/30 flex items-center justify-between gap-3">
+          <span className="text-[11px] text-slate-400">Ưu tiên khuyên dùng Nạp Qua Ngân Hàng (VietQR)</span>
+          <a
+            href={siteConfig.social.discord}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-2 shadow-md hover:shadow-indigo-500/30 transition-all shrink-0"
+          >
+            <MessageSquare className="w-4 h-4" />
+            <span>Liên Hệ Discord Admin</span>
+          </a>
         </div>
       </div>
 
@@ -76,7 +95,7 @@ export default function TopupCardForm({
       <div>
         <label
           htmlFor="as-telco-select"
-          className="block text-xs font-mono text-amber-400/90 font-semibold uppercase tracking-wider mb-2 flex items-center justify-between"
+          className="block text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-2 flex items-center justify-between"
         >
           <span>2. Chọn Nhà Mạng Thẻ Cào <span className="text-red-400/90">*</span></span>
           {loadingTypes && (
@@ -89,6 +108,7 @@ export default function TopupCardForm({
         <div className="relative">
           <select
             id="as-telco-select"
+            disabled
             value={telco}
             onChange={(e) => {
               const newTelco = e.target.value as TelcoType;
@@ -100,7 +120,7 @@ export default function TopupCardForm({
                 }
               }
             }}
-            className="w-full px-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm font-semibold focus:outline-none focus:border-amber-500/60 shadow-inner appearance-none cursor-pointer pr-10"
+            className="w-full px-4 py-3.5 rounded-2xl bg-slate-950/50 border border-slate-800 text-slate-500 font-mono text-sm font-semibold cursor-not-allowed appearance-none pr-10"
           >
             {(telcoList.length > 0
               ? telcoList
@@ -121,7 +141,7 @@ export default function TopupCardForm({
               </option>
             ))}
           </select>
-          <ChevronDown className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <ChevronDown className="w-4 h-4 text-slate-600 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
         </div>
       </div>
 
@@ -129,36 +149,34 @@ export default function TopupCardForm({
       <div>
         <label
           htmlFor="as-amount-select"
-          className="block text-xs font-mono text-amber-400/90 font-semibold uppercase tracking-wider mb-2"
+          className="block text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-2"
         >
           3. Chọn Mệnh Giá Khai Báo (VNĐ) <span className="text-red-400/90">*</span>
         </label>
         <div className="relative">
           <select
             id="as-amount-select"
+            disabled
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value))}
-            className="w-full px-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm font-semibold focus:outline-none focus:border-amber-500/60 shadow-inner appearance-none cursor-pointer pr-10"
+            className="w-full px-4 py-3.5 rounded-2xl bg-slate-950/50 border border-slate-800 text-slate-500 font-mono text-sm font-semibold cursor-not-allowed appearance-none pr-10"
           >
-            {availableAmounts.map((val) => (
-              <option key={val} value={val} className="bg-slate-900 text-slate-100">
-                {val.toLocaleString('vi-VN')} VNĐ {val >= 1000000 ? `(${val / 1000000} Triệu)` : `(${val / 1000}K)`}
+            {availableAmounts.map((amt) => (
+              <option key={amt} value={amt} className="bg-slate-900 text-slate-100">
+                {amt.toLocaleString('vi-VN')} VNĐ
               </option>
             ))}
           </select>
-          <ChevronDown className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <ChevronDown className="w-4 h-4 text-slate-600 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
         </div>
-        <p className="mt-2 text-[11px] text-red-400/80 font-mono italic">
-          * Khai báo sai mệnh giá = Mất thẻ (Admin không hỗ trợ giải quyết).
-        </p>
       </div>
 
-      {/* Serial & Code Input Fields */}
+      {/* Serial & Pin Inputs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label
             htmlFor="as-card-serial-input"
-            className="block text-xs font-mono text-amber-400/90 font-semibold uppercase tracking-wider mb-1.5"
+            className="block text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-1.5"
           >
             4. Số Seri Thẻ <span className="text-red-400/90">*</span>
           </label>
@@ -166,19 +184,18 @@ export default function TopupCardForm({
             id="as-card-serial-input"
             name="as_card_serial"
             type="text"
+            disabled
             value={cardSerial}
             onChange={(e) => setCardSerial(e.target.value.trim())}
-            placeholder="Nhập số Seri in trên thẻ..."
-            autoComplete="on"
-            className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm font-semibold placeholder:text-slate-600 focus:outline-none focus:border-amber-500/60 shadow-inner"
-            required
+            placeholder="Nhập số seri in trên thẻ..."
+            className="w-full px-4 py-3 rounded-2xl bg-slate-950/50 border border-slate-800 text-slate-500 font-mono text-sm font-semibold cursor-not-allowed"
           />
         </div>
 
         <div>
           <label
             htmlFor="as-card-code-input"
-            className="block text-xs font-mono text-amber-400/90 font-semibold uppercase tracking-wider mb-1.5"
+            className="block text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-1.5"
           >
             5. Mã Thẻ Cào (Mã PIN) <span className="text-red-400/90">*</span>
           </label>
@@ -186,12 +203,11 @@ export default function TopupCardForm({
             id="as-card-code-input"
             name="as_card_code"
             type="text"
+            disabled
             value={cardCode}
             onChange={(e) => setCardCode(e.target.value.trim())}
             placeholder="Nhập mã thẻ sau lớp tráng bạc..."
-            autoComplete="on"
-            className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm font-semibold placeholder:text-slate-600 focus:outline-none focus:border-amber-500/60 shadow-inner"
-            required
+            className="w-full px-4 py-3 rounded-2xl bg-slate-950/50 border border-slate-800 text-slate-500 font-mono text-sm font-semibold cursor-not-allowed"
           />
         </div>
       </div>
@@ -199,20 +215,11 @@ export default function TopupCardForm({
       {/* Submit Button */}
       <button
         type="submit"
-        disabled={submitting}
-        className="w-full py-4 rounded-2xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-slate-950 shadow-md shadow-amber-950/30 transition-all disabled:opacity-50"
+        disabled
+        className="w-full py-4 rounded-2xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 bg-slate-800 text-slate-400 opacity-60 cursor-not-allowed border border-slate-700/50 shadow-none"
       >
-        {submitting ? (
-          <>
-            <Loader2 className="w-5 h-5 animate-spin text-slate-950" />
-            <span>ĐANG GỬI THẺ LÊN HỆ THỐNG...</span>
-          </>
-        ) : (
-          <>
-            <Send className="w-5 h-5 text-slate-950" />
-            <span>GỬI THẺ CÀO NẠP POINT</span>
-          </>
-        )}
+        <Send className="w-5 h-5 text-slate-500" />
+        <span>CỔNG NẠP THẺ ĐANG TẠM ĐÓNG</span>
       </button>
     </div>
   );

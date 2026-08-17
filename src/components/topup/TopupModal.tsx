@@ -16,6 +16,12 @@ const STORAGE_KEY = 'aethermine_pending_deposit';
 export default function TopupModal({ isOpen, onClose }: TopupModalProps) {
   const [step, setStep] = useState<StepType>('FORM');
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethodType>('BANK');
+
+  useEffect(() => {
+    if (paymentMethod === 'CARD') {
+      setPaymentMethod('BANK');
+    }
+  }, [paymentMethod]);
   const [username, setUsername] = useState('');
   const [amount, setAmount] = useState<number>(50000);
   const [customAmountStr, setCustomAmountStr] = useState<string>('50,000');

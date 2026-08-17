@@ -27,6 +27,15 @@ const ALLOWED_AMOUNTS = [
 ];
 
 export async function POST(request: NextRequest) {
+  return NextResponse.json(
+    {
+      success: false,
+      message:
+        'Cổng nạp thẻ cào tự động hiện đang tạm đóng. Nếu muốn nạp thẻ Viettel vui lòng liên hệ Discord Admin. Hệ thống không nhận các loại thẻ khác!',
+    },
+    { status: 400 },
+  );
+
   try {
     const body = await request.json();
     const { username, telco, amount, code, serial } = body;
@@ -91,7 +100,7 @@ export async function POST(request: NextRequest) {
           { status: 400 },
         );
       }
-      actualUsername = user.username;
+      actualUsername = user?.username || trimmedUsername;
     } catch (dbErr: any) {
       console.error('[DB User Check Error]:', dbErr?.message);
       return NextResponse.json(
