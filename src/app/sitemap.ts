@@ -7,12 +7,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const posts = getAllPosts();
 
-  const blogPostEntries: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
+  const blogPostEntries: MetadataRoute.Sitemap = posts.map((post) => {
+    const isCoreInfo = post.category === 'Thông Tin Server' || Boolean(post.featured);
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: isCoreInfo ? 'daily' : 'weekly',
+      priority: isCoreInfo ? 0.95 : 0.8,
+    };
+  });
 
   const staticEntries: MetadataRoute.Sitemap = [
     {
@@ -31,3 +34,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticEntries, ...blogPostEntries];
 }
+

@@ -87,6 +87,9 @@ export const metadata: Metadata = {
     languages: {
       "vi-VN": siteConfig.websiteUrl,
     },
+    types: {
+      "application/rss+xml": `${siteConfig.websiteUrl}/rss.xml`,
+    },
   },
   openGraph: {
     title: `${siteConfig.name} | Top 1 Server Minecraft RPG Việt Nam 1.20.4+ (IP: ${siteConfig.serverIp})`,
@@ -137,8 +140,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.fullName,
+    alternateName: siteConfig.name,
+    url: siteConfig.websiteUrl,
+    inLanguage: "vi-VN",
+  };
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.fullName,
+    url: siteConfig.websiteUrl,
+    logo: `${siteConfig.websiteUrl}${siteConfig.logoUrl}`,
+    sameAs: [
+      siteConfig.social.discord,
+      siteConfig.social.facebook,
+    ],
+  };
+
   return (
     <html lang="vi" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+      </head>
       <body
         className={`${jakarta.variable} ${beVietnamPro.variable} bg-[#070913] text-slate-100 min-h-screen antialiased bg-cyber-grid font-sans tracking-wide scroll-smooth`}
       >

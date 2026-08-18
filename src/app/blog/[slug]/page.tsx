@@ -107,13 +107,18 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
     description: post.excerpt,
     image: [coverImage],
     datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: 'vi-VN',
+    articleSection: post.category,
+    isAccessibleForFree: true,
     author: {
       '@type': 'Person',
       name: post.author,
     },
     publisher: {
       '@type': 'Organization',
-      name: siteConfig.name,
+      name: siteConfig.fullName,
+      url: siteConfig.websiteUrl,
       logo: {
         '@type': 'ImageObject',
         url: absoluteAssetUrl(siteConfig.logoUrl),

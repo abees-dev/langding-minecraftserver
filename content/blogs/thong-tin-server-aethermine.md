@@ -1,12 +1,12 @@
 ---
 title: "Thông Tin Máy Chủ AetherMine Prison RPG - Tổng Quan Hệ Thống 9 Rank & Bang Hội"
-date: "2026-08-10"
+date: "2026-08-18"
 author: "AetherMine Admin"
 category: "Thông Tin Server"
 tags: ["Server Info", "Prison RPG", "IP Server", "9 Rank Prison", "Bang Hoi"]
 excerpt: "Thông tin chi tiết máy chủ AetherMine Prison RPG: IP Java mc.aethermines.com, IP PE mc.aethermines.com:25118, bảng 9 Cấp Rank Ngục Tù & Level MMOCore, hệ thống Bang Hội kinh tế và Mỏ VIP KOTH."
 coverImage: "/images/blogs/server-info.png"
-featured: false
+featured: true
 ---
 
 # ⚔️ Tổng Quan Máy Chủ AetherMine Prison RPG

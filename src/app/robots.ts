@@ -6,8 +6,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/',
+      disallow: ['/api/', '/private/'],
     },
-    sitemap: `${siteConfig.websiteUrl}/sitemap.xml`,
+    sitemap: [
+      `${siteConfig.websiteUrl}/sitemap.xml`,
+      `${siteConfig.websiteUrl}/rss.xml`,
+    ],
+    host: siteConfig.websiteUrl,
   };
 }
+
