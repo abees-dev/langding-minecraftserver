@@ -33,8 +33,8 @@ export default function Footer() {
     'Trang Bi Long Toc',
     'Chuyen Sinh Minecraft',
     'Server Minecraft 1.20.4+',
-    'KOTH Minecraft Viet Nam',
-    'Top Server Minecraft',
+    'Khuyến nghị 1.20.4 - 1.20.6',
+    'Port PE 24932',
     siteConfig.serverIp,
   ];
 

@@ -4,7 +4,7 @@ date: "2026-08-18"
 author: "AetherMine Admin"
 category: "Thông Tin Server"
 tags: ["Server Info", "Prison RPG", "IP Server", "9 Rank Prison", "Bang Hoi"]
-excerpt: "Thông tin chi tiết máy chủ AetherMine Prison RPG: IP Java mc.aethermines.com, IP PE mc.aethermines.com:25118, bảng 9 Cấp Rank Ngục Tù & Level MMOCore, hệ thống Bang Hội kinh tế và Mỏ VIP KOTH."
+excerpt: "Thông tin chi tiết máy chủ AetherMine Prison RPG: IP Java mc.aethermines.com, IP PE mc.aethermines.com:24932, hỗ trợ 1.20.4+ (khuyến nghị 1.20.4 – 1.20.6), bảng 9 Cấp Rank Ngục Tù & Level MMOCore, hệ thống Bang Hội kinh tế và Mỏ VIP KOTH."
 coverImage: "/images/blogs/server-info.png"
 featured: true
 ---
@@ -20,11 +20,14 @@ Chào mừng bạn đến với **AetherMine** – Máy chủ Minecraft Prison R
 | Thông Tin | Chi Tiết |
 | :--- | :--- |
 | **IP Java** | `mc.aethermines.com` |
-| **IP PE** | `mc.aethermines.com:25118` |
-| **Phiên Bản** | `1.20.4+` (Native `1.20.4`) — Java & Bedrock Edition |
+| **IP PE (Bedrock)** | `mc.aethermines.com:24932` (Port: `24932`) |
+| **Phiên Bản Hỗ Trợ** | `1.20.4+` |
+| **Khuyến Nghị Version** | **1.20.4 – 1.20.6** (để tải Resource Pack / RSP đầy đủ & ổn định) |
 | **Thể Loại** | Prison RPG / Đào Quặng / Dungeon MMOCore / Bang Hội KOTH |
 | **Hệ Thống Nạp** | Web Topup Tự Động (QR Code PayOS) |
 | **Cộng Đồng Discord** | [discord.gg/mvRcGjDHVm](https://discord.gg/mvRcGjDHVm) |
+
+> ⚠️ **Lưu ý quan trọng về Resource Pack (RSP):** Máy chủ hỗ trợ vào từ **1.20.4+**, tuy nhiên bạn **rất nên sử dụng phiên bản 1.20.4 – 1.20.6** để game tự động tải và hiển thị Resource Pack (RSP) đầy đủ nhất. Các phiên bản cao hơn có thể gặp lỗi hiển thị hoặc không tải được RSP đúng cách.
 
 ---
 
@@ -66,4 +69,4 @@ Bang Hội là hệ thống nhóm cốt lõi giúp các Chiến Binh hỗ trợ 
 * Tối đa 1 plot free (kích thước 64x64 block).
 * Cho phép bật quyền bay (`/fly`) tự do trong khu vực plot cá nhân.
 
-Hãy kết nối IP Java `mc.aethermines.com` hoặc IP PE `mc.aethermines.com:25118` ngay để bắt đầu hành trình Vượt Ngục nào!
+Hãy kết nối IP Java `mc.aethermines.com` hoặc IP PE `mc.aethermines.com:24932` ngay để bắt đầu hành trình Vượt Ngục nào!

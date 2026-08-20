@@ -25,7 +25,7 @@ Vòng lặp cốt lõi:
 
 ## 1. Bắt đầu trong 10 phút
 
-Kết nối: IP Java `mc.aethermines.com` · IP PE `mc.aethermines.com:25118` · Version `1.20.4+` (Native `1.20.4`).
+Kết nối: IP Java `mc.aethermines.com` · IP PE `mc.aethermines.com:24932` · Version `1.20.4+` (Khuyến nghị dùng `1.20.4 – 1.20.6` để tải resource pack/RSP đầy đủ).
 
 1. Chọn class: **Chiến Binh**, **Pháp Sư**, **Cung Thủ** hoặc **Tu Sĩ**.
 2. Nhận và trang bị **Cúp Tân Binh I**.
@@ -249,4 +249,4 @@ Mỗi Chuyển Sinh: **3 điểm perk**, **2 điểm thuộc tính**, +5% EXP. �
 
 ---
 
-Chúc bạn leo rank suôn sẻ tại **AetherMine** — Open **08:00 ngày 15/08**. IP Java `mc.aethermines.com` · IP PE `mc.aethermines.com:25118`.
+Chúc bạn leo rank suôn sẻ tại **AetherMine** — Open **08:00 ngày 15/08**. IP Java `mc.aethermines.com` · IP PE `mc.aethermines.com:24932`.

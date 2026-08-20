@@ -22,7 +22,7 @@ Chào mừng bạn đến với **AetherMine Prison RPG**. Để làm chủ th�
 
 ## ⚡ 1. Bắt Đầu Trong 10 Phút Đầu Tiên
 
-Kết nối: IP Java `mc.aethermines.com` · IP PE `mc.aethermines.com:25118` · Version `1.20.4+` (Native `1.20.4`).
+Kết nối: IP Java `mc.aethermines.com` · IP PE `mc.aethermines.com:24932` · Version `1.20.4+` (Khuyến nghị dùng `1.20.4 – 1.20.6` để tải resource pack/RSP đầy đủ).
 
 1. Nhận và trang bị **Cúp Tân Binh I**.
 2. Mở `/warp`, chọn khu Prison và di chuyển vào **Mỏ Tân Binh**.

@@ -26,7 +26,7 @@ export const FAQ_LIST: FaqItem[] = [
   },
   {
     q: 'Làm thế nào để kết nối vào máy chủ Minecraft AetherMine?',
-    a: 'Phiên bản 1.20.4 trở lên (khuyến nghị native 1.20.4). Java: Chơi Mạng -> Thêm Máy Chủ, IP mc.aethermines.com. PE/Bedrock: thêm server với IP mc.aethermines.com và port 25118.',
+    a: 'Phiên bản hỗ trợ: 1.20.4+ (khuyến nghị dùng 1.20.4 – 1.20.6 để tải resource pack (RSP) đầy đủ và ổn định). Java: Chơi Mạng -> Thêm Máy Chủ, IP mc.aethermines.com. PE/Bedrock: thêm server với IP mc.aethermines.com và port 24932.',
   },
   {
     q: 'Hệ thống Bán Quặng (/sellgui & /gang vault) hoạt động ra sao?',
