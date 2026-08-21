@@ -62,4 +62,4 @@ Join/Quit broadcast dùng MiniMessage; fix VIP rank hiển thị sai dạng `Ran
 
 Hẹn gặp tại Open **08:00 ngày 15/08** — IP Java `mc.aethermines.com` · IP PE `mc.aethermines.com:24932`.
 
-Xem thêm các ngày trước: [06/08](/blog/cap-nhat-patch-notes-06-08) · [07/08](/blog/cap-nhat-patch-notes-07-08) · [08/08](/blog/cap-nhat-patch-notes-08-08) · [09/08](/blog/cap-nhat-patch-notes-09-08) · [10/08](/blog/cap-nhat-patch-notes-10-08).
+Xem thêm các ngày trước: [06/08](/blog/cap-nhat-patch-notes-06-08) · [07/08](/blog/cap-nhat-patch-notes-07-08) · [08/08](/blog/cap-nhat-patch-notes-08-08) · [09/08](/blog/cap-nhat-patch-notes-09-08) · [10/08](/blog/cap-nhat-patch-notes-10-08) · [21/08](/blog/cap-nhat-patch-notes-21-08).
