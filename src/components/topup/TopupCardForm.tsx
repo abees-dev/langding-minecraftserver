@@ -95,7 +95,7 @@ export default function TopupCardForm({
       <div>
         <label
           htmlFor="as-telco-select"
-          className="block text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-2 flex items-center justify-between"
+          className="block text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider mb-2 flex items-center justify-between"
         >
           <span>2. Chọn Nhà Mạng Thẻ Cào <span className="text-red-400/90">*</span></span>
           {loadingTypes && (
@@ -108,7 +108,6 @@ export default function TopupCardForm({
         <div className="relative">
           <select
             id="as-telco-select"
-            disabled
             value={telco}
             onChange={(e) => {
               const newTelco = e.target.value as TelcoType;
@@ -120,7 +119,7 @@ export default function TopupCardForm({
                 }
               }
             }}
-            className="w-full px-4 py-3.5 rounded-2xl bg-slate-950/50 border border-slate-800 text-slate-500 font-mono text-sm font-semibold cursor-not-allowed appearance-none pr-10"
+            className="w-full px-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm font-semibold cursor-pointer appearance-none pr-10 focus:border-cyan-500 focus:outline-none transition-all shadow-inner focus:shadow-[0_0_20px_rgba(0,240,255,0.2)]"
           >
             {(telcoList.length > 0
               ? telcoList
@@ -141,7 +140,7 @@ export default function TopupCardForm({
               </option>
             ))}
           </select>
-          <ChevronDown className="w-4 h-4 text-slate-600 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <ChevronDown className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
         </div>
       </div>
 
@@ -149,17 +148,16 @@ export default function TopupCardForm({
       <div>
         <label
           htmlFor="as-amount-select"
-          className="block text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-2"
+          className="block text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider mb-2"
         >
           3. Chọn Mệnh Giá Khai Báo (VNĐ) <span className="text-red-400/90">*</span>
         </label>
         <div className="relative">
           <select
             id="as-amount-select"
-            disabled
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value))}
-            className="w-full px-4 py-3.5 rounded-2xl bg-slate-950/50 border border-slate-800 text-slate-500 font-mono text-sm font-semibold cursor-not-allowed appearance-none pr-10"
+            className="w-full px-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm font-semibold cursor-pointer appearance-none pr-10 focus:border-cyan-500 focus:outline-none transition-all shadow-inner focus:shadow-[0_0_20px_rgba(0,240,255,0.2)]"
           >
             {availableAmounts.map((amt) => (
               <option key={amt} value={amt} className="bg-slate-900 text-slate-100">
@@ -167,7 +165,7 @@ export default function TopupCardForm({
               </option>
             ))}
           </select>
-          <ChevronDown className="w-4 h-4 text-slate-600 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <ChevronDown className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
         </div>
       </div>
 
@@ -176,7 +174,7 @@ export default function TopupCardForm({
         <div>
           <label
             htmlFor="as-card-serial-input"
-            className="block text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-1.5"
+            className="block text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider mb-1.5"
           >
             4. Số Seri Thẻ <span className="text-red-400/90">*</span>
           </label>
@@ -184,18 +182,17 @@ export default function TopupCardForm({
             id="as-card-serial-input"
             name="as_card_serial"
             type="text"
-            disabled
             value={cardSerial}
             onChange={(e) => setCardSerial(e.target.value.trim())}
             placeholder="Nhập số seri in trên thẻ..."
-            className="w-full px-4 py-3 rounded-2xl bg-slate-950/50 border border-slate-800 text-slate-500 font-mono text-sm font-semibold cursor-not-allowed"
+            className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm font-semibold placeholder:text-slate-600 focus:border-cyan-500 focus:outline-none transition-all shadow-inner focus:shadow-[0_0_20px_rgba(0,240,255,0.2)]"
           />
         </div>
 
         <div>
           <label
             htmlFor="as-card-code-input"
-            className="block text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-1.5"
+            className="block text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider mb-1.5"
           >
             5. Mã Thẻ Cào (Mã PIN) <span className="text-red-400/90">*</span>
           </label>
@@ -203,11 +200,10 @@ export default function TopupCardForm({
             id="as-card-code-input"
             name="as_card_code"
             type="text"
-            disabled
             value={cardCode}
             onChange={(e) => setCardCode(e.target.value.trim())}
             placeholder="Nhập mã thẻ sau lớp tráng bạc..."
-            className="w-full px-4 py-3 rounded-2xl bg-slate-950/50 border border-slate-800 text-slate-500 font-mono text-sm font-semibold cursor-not-allowed"
+            className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm font-semibold placeholder:text-slate-600 focus:border-cyan-500 focus:outline-none transition-all shadow-inner focus:shadow-[0_0_20px_rgba(0,240,255,0.2)]"
           />
         </div>
       </div>
