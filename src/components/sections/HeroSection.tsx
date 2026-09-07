@@ -2,7 +2,20 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Copy, Check, Sparkles, Flame, Swords, ArrowRight, Calendar, Gamepad2, ShieldCheck, Zap, Smartphone, Monitor } from 'lucide-react';
+import {
+  Copy,
+  Check,
+  Sparkles,
+  Flame,
+  Swords,
+  ArrowRight,
+  Calendar,
+  Gamepad2,
+  ShieldCheck,
+  Zap,
+  Smartphone,
+  Monitor,
+} from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
 export default function HeroSection() {
@@ -17,7 +30,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[95vh] flex items-center justify-center pt-28 pb-20 px-4 overflow-hidden" aria-label="AetherMine Minecraft RPG Server Hero Banner">
+    <section
+      className="relative min-h-[95vh] flex items-center justify-center pt-28 pb-20 px-4 overflow-hidden"
+      aria-label="AetherMine Minecraft RPG Server Hero Banner"
+    >
       {/* Background Banner Image with Priority Preload */}
       <div className="absolute inset-0 scale-105 transition-transform duration-1000 overflow-hidden">
         <Image
@@ -30,7 +46,7 @@ export default function HeroSection() {
           className="object-cover object-center opacity-60"
         />
       </div>
-      
+
       {/* Dark Vignette Overlay for Contrast & Readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#070913]/90 via-[#070913]/85 to-[#070913]" />
       <div className="absolute inset-0 bg-radial-glow opacity-90" />
@@ -43,7 +59,12 @@ export default function HeroSection() {
         {/* Open Date Countdown / Announcement Banner Badge */}
         <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/90 border border-cyan-500/50 text-cyan-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 shadow-[0_0_20px_rgba(0,240,255,0.3)] backdrop-blur-md">
           <Calendar className="w-4 h-4 text-emerald-400 animate-pulse" />
-          <span>KHAI MỞ CHÍNH THỨC: <strong className="text-white font-extrabold">08:00 - 15/08/2026</strong></span>
+          <span>
+            KHAI MỞ CHÍNH THỨC:{' '}
+            <strong className="text-white font-extrabold">
+              08:00 - 15/08/2026
+            </strong>
+          </span>
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
         </div>
 
@@ -57,15 +78,32 @@ export default function HeroSection() {
 
         {/* Value-Driven Subtitle with Incentive */}
         <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-200 mb-8 leading-relaxed font-normal">
-          Trải nghiệm máy chủ <strong className="text-cyan-300 font-semibold">Minecraft Prison RPG đỉnh cao</strong>. Đào quặng thăng hạng 9 Cấp Rank Ngục Tù, 
-          tinh luyện <strong className="text-pink-400 font-semibold">Bộ Trang Bị Long Tộc</strong>, đục ô khảm 100 loại ngọc, đại chiến <strong className="text-emerald-400 font-semibold">Bang Hội Mỏ VIP KOTH</strong> 
-          và đột phá sức mạnh <strong className="text-amber-400 font-semibold">Chuyển Sinh RPG</strong>!
+          Trải nghiệm máy chủ{' '}
+          <strong className="text-cyan-300 font-semibold">
+            Minecraft Prison RPG đỉnh cao
+          </strong>
+          . Đào quặng thăng hạng 9 Cấp Rank Ngục Tù, tinh luyện{' '}
+          <strong className="text-pink-400 font-semibold">
+            Bộ Trang Bị Long Tộc
+          </strong>
+          , đục ô khảm 100 loại ngọc, đại chiến{' '}
+          <strong className="text-emerald-400 font-semibold">
+            Bang Hội Mỏ VIP KOTH
+          </strong>
+          và đột phá sức mạnh{' '}
+          <strong className="text-amber-400 font-semibold">
+            Chuyển Sinh RPG
+          </strong>
+          !
         </p>
 
         {/* Starter Kit Gift Highlight Banner (Incentive Frame) */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-bold mb-8 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
           <Sparkles className="w-4 h-4 text-amber-400 animate-bounce" />
-          <span>🎁 TÂN THỦ VÀO GAME NHẬN NGAY: <strong className="text-white">Starter Kit + 3 Ngày Rank VIP + 50,000 Coin</strong>!</span>
+          <span>
+            🎁 TÂN THỦ VÀO GAME NHẬN NGAY:{' '}
+            <strong className="text-white">Starter Kit</strong>!
+          </span>
         </div>
 
         {/* Server IP Interactive Box with Java & Bedrock Switcher */}
@@ -101,7 +139,9 @@ export default function HeroSection() {
               <div className="w-3 h-3 rounded-full bg-emerald-400 animate-ping shrink-0" />
               <div className="text-left">
                 <span className="block text-[10px] text-slate-400 uppercase tracking-widest font-mono">
-                  {activeTab === 'java' ? 'IP MINECRAFT JAVA (PC)' : `IP BEDROCK PE (PORT: ${pePort})`}
+                  {activeTab === 'java'
+                    ? 'IP MINECRAFT JAVA (PC)'
+                    : `IP BEDROCK PE (PORT: ${pePort})`}
                 </span>
                 <span className="text-lg sm:text-xl font-bold font-mono text-cyan-300 tracking-wider">
                   {activeTab === 'java' ? serverIp : serverIpPe}
@@ -110,7 +150,12 @@ export default function HeroSection() {
             </div>
 
             <button
-              onClick={() => handleCopyIp(activeTab === 'java' ? serverIp : serverIpPe, activeTab)}
+              onClick={() =>
+                handleCopyIp(
+                  activeTab === 'java' ? serverIp : serverIpPe,
+                  activeTab,
+                )
+              }
               aria-label={`Sao chép IP Server Minecraft ${activeTab === 'java' ? serverIp : serverIpPe}`}
               className={`w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-extrabold text-sm uppercase tracking-wider transition-all duration-300 shadow-lg ${
                 copiedType === activeTab
@@ -166,8 +211,12 @@ export default function HeroSection() {
                 1
               </div>
               <div>
-                <span className="text-xs font-bold text-slate-200 block uppercase">Mở Minecraft</span>
-                <span className="text-[11px] text-slate-400">Phiên bản 1.20.4+ (PC) hoặc PE Mobile</span>
+                <span className="text-xs font-bold text-slate-200 block uppercase">
+                  Mở Minecraft
+                </span>
+                <span className="text-[11px] text-slate-400">
+                  Phiên bản 1.20.4+ (PC) hoặc PE Mobile
+                </span>
               </div>
             </div>
 
@@ -176,8 +225,13 @@ export default function HeroSection() {
                 2
               </div>
               <div>
-                <span className="text-xs font-bold text-slate-200 block uppercase">Nhập IP Server</span>
-                <span className="text-[11px] text-slate-400">Copy IP: <code className="text-cyan-300 font-mono">{serverIp}</code></span>
+                <span className="text-xs font-bold text-slate-200 block uppercase">
+                  Nhập IP Server
+                </span>
+                <span className="text-[11px] text-slate-400">
+                  Copy IP:{' '}
+                  <code className="text-cyan-300 font-mono">{serverIp}</code>
+                </span>
               </div>
             </div>
 
@@ -186,8 +240,13 @@ export default function HeroSection() {
                 3
               </div>
               <div>
-                <span className="text-xs font-bold text-slate-200 block uppercase">Bắt Đầu Đào Quặng</span>
-                <span className="text-[11px] text-slate-400">Gõ <code className="text-amber-300 font-mono">/register</code> & nhận Giftcode!</span>
+                <span className="text-xs font-bold text-slate-200 block uppercase">
+                  Bắt Đầu Đào Quặng
+                </span>
+                <span className="text-[11px] text-slate-400">
+                  Gõ <code className="text-amber-300 font-mono">/register</code>{' '}
+                  & nhận Giftcode!
+                </span>
               </div>
             </div>
           </div>
@@ -196,4 +255,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
