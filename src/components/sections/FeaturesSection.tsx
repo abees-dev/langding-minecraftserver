@@ -106,6 +106,27 @@ export default function FeaturesSection() {
           </div>
         ))}
       </div>
+
+      {/* Bottom Conversion CTA Banner */}
+      <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-slate-950 via-cyan-950/40 to-slate-950 border border-cyan-500/30 text-center flex flex-col sm:flex-row items-center justify-between gap-6 shadow-[0_0_30px_rgba(0,240,255,0.15)]">
+        <div className="text-left">
+          <h3 className="text-lg font-bold text-slate-100 uppercase tracking-wide">
+            SẴN SÀNG CHINH PHỤC THẾ GIỚI AETHERMINE RPG?
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            Đăng nhập ngay hôm nay để nhận Kit Tân Thủ & 3 Ngày VIP hoàn toàn miễn phí.
+          </p>
+        </div>
+
+        <a
+          href="/#community"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:scale-105 transition-all shrink-0"
+        >
+          <span>GIA NHẬP CỘNG ĐỒNG</span>
+          <ArrowUpRight className="w-4 h-4" />
+        </a>
+      </div>
     </section>
   );
 }
+

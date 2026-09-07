@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, Users, ArrowUpRight } from 'lucide-react';
+import { MessageSquare, Users, ArrowUpRight, Gift, ShieldCheck, Headphones } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
 export default function CommunitySection() {
@@ -20,12 +20,18 @@ export default function CommunitySection() {
             GIA NHẬP CỘNG ĐỒNG <span className="glow-text-cyan">AETHERMINE</span> NGAY
           </h2>
 
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-10">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
             Cập nhật tin tức sự kiện mới nhất, tham gia giao lưu thảo luận Bang Hội, nhận Giftcode tân thủ và nhận sự hỗ trợ 24/7 từ Đội ngũ Quản trị viên nhiệt tình.
           </p>
 
+          {/* Incentive Banner Box */}
+          <div className="mb-8 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 max-w-xl mx-auto">
+            <Gift className="w-5 h-5 text-amber-400 shrink-0" />
+            <span>Tham gia Discord & gõ <code className="text-amber-200 font-mono font-bold bg-amber-950/80 px-1.5 py-0.5 rounded">/nhan-giftcode</code> để nhận ngay phần quà Tân Thủ!</span>
+          </div>
+
           {/* Social Links */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
             <a
               href={siteConfig.social.discord}
               target="_blank"
@@ -33,7 +39,7 @@ export default function CommunitySection() {
               className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(79,70,229,0.5)] hover:shadow-[0_0_35px_rgba(79,70,229,0.8)] hover:scale-105 transition-all"
             >
               <MessageSquare className="w-5 h-5" />
-              <span>DISCORD SEVER</span>
+              <span>DISCORD SERVER</span>
               <ArrowUpRight className="w-4 h-4 opacity-70" />
             </a>
 
@@ -51,8 +57,21 @@ export default function CommunitySection() {
               <ArrowUpRight className="w-4 h-4 opacity-70" />
             </a>
           </div>
+
+          {/* Social Proof Metrics */}
+          <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
+            <div className="flex items-center gap-2">
+              <Headphones className="w-4 h-4 text-emerald-400" />
+              <span>Hỗ Trợ Staff 24/7</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-pink-400" />
+              <span>Cập Nhật & Event Hàng Tuần</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
